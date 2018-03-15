@@ -1,0 +1,134 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    background-color: #FFFFFF;
+    padding: 8px;
+}
+
+.tclform  {
+    width:  100%;
+    padding: 10px;
+    font-size: 11px;
+    font-family: Tahoma, Verdana, Arial;
+    border: 1px solid #666666;
+    background: #F5F5F5;
+}
+
+.tclform fieldset {
+    margin: 10px 0;
+    padding: 8px;
+}
+.tclform a {color: #990000; text-decoration: none;}
+.tclform a:hover {color: #483D8A;}
+
+.tclform legend {
+    background: #006794;
+    color: #fff;
+    padding: 3px 5px;
+    border: 1px solid #ddd;
+    text-transform: uppercase;
+}
+.tclform .row{
+    padding: 1px 10px;
+}
+.tclform label{
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+    padding-top: 3px;
+}
+.tclform .field{
+    display: inline-block;
+    width: 68%;
+}
+
+.tclform input, .tclform textarea, .tclform select {
+
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #666666;
+    border-top: 1px solid #666666;
+    padding: 0px 3px;
+    margin: 3px 0;
+    background: #ddc;
+}
+
+.tclform select {
+    width:50%;
+}
+
+
+.tclform input:active, .tclform input:focus, .tclform input:hover,
+.tclform textarea:active, .tclform textarea:focus, .tclform textarea:hover,
+.tclform select:active, .tclform select:focus, .tclform select:hover {
+    background: #ffff88;
+}
+
+.tclform .errormsg{
+    color: #f00;
+}
+input.errordesignfields, textarea.errordesignfields, select.errordesignfields { background-color:#cc3333;}
+
+.captchareload { padding-left:10px;}
+
+#checkid {
+    width: auto;
+}
+#checkid2 {
+    width: auto;
+}
+
+.buttons{
+    text-align: center;
+}
+.buttons input {
+    width: 40%;
+    margin-top: 20px;
+}
+.buttons input, .captchareload img { background: #555555; color: #fff; border-top:2px solid #fff; border-left:2px solid #fff; border-bottom:2px solid #666666; border-right:2px solid #666666;}
+.buttons input:hover, .captchareload img:hover { background: #555555; color: #fff; border-top:2px solid #ddd; border-left:2px solid #ddd; border-bottom:2px solid #fff; border-right:2px solid #fff;}
+
+.pflichtfeld {
+    color: #800000;
+}
+
+.tclform .pflichtfeldhinweis{
+    text-align:center;
+}
+
+.zurueck {
+    color: #6891D1;
+}
+
+.tclform .copyright{
+    font-size:11px;
+    text-align:center;
+}
+
+
+
+
+
+@media screen and (max-width: 380px) {
+    /* .tclform .row{
+        padding: 3px 10px;
+    } */
+    .tclform label{
+        display: block;
+        width: 100%;
+    }
+    .tclform .field{
+        display: block;
+        width: 100%;
+    }
+    .tclform input, .tclform textarea, .tclform select {
+        padding: 6px;
+    }
+    .tclform select {
+        height:28px;
+    }
+}
+
