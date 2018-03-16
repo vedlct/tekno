@@ -1,5 +1,6 @@
 <div id="Vectorform" >
-    <form action="vectorEmail.php" method="post"  style="" class="form-horizontal" enctype="multipart/form-data">
+    <form action="{{route('storeVector')}}" method="post"  style="" class="form-horizontal" enctype="multipart/form-data">
+        {{csrf_field()}}
         <input type="hidden" name="action" value="smail" />
         <input type="hidden" name="content" value="formular"/>
 
@@ -8,9 +9,14 @@
 
 
         <div class="form-group">
-            <label class="control-label col-sm-3" >Company Name:*</label>
-            <div class="col-sm-9">
-                <input type="text" class="form-control" placeholder="Enter Company Name" name="CompanyName">
+            <label class="col-md-3 control-label" for="name">Company Name:*</label>
+            <div class="col-md-9">
+                <input class="form-control" type="text" placeholder="Company name" name="companyName" id="example-text-input"></br>
+                @if ($errors->has('companyName'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('companyName') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
 
@@ -20,6 +26,11 @@
             <div class="col-sm-9">
 
                 <input type="file" id="ResImage" name="ResImage[]" required="required" class=""  multiple/>
+                @if ($errors->has('ResImage'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('ResImage') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
 
@@ -28,6 +39,11 @@
             <div class="col-sm-9">
 
                 <textarea id="Comments" name="Comments" rows="6" class="form-control"></textarea>
+                @if ($errors->has('Comments'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('Comments') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
 

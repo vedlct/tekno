@@ -1,7 +1,8 @@
 <!--    Logoform-->
 
 <div id="Logoform" >
-    <form action="logoEmail.php" method="post" >
+    <form action="{{route('storeLogo')}}" method="post" >
+        {{csrf_field()}}
         <input type="hidden" name="action" value="smail" />
         <input type="hidden" name="content" value="formular"/>
 
@@ -9,9 +10,14 @@
         <legend>Logo</legend>
 
         <div class="form-group">
-            <label class="control-label col-sm-3" >Company Name:*</label>
-            <div class="col-sm-9">
-                <input type="text" class="form-control" placeholder="Enter Company Name" name="CompanyName">
+            <label class="col-md-3 control-label" for="name">Company Name:*</label>
+            <div class="col-md-9">
+                <input class="form-control" type="text" placeholder="Company name" name="companyName" id="example-text-input"></br>
+                @if ($errors->has('companyName'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('companyName') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
 
@@ -23,8 +29,7 @@
                 <input type="radio" name="LogoShape" id="LogoShape1" value="Square"  /> Square &nbsp;&nbsp;
                 <input type="radio" name="LogoShape" id="LogoShape2" value="Oval"  /> Oval media cover
 
-                &nbsp;&nbsp;
-            </div>
+                &nbsp;&nbsp;</div>
         </div>
         <br>
 
@@ -33,6 +38,11 @@
             <label class="control-label col-sm-3" >Prefered Color:*</label>
             <div class="col-sm-9">
                 <input type="text" class="form-control" placeholder="Enter color name" name="PreferredColour">
+                @if ($errors->has('PreferredColour'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('PreferredColour') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
         <br>
@@ -41,6 +51,11 @@
             <label class="control-label col-sm-3" >Business Type:*</label>
             <div class="col-sm-9">
                 <input type="text" class="form-control" placeholder="Enter Business Tpe" name="BusinessType">
+                @if ($errors->has('BusinessType'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('BusinessType') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
 
@@ -50,6 +65,11 @@
             <div class="col-sm-9">
 
                 <textarea id="OtherComments" name="OtherComments" rows="6" required class="form-control"></textarea>
+                @if ($errors->has('OtherComments'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('OtherComments') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
 

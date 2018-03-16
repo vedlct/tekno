@@ -46,4 +46,31 @@ class FormController extends Controller
 
 
     }
+
+    public function storeBrochure(Request $r){
+        return $r;
+    }
+
+    public function storeWebsite(Request $r){
+        return $r;
+    }
+
+    public function storeLeaflet(Request $r){
+        return $r;
+    }
+    public function storeBanner(Request $r){
+        return $r;
+    }
+
+    public function storeCorporate(Request $r){
+        return $r;
+    }
+
+    public function storeLogo(Request $r){
+        return $r;
+    }
+    public function storeVector(Request $r){
+        return $r;
+    }
+
 }

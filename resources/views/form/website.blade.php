@@ -1,7 +1,8 @@
 
 <div id="websiteform">
 
-    <form action="email.php" method="post" enctype="multipart/form-data">
+    <form action="{{route('storeWebsite')}}" method="post" enctype="multipart/form-data">
+        {{csrf_field()}}
         <input type="hidden" name="action" value="smail" />
         <input type="hidden" name="content" value="formular"/>
 
@@ -9,19 +10,24 @@
 
 
         <div class="form-group">
-            <label class="col-sm-3 control-label" for="name"> Company Name:*</label>
-            <div class="col-sm-9">
-                <input class="form-control" type="text" name="CompanyEmail" placeholder="Company Email"><br>
+            <label class="col-md-3 control-label" for="name">Company Name:*</label>
+            <div class="col-md-9">
+                <input class="form-control" type="text" placeholder="Company name" name="companyName" id="example-text-input"></br>
+                @if ($errors->has('companyName'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('companyName') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
 
 
         <div class="form-group">
-            <label style="margin-right: 20px;" class="col-sm-3 control-label"> Website Type:*</label>
+            <label style="margin-right: 20px;" class="col-sm-3 control-label">Website Type:*</label>
             <div >
-                <input  class="form-check-input" name="WebsiteType" type="checkbox" value="Personal"> Personal
-                <input class="form-check-input" name="WebsiteType" type="checkbox" value="Business"> Business &nbsp;&nbsp;
-                <input class="form-check-input" name="WebsiteType" type="checkbox" value="e-Commerce"> e-Commerce
+                &nbsp; &nbsp;   <input  class="form-check-input" name="WebsiteType" type="checkbox" value="Personal"> Personal &nbsp; &nbsp;
+                <input class="form-check-input" name="WebsiteType" type="checkbox" value="Business"> Business &nbsp;&nbsp;&nbsp; &nbsp;
+                <input class="form-check-input" name="WebsiteType" type="checkbox" value="e-Commerce"> e-Commerce &nbsp; &nbsp;
             </div>
         </div>
 
@@ -29,7 +35,11 @@
             <label class="col-sm-3 control-label" for="name">Business Detail:*</label>
             <div class="col-sm-9">
                 <textarea class="form-control" name="BusinessDetail"   required rows="6" placeholder="Please describe in short about your business" ></textarea></br>
-
+                @if ($errors->has('BusinessDetail'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('BusinessDetail') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
 
@@ -37,6 +47,11 @@
             <label class="col-sm-3 control-label" for="name"> Number Of Page;*</label>
             <div class="col-sm-9">
                 <input class="form-control" type="number" name="NumberOfPages" required> <br>
+                @if ($errors->has('NumberOfPages'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('NumberOfPages') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
 
@@ -51,10 +66,8 @@
 
         <div class="form-group">
             <label class="col-sm-3 control-label" for="name">Website Content Management:</label>
-
             <input  type="radio" name="ContentManage" id="ContentManage0" value="Static"> Static
             <input  type="radio" name="ContentManage" id="ContentManage0" value="Static" > Dynamic (CMS based)
-
         </div>
 
 
@@ -62,6 +75,11 @@
             <label class="col-sm-3 control-label" for="name"> Reference Website:*</label>
             <div class="col-sm-9">
                 <textarea class="form-control" name="ReferenceWeb" c rows="6" placeholder="Please provide one or more than one URLs of websites you prefer"></textarea></br>
+                @if ($errors->has('ReferenceWeb'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('ReferenceWeb') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
 
@@ -69,6 +87,11 @@
             <label class="col-sm-3 control-label" for="name">Social Media URLs:*</label>
             <div class="col-sm-9">
                 <textarea class="form-control"  name="MediaURLs" cols="30" rows="6" placeholder="Please provide your company’s social media account URLs (if any)"></textarea></br>
+                @if ($errors->has('MediaURLs'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('MediaURLs') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
 
@@ -76,13 +99,23 @@
             <label class="col-sm-3 control-label" for="name">Existing Website (if any):</label>
             <div class="col-sm-9">
                 <input class="form-control" type="email" name="ExistingWeb" placeholder="Existing Website" ><br>
+                @if ($errors->has('ExistingWeb'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('ExistingWeb') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-sm-3 control-label" for="name">Other Comments (if any):</label>
             <div class="col-sm-9">
-                <textarea class="form-control"name="OtherComments" cols="30" rows="6" placeholder="Please mention some words regarding your primary requirements (it may change / increase / decrease in future if you want so)"></textarea></br>
+                <textarea class="form-control" name="OtherComments" cols="30" rows="6" placeholder="Please mention some words regarding your primary requirements (it may change / increase / decrease in future if you want so)"></textarea></br>
+                @if ($errors->has('OtherComments'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('OtherComments') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
 
@@ -91,6 +124,11 @@
             <label class="col-sm-3 control-label" for="name">Estimated Development Time:*</label>
             <div class="col-sm-9">
                 <textarea class="form-control"type="text" name="ExistingWeb" placeholder="Give Estimated Development Time"  required></textarea><br>
+                @if ($errors->has('ExistingWeb'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('ExistingWeb') }}</strong>
+                    </span>
+                @endif
             </div>
 
         </div>
@@ -99,6 +137,11 @@
             <label class="col-sm-3 control-label" for="name">File:</label>
             <div class="col-sm-9">
                 <input class="" type="file"  name="myfile[]" multiple><br>
+                @if ($errors->has('myfile'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('myfile') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
         &nbsp;
