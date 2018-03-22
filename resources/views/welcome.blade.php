@@ -5,31 +5,7 @@
 
 
         <section class="grid">
-            <!--<header class="top-bar">
-                <h2 class="top-bar__headline">Latest articles</h2>
-                <div class="filter">
-                    <span>Filter by:</span>
-                    <span class="dropdown">Popular</span>
-                </div>
-            </header>-->
-            <!--<a class="grid__item software-banner" href="#" style="width:100%">
-                    <span class="visible"><img src="img/software - Copy.jpg" ></span>
-                    <span class="hidden"><img src="img/Hover Web Applications - Copy.png" ></span>
 
-                <div class="loader"></div>
-            </a>
-            <a class="grid__item web-banner" href="#">
-                <span class="visible"><img src="img/web - Copy.png" ></span>
-                <span class="hidden"><img src="img/Hover Website - Copy.png" ></span>
-
-                <div class="loader"></div>
-            </a>
-            <a class="grid__item graphics-banner" href="#">
-                <span class="visible"><img src="img/dtp - Copy.jpg" ></span>
-                <span class="hidden"><img src="img/Hover Graphics - Copy.png" ></span>
-
-                <div class="loader"></div>
-            </a>-->
 
             <a class="grid__item" href="#" style="width:100%;">
                 <div class="software-banner">
@@ -49,15 +25,15 @@
 
                             <div class="row software-icons-row">
                                 <div class="col-md-4">
-                                    <img class="img-responsive" src="img/software-icon-1.png" width="50"><br>
+                                    <img class="img-responsive" src="{{url('img/software-icon-1.png')}}" width="50"><br>
                                     <h5>Flexible Methodology</h5>
                                 </div>
                                 <div class="col-md-4">
-                                    <img class="img-responsive" src="img/software-icon-2.png"><br>
+                                    <img class="img-responsive" src="{{url('img/software-icon-2.png')}}"><br>
                                     <h5>Affordable Costing</h5>
                                 </div>
                                 <div class="col-md-4">
-                                    <img class="img-responsive" src="img/software-icon-3.png"><br>
+                                    <img class="img-responsive" src="{{url('img/software-icon-3.png')}}"><br>
                                     <h5>Dedicated Account Manager</h5>
                                 </div>
                             </div>
@@ -88,15 +64,15 @@
 
                             <div class="row web-dtp-icons-row">
                                 <div class="col-md-4">
-                                    <img class="img-responsive" src="img/web-icon-1.png"><br>
+                                    <img class="img-responsive" src="{{url('img/web-icon-1.png')}}"><br>
                                     <h5>Responsive Design</h5>
                                 </div>
                                 <div class="col-md-4">
-                                    <img class="img-responsive" src="img/web-icon-2.png"><br>
+                                    <img class="img-responsive" src="{{url('img/web-icon-2.png')}}"><br>
                                     <h5>Professional Content</h5>
                                 </div>
                                 <div class="col-md-4">
-                                    <img class="img-responsive" src="img/web-icon-3.png"><br>
+                                    <img class="img-responsive" src="{{url('img/web-icon-3.png')}}"><br>
                                     <h5>Seo Friendly</h5>
                                 </div>
                             </div>
@@ -127,15 +103,15 @@
 
                             <div class="row web-dtp-icons-row">
                                 <div class="col-md-4">
-                                    <img class="img-responsive" src="img/dtp-icon-1.png"><br>
+                                    <img class="img-responsive" src="{{url('img/dtp-icon-1.png')}}"><br>
                                     <h5>Share Your Ideas</h5>
                                 </div>
                                 <div class="col-md-4">
-                                    <img class="img-responsive" src="img/dtp-icon-2.png"><br>
+                                    <img class="img-responsive" src="{{url('img/dtp-icon-2.png')}}"><br>
                                     <h5>Recieve Demo</h5>
                                 </div>
                                 <div class="col-md-4">
-                                    <img class="img-responsive" src="img/dtp-icon-3.png"><br>
+                                    <img class="img-responsive" src="{{url('img/dtp-icon-3.png')}}"><br>
                                     <h5>Finalize Design</h5>
                                 </div>
                             </div>
@@ -225,11 +201,9 @@
                         <div class="container">
                             <div style="" class="section_title section_bottom">
                                 <br><br>
-                                <h3>Our Team </h3> <hr>
+                                <h3>Our Team</h3><hr>
                             </div>
-
                             <img class="img-responsive" src="images/team-h1_IT.png" alt="">
-
                         </div>
                     </div>
 

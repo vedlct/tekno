@@ -48,6 +48,10 @@ class FormController extends Controller
     }
 
     public function storeBrochure(Request $r){
+//        $r->validate([
+//            'companyName' => 'required|max:2',
+//        ]);
+
         return $r;
     }
 

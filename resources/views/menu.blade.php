@@ -1,7 +1,7 @@
 <button id="menu-toggle" class="menu-toggle"><span>Menu</span></button>
 <div id="theSidebar" class="sidebar">
     <button class="close-button fa fa-fw fa-close"></button>
-    <img src="img/logo.png">
+    <img src="{{url('public/img/logo.png')}}">
     <h3>Your Trusted Partner in Your Digital Development and Content Creation</h3>
     <span class="subtitle_border"></span>
     <div class="related">

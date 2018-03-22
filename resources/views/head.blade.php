@@ -9,15 +9,15 @@
     <meta name="keywords" content="grid, layout, effect, animated, responsive, magazine, template, web design" />
     <meta name="author" content="Codrops" />
     <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" type="text/css" href="{{url('css/normalize.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{url('css/bootstrap.min.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{url('css/animated-masonry-gallery.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{url('css/Icomoon/style1.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{url('fonts/font-awesome-4.3.0/css/font-awesome.min.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{url('public/css/normalize.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{url('public/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{url('public/css/animated-masonry-gallery.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{url('public/css/Icomoon/style1.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{url('public/fonts/font-awesome-4.3.0/css/font-awesome.min.css')}}" />
     <!--		<link rel="stylesheet" type="text/css" href="css/style1.css" />-->
-    <link rel="stylesheet" type="text/css" href="{{url('css/style.css')}}" />
-    <link rel="stylesheet" href="{{url('css/foundation.css')}}">
-    <link rel="stylesheet" href="{{url('css/app.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url('public/css/style.css')}}" />
+    <link rel="stylesheet" href="{{url('public/css/foundation.css')}}">
+    <link rel="stylesheet" href="{{url('public/css/app.css')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <style type="text/css" rel="stylesheet">
         .columns {
@@ -25,6 +25,6 @@
             margin: 0;
         }
     </style>
-    <script src="{{url('js/modernizr.custom.js')}}"></script>
+    <script src="{{url('public/js/modernizr.custom.js')}}"></script>
 
 </head>
