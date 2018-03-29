@@ -2,6 +2,8 @@
 
 <div id="Corporateform">
     <form action="{{route('storeCorporate')}}" method="post"  class="form-horizontal" enctype="multipart/form-data">
+        {{csrf_field()}}
+
         <input type="hidden" name="action" value="smail" />
         <input type="hidden" name="content" value="formular"/>
 
@@ -115,8 +117,8 @@
             <label class="control-label col-sm-3" >QR CODE: </label>
 
             <div required="required" >
-                <div class="col-sm-2">  <input type="radio" name="QRcode" id="QRcode0" value="YES"  /> YES &nbsp;&nbsp;  </div>&nbsp;
-                <div class="col-sm-2"><input type="radio" name="QRcode" id="QRcode1" value="NO"  /> NO &nbsp; &nbsp;&nbsp;</div>
+                <div class="col-sm-2">  <input type="radio" name="QRcode" id="QRcode0" value="1"  /> YES &nbsp;&nbsp;  </div>&nbsp;
+                <div class="col-sm-2"><input type="radio" name="QRcode" id="QRcode1" value="0"  /> NO &nbsp; &nbsp;&nbsp;</div>
                 &nbsp;&nbsp;
             </div>
         </div>
@@ -156,7 +158,7 @@
         <div class="form-group" >
             <label class="control-label col-sm-3" >Attach logo eps / ai file:</label>
             <div class="col-sm-9">
-                <input type="file" class=""  name="LogoFile[]" required>
+                <input type="file" class=""  name="LogoFile[]" >
                 @if ($errors->has('LogoFile'))
                     <span class="invalid-feedback">
                         <strong>{{ $errors->first('LogoFile') }}</strong>

@@ -25,10 +25,10 @@
         <div class="form-group" >
             <label class="control-label col-sm-3" >Banner Size:</label>
             <div class="col-sm-9">
-                <input type="text" class="form-control" placeholder="Enter Banner Size"  name="BrochureSize" required>
-                @if ($errors->has('BrochureSize'))
+                <input type="text" class="form-control" placeholder="Enter Banner Size"  name="bannerSize" required>
+                @if ($errors->has('bannerSize'))
                     <span class="invalid-feedback">
-                        <strong>{{ $errors->first('BrochureSize') }}</strong>
+                        <strong>{{ $errors->first('bannerSize')}}</strong>
                     </span>
                 @endif
             </div>
@@ -129,7 +129,7 @@
         <div class="form-group" >
             <label class="control-label col-sm-3" >Attach Logo & Images:</label>
             <div class="col-sm-9">
-                <input type="file" class=""  name="AttachLogo[]" required>
+                <input type="file" class=""  name="AttachLogo[]">
                 @if ($errors->has('AttachLogo'))
                     <span class="invalid-feedback">
                         <strong>{{ $errors->first('AttachLogo') }}</strong>

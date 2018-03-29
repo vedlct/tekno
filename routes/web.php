@@ -27,3 +27,7 @@ Route::post('/storeBanner','FormController@storeBanner')->name('storeBanner');
 Route::post('/storeCorporate','FormController@storeCorporate')->name('storeCorporate');
 Route::post('/storeLogo','FormController@storeLogo')->name('storeLogo');
 Route::post('/storeVector','FormController@storeVector')->name('storeVector');
+
+
+//Test
+Route::get('test','TestController@index');

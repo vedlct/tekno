@@ -18,9 +18,7 @@
                             </div>
 
                             <div class="row software-subtitle" >
-
                                 <div class="col-md-12"><p>we offer secure, scalable, and efficient solution for your business</p></div>
-
                             </div>
 
                             <div class="row software-icons-row">
@@ -51,15 +49,11 @@
                     <div class="web-text">
                         <div class="container">
                             <div class="row">
-
                                 <div class="col-md-12"><h1>WEBSITE</h1></div>
-
                             </div>
 
                             <div class="row web-dtp-subtitle" style="margin-bottom:25px; margin-top:-15px">
-
                                 <div class="col-md-12"><p>build a optimized website for your website</p></div>
-
                             </div>
 
                             <div class="row web-dtp-icons-row">
@@ -196,7 +190,6 @@
 
                         </div>
                     </div>
-
                     <div class="team_area">
                         <div class="container">
                             <div style="" class="section_title section_bottom">

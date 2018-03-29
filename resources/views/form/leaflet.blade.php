@@ -113,11 +113,10 @@
             <label class="control-label col-sm-3" >Main Focus: </label>
 
             <div required="required" >
-                <div class="col-sm-3">  <input class="form-check-input" type="radio" name="blankRadio" id="blankRadio1" value="option1" >Product showcase  </div>
-                <div class="col-sm-2"> <input class="form-check-input" type="radio" name="blankRadio" id="blankRadio1" value="option2" >Promotional</div>
+                <div class="col-sm-3">  <input class="form-check-input" type="radio" name="mainFocus" id="blankRadio1" value="Product showcase" >Product showcase </div>
+                <div class="col-sm-2"> <input class="form-check-input" type="radio" name="mainFocus" id="blankRadio1" value="Promotional" >Promotional</div>
 
-                &nbsp;&nbsp;
-            </div>
+                &nbsp;&nbsp;</div>
         </div>
 
 
@@ -125,7 +124,7 @@
         <div class="form-group" >
             <label class="control-label col-sm-3" >Tagline / Slogan (if any):</label>
             <div class="col-sm-9">
-                <input type="number" class="form-control"  name="TaglineSlogan" required>
+                <input type="text" class="form-control"  name="TaglineSlogan" required>
                 @if ($errors->has('TaglineSlogan'))
                     <span class="invalid-feedback">
                         <strong>{{ $errors->first('TaglineSlogan') }}</strong>
@@ -138,7 +137,7 @@
         <div class="form-group" >
             <label class="control-label col-sm-3" >Text (soft file, which will be live on leaflet): </label>
             <div class="col-sm-9">
-                <input type="number" class="form-control"  name="TextSoftFile" required>
+                <input type="text" class="form-control"  name="TextSoftFile" required>
                 @if ($errors->has('TextSoftFile'))
                     <span class="invalid-feedback">
                         <strong>{{ $errors->first('TextSoftFile') }}</strong>
@@ -153,7 +152,7 @@
         <div class="form-group" >
             <label class="control-label col-sm-3" >Company social media urls. (if any):</label>
             <div class="col-sm-9">
-                <textarea class="form-control" id="exampleTextarea" rows="3" name="companyAddress" placeholder="Please give Company Address"></textarea>
+                <textarea class="form-control" id="exampleTextarea" rows="3" name="companyMediaUrlAddress" placeholder="Please give Company Address"></textarea>
                 @if ($errors->has('companyAddress'))
                     <span class="invalid-feedback">
                         <strong>{{ $errors->first('companyAddress') }}</strong>

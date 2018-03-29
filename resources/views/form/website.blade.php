@@ -59,8 +59,8 @@
             <label class="col-sm-3 control-label"> Portfolio Page:</label>
 
             <div class="col-sm-2">
-                <input  type="radio" name="" id="" value="yes"> Yes
-                <input  type="radio" name="" id="" value="no"> No
+                <input  type="radio" name="portfolioPage" id="" value="1"> Yes
+                <input  type="radio" name="portfolioPage" id="" value="0"> No
             </div>
         </div>
 
@@ -98,7 +98,7 @@
         <div class="form-group">
             <label class="col-sm-3 control-label" for="name">Existing Website (if any):</label>
             <div class="col-sm-9">
-                <input class="form-control" type="email" name="ExistingWeb" placeholder="Existing Website" ><br>
+                <input class="form-control" type="text" name="ExistingWeb" placeholder="Existing Website" ><br>
                 @if ($errors->has('ExistingWeb'))
                     <span class="invalid-feedback">
                         <strong>{{ $errors->first('ExistingWeb') }}</strong>
