@@ -11,8 +11,10 @@ use App\Banner;
 use App\Corporate;
 use App\Logo;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redirect;
 use Imagecow\Image;
 use Session;
+use Validator;
 
 class FormController extends Controller
 {
@@ -58,34 +60,44 @@ class FormController extends Controller
     }
 
     public function storeBrochure(Request $r){
-//        $r->validate([
-//            'companyName' => 'required|max:2',
-//        ]);
+
+        $e=Validator::make($r->all(), [
+            'companyName' => 'max:2',
+
+        ])->validate();
+
+        if ($e->fails()) {
+//            return view('form.website')
+//                ->with('error',$e)
+//                ->with('cat','brochure');
+        }
+
+
 //        AttachLogo
 //        $image = $r->file('AttachLogo');
 //        $name = time().'.'.$image->getClientOriginalExtension();
 //        $destinationPath = public_path('/images');
 //        $image->move($destinationPath, $name);
-        $job=new Job;
-        $job->companyName=$r->companyName;
-        $job->reference=$r->References;
-        $job->businessArea=$r->BusinessArea;
-        $job->category='brochure';
-        $job->save();
-
-        $brochure=new Brochure;
-        $brochure->jobId=$job->jobId;
-        $brochure->size=$r->BrochureSize;
-        $brochure->page=$r->BrochurePages;
-        $brochure->themeColor=$r->ThemeColor;
-        $brochure->tagline=$r->TaglineSlogan;
-        $brochure->mainFocus=$r->MainFocus;
-        $brochure->tText=$r->TextSoftFile;
-        $brochure->socialMediaUrl=$r->SocialMediaURLs;
-        $brochure->save();
-
-        Session::flash('message', 'Brochure Added Successfully');
-        return back();
+//        $job=new Job;
+//        $job->companyName=$r->companyName;
+//        $job->reference=$r->References;
+//        $job->businessArea=$r->BusinessArea;
+//        $job->category='brochure';
+//        $job->save();
+//
+//        $brochure=new Brochure;
+//        $brochure->jobId=$job->jobId;
+//        $brochure->size=$r->BrochureSize;
+//        $brochure->page=$r->BrochurePages;
+//        $brochure->themeColor=$r->ThemeColor;
+//        $brochure->tagline=$r->TaglineSlogan;
+//        $brochure->mainFocus=$r->MainFocus;
+//        $brochure->tText=$r->TextSoftFile;
+//        $brochure->socialMediaUrl=$r->SocialMediaURLs;
+//        $brochure->save();
+//
+//        Session::flash('message', 'Brochure Added Successfully');
+//        return back();
     }
 
     public function storeWebsite(Request $r){
