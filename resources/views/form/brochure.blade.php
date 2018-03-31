@@ -198,7 +198,7 @@
 
 <script>
     $( "#target" ).submit(function( event ) {
-        
+
 
         event.preventDefault();
     });

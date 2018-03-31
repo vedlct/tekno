@@ -43,12 +43,13 @@
                                             <table class="table table-striped table-bordered table-hover">
                                                 <thead>
                                                 <tr>
-                                        <th width="4%" scope="col">Sl.</th>
-                                        <th width="10%" scope="col">Client Name</th>
-                                        <th width="17%" scope="col">Service Type</th>
-                                        <th width="50%" scope="col">Instruction</th>
-                                        <th width="5%" scope="col">Status</th>
-                                        <th width="15%"> Delete Job Request</th>
+                                        <th width="2%" scope="col">Sl.</th>
+                                        <th width="10%" scope="col">Company Name</th>
+                                        <th width="5%" scope="col">category</th>
+                                        <th width="10%" scope="col">email</th>
+                                        <th width="30%" scope="col">comments</th>
+                                        <th width="5%" scope="col">Created At</th>
+                                                    <th width="5%"> Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -58,31 +59,22 @@
                                     <tr>
                                         <td>{{$s}}</td>
                                         <td>
-                                            {{$value->company_name}}
+                                            {{$value->companyName}}
                                         </td>
 
-                                        <td>{{$value->service}}</td>
+                                        <td>{{$value->category}}</td>
+                                        <td>{{$value->email}}</td>
+                                        <td>{{$value->comments}}</td>
+                                        <td>{{$value->created_at}}</td>
                                         <td>
-                                            <?php echo $value->instruction ?>
+                                            <div align="center">
+                                                <a><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                                <a href="#" data-panel-id="{{$value->jobId}}"onclick="deletejobrequest(this)">
+                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                </a>
+
+                                            </div>
                                         </td>
-                                        <td>
-                                            <select name="paymenttype" id="{{$value->job_id}}" onChange="changestatus(this.id)">
-
-                                                {{--@if ({{$value->job_status}} == "Pending")--}}
-                                                @if($value->job_status=="Pending")
-
-                                                    <option selected value='Pending'>Pending</option>
-                                        		    <option value='On Going'>On Going</option>
-
-                                                @else
-
-                                                    <option value='Pending'>Pending</option>
-                                        		    <option selected value='On Going'>On Going</option>
-                                                @endif
-
-                                            </select>
-                                        </td>
-                                        <td><div align="center"><a href="#" data-panel-id="{{$value->job_id}}"onclick="deletejobrequest(this)"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div></td>
                                     </tr>
                                         <?php $s++ ?>
                                     @endforeach
@@ -113,26 +105,7 @@
 <script>
 
 
-    function changestatus(x)
-    {
-        var option = document.getElementById(x).value;
-        //alert(option);
 
-        $.ajax({
-            type:'get',
-            url:'{{url('changejobstatus')}}/'+option,
-            data:{'id':x,'value':option},
-            cache: false,
-            success:function(data)
-            {
-                //$('#txtHint').html(data);
-                alert(data);
-                location.reload();
-            }
-
-        });
-
-    }
     function deletejobrequest(x)
     {
         btn = $(x).data('panel-id');

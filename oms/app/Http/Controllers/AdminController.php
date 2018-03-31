@@ -38,6 +38,7 @@ class AdminController extends Controller
 //        $id=session('user-id');
             $newjobrequest = (new Admin)->newjobrequest();
 
+
             return view('admin.newjobrequest', compact('newjobrequest'));
         } else {
 

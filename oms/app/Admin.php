@@ -20,14 +20,9 @@ class Admin extends Model
     }
     public function newjobrequest(){
 
-//        $jobrequest= DB::table('job_request')
-//            ->where('job_status','Pending')
-//            ->get();
-        $jobrequest=DB::table('job_request')
-
-                            ->join('customer_info', 'job_request.client_id', '=', 'customer_info.user_id')
-                            ->where('job_status','Pending')
-                            ->get();
+        $jobrequest=DB::table('job')
+            ->orderBy('jobId','desc')
+            ->get();
 
         return $jobrequest;
     }
