@@ -1,11 +1,8 @@
 <!--    Brochure-->
 
 <div id="Brochureform">
-    <form action="{{route('storeBrochure')}}" method="post" enctype="multipart/form-data">
-
+    <form id="target" action="{{route('storeBrochure')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
-        <input type="hidden" name="action" value="smail" />
-        <input type="hidden" name="content" value="formular"/>
 
 
         <legend class="text-center">Brochure</legend>
@@ -13,7 +10,7 @@
         <div class="form-group">
             <label class="col-md-3 control-label" for="name"> Company Name:*</label>
             <div class="col-md-9">
-                <input class="form-control" type="text" placeholder="Company name" name="companyName" id="example-text-input"></br>
+                <input class="form-control" type="text" placeholder="Company name" name="companyName" id="companyName" required></br>
 
                 @if ($errors->has('companyName'))
                     <span class="invalid-feedback">
@@ -165,7 +162,7 @@
         <div class="form-group">
             <label class="col-md-3 control-label" for="name">Attach Logo & Images: </label><br>
             <div class="col-md-9">
-                <input type="file" id="AttachLogo[]" name="AttachLogo">
+                <input type="file" id="AttachLogo[]" name="AttachLogo[]" multiple>
                 @if ($errors->has('AttachLogo'))
                     <span class="invalid-feedback">
                         <strong>{{ $errors->first('AttachLogo') }}</strong>
@@ -197,3 +194,14 @@
     </form>
 
 </div>
+
+
+<script>
+    $( "#target" ).submit(function( event ) {
+        
+
+        event.preventDefault();
+    });
+
+
+</script>

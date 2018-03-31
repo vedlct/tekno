@@ -12,7 +12,7 @@
         <div class="form-group">
             <label class="col-md-3 control-label" for="name">Company Name:*</label>
             <div class="col-md-9">
-                <input class="form-control" type="text" placeholder="Company name" name="companyName" id="example-text-input"></br>
+                <input class="form-control" type="text" placeholder="Company name" name="companyName" id="example-text-input" required></br>
                 @if ($errors->has('companyName'))
                     <span class="invalid-feedback">
                         <strong>{{ $errors->first('companyName') }}</strong>
@@ -136,7 +136,7 @@
         <div class="form-group">
             <label class="col-sm-3 control-label" for="name">File:</label>
             <div class="col-sm-9">
-                <input class="" type="file"  name="myfile[]" multiple><br>
+                <input class="" type="file"  name="AttachLogo[]" multiple><br>
                 @if ($errors->has('myfile'))
                     <span class="invalid-feedback">
                         <strong>{{ $errors->first('myfile') }}</strong>

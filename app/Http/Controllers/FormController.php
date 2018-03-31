@@ -12,7 +12,9 @@ use App\Corporate;
 use App\Logo;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
-use Imagecow\Image;
+use App\Image as ImageModel;
+use Image;
+use File;
 use Session;
 use Validator;
 
@@ -61,43 +63,65 @@ class FormController extends Controller
 
     public function storeBrochure(Request $r){
 
-        $e=Validator::make($r->all(), [
-            'companyName' => 'max:2',
 
-        ])->validate();
 
-        if ($e->fails()) {
-//            return view('form.website')
-//                ->with('error',$e)
-//                ->with('cat','brochure');
+//
+//        $e=Validator::make($r->all(), [
+//            'companyName' => 'max:2',
+//
+//        ])->validate();
+//
+//        if ($e->fails()) {
+////            return view('form.website')
+////                ->with('error',$e)
+////                ->with('cat','brochure');
+//        }
+
+
+        $job=new Job;
+        $job->companyName=$r->companyName;
+        $job->reference=$r->References;
+        $job->businessArea=$r->BusinessArea;
+        $job->category='brochure';
+        $job->save();
+
+        $brochure=new Brochure;
+        $brochure->jobId=$job->jobId;
+        $brochure->size=$r->BrochureSize;
+        $brochure->page=$r->BrochurePages;
+        $brochure->themeColor=$r->ThemeColor;
+        $brochure->tagline=$r->TaglineSlogan;
+        $brochure->mainFocus=$r->MainFocus;
+        $brochure->tText=$r->TextSoftFile;
+        $brochure->socialMediaUrl=$r->SocialMediaURLs;
+        $brochure->save();
+
+        // Multiple image upload
+        if($r->hasFile('AttachLogo')){
+            $today =date("Y-m-d");
+            $todayPath='public/teknovisual/Client_File/'.$today;
+            if (!file_exists($todayPath)){
+                mkdir($todayPath, 0777, true);
+            }
+            $pathName=$todayPath.'/'.$r->companyName;
+            if (!file_exists($pathName)){
+                mkdir($pathName, 0777, true);
+            }
+            $images = $r->file('AttachLogo');
+            foreach ($images as $img) {
+                $filename = $img->getClientOriginalName();
+                $location = $pathName.'/'. $filename;
+                Image::make($img)->save($location);
+                $picture=new ImageModel;
+                $picture->jobId=$job->jobId;
+                $picture->path=$location;
+                $picture->save();
+            }
         }
 
 
-//        AttachLogo
-//        $image = $r->file('AttachLogo');
-//        $name = time().'.'.$image->getClientOriginalExtension();
-//        $destinationPath = public_path('/images');
-//        $image->move($destinationPath, $name);
-//        $job=new Job;
-//        $job->companyName=$r->companyName;
-//        $job->reference=$r->References;
-//        $job->businessArea=$r->BusinessArea;
-//        $job->category='brochure';
-//        $job->save();
-//
-//        $brochure=new Brochure;
-//        $brochure->jobId=$job->jobId;
-//        $brochure->size=$r->BrochureSize;
-//        $brochure->page=$r->BrochurePages;
-//        $brochure->themeColor=$r->ThemeColor;
-//        $brochure->tagline=$r->TaglineSlogan;
-//        $brochure->mainFocus=$r->MainFocus;
-//        $brochure->tText=$r->TextSoftFile;
-//        $brochure->socialMediaUrl=$r->SocialMediaURLs;
-//        $brochure->save();
-//
-//        Session::flash('message', 'Brochure Added Successfully');
-//        return back();
+        Session::flash('message', 'Brochure Added Successfully');
+        return back();
     }
 
     public function storeWebsite(Request $r){
@@ -117,6 +141,31 @@ class FormController extends Controller
         $website->socialMediaUrl=$r->MediaURLs;
         $website->existingWebsite=$r->ExistingWeb;
         $website->save();
+
+        // Multiple image upload
+        if($r->hasFile('AttachLogo')){
+            $today =date("Y-m-d");
+            $todayPath='public/teknovisual/Client_File/'.$today;
+            if (!file_exists($todayPath)){
+                mkdir($todayPath, 0777, true);
+            }
+            $pathName=$todayPath.'/'.$r->companyName;
+            if (!file_exists($pathName)){
+                mkdir($pathName, 0777, true);
+            }
+            $images = $r->file('AttachLogo');
+            foreach ($images as $img) {
+                $filename = $img->getClientOriginalName();
+                $location = $pathName.'/'. $filename;
+                Image::make($img)->save($location);
+                $picture=new ImageModel;
+                $picture->jobId=$job->jobId;
+                $picture->path=$location;
+                $picture->save();
+            }
+        }
+
+
 
         Session::flash('message', 'Website Added Successfully');
         return back();
@@ -144,6 +193,30 @@ class FormController extends Controller
         $leaflet->tText=$r->TextSoftFile;
         $leaflet->save();
 
+        // Multiple image upload
+        if($r->hasFile('AttachLogo')){
+            $today =date("Y-m-d");
+            $todayPath='public/teknovisual/Client_File/'.$today;
+            if (!file_exists($todayPath)){
+                mkdir($todayPath, 0777, true);
+            }
+            $pathName=$todayPath.'/'.$r->companyName;
+            if (!file_exists($pathName)){
+                mkdir($pathName, 0777, true);
+            }
+            $images = $r->file('AttachLogo');
+            foreach ($images as $img) {
+                $filename = $img->getClientOriginalName();
+                $location = $pathName.'/'. $filename;
+                Image::make($img)->save($location);
+                $picture=new ImageModel;
+                $picture->jobId=$job->jobId;
+                $picture->path=$location;
+                $picture->save();
+            }
+        }
+
+
 
         Session::flash('message', 'Leaflet Added Successfully');
         return back();
@@ -165,6 +238,31 @@ class FormController extends Controller
         $banner->bannerType= $r->BannerType;
         $banner->tText= $r->TextSoftFile;
         $banner->save();
+
+
+        // Multiple image upload
+        if($r->hasFile('AttachLogo')){
+            $today =date("Y-m-d");
+            $todayPath='public/teknovisual/Client_File/'.$today;
+            if (!file_exists($todayPath)){
+                mkdir($todayPath, 0777, true);
+            }
+            $pathName=$todayPath.'/'.$r->companyName;
+            if (!file_exists($pathName)){
+                mkdir($pathName, 0777, true);
+            }
+            $images = $r->file('AttachLogo');
+            foreach ($images as $img) {
+                $filename = $img->getClientOriginalName();
+                $location = $pathName.'/'. $filename;
+                Image::make($img)->save($location);
+                $picture=new ImageModel;
+                $picture->jobId=$job->jobId;
+                $picture->path=$location;
+                $picture->save();
+            }
+        }
+
 
         Session::flash('message', 'Banner Added Successfully');
         return back();
@@ -192,8 +290,31 @@ class FormController extends Controller
         $corporate->nameAndDesignation=$r->VisitingCards;
         $corporate->qrCode=$r->QRcode;
         $corporate->ciType=$r->CITypes;
-
         $corporate->save();
+
+        // Multiple image upload
+        if($r->hasFile('AttachLogo')){
+            $today =date("Y-m-d");
+            $todayPath='public/teknovisual/Client_File/'.$today;
+            if (!file_exists($todayPath)){
+                mkdir($todayPath, 0777, true);
+            }
+            $pathName=$todayPath.'/'.$r->companyName;
+            if (!file_exists($pathName)){
+                mkdir($pathName, 0777, true);
+            }
+            $images = $r->file('AttachLogo');
+            foreach ($images as $img) {
+                $filename = $img->getClientOriginalName();
+                $location = $pathName.'/'. $filename;
+                Image::make($img)->save($location);
+                $picture=new ImageModel;
+                $picture->jobId=$job->jobId;
+                $picture->path=$location;
+                $picture->save();
+            }
+        }
+
 
 
         Session::flash('message', 'Corporate-CI Added Successfully');
@@ -228,6 +349,31 @@ class FormController extends Controller
         $job->comments=$r->Comments;
         $job->category='vector';
         $job->save();
+
+
+        // Multiple image upload
+        if($r->hasFile('AttachLogo')){
+            $today =date("Y-m-d");
+            $todayPath='public/teknovisual/Client_File/'.$today;
+            if (!file_exists($todayPath)){
+                mkdir($todayPath, 0777, true);
+            }
+            $pathName=$todayPath.'/'.$r->companyName;
+            if (!file_exists($pathName)){
+                mkdir($pathName, 0777, true);
+            }
+            $images = $r->file('AttachLogo');
+            foreach ($images as $img) {
+                $filename = $img->getClientOriginalName();
+                $location = $pathName.'/'. $filename;
+                Image::make($img)->save($location);
+                $picture=new ImageModel;
+                $picture->jobId=$job->jobId;
+                $picture->path=$location;
+                $picture->save();
+            }
+        }
+
 
         Session::flash('message', 'Logo Added Successfully');
         return back();
