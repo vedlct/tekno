@@ -68,7 +68,7 @@
                                         <td>{{$value->created_at}}</td>
                                         <td>
                                             <div align="center">
-                                                <a><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                                <a href="{{route('job.get',['id'=>$value->jobId])}}"><i class="fa fa-edit" aria-hidden="true"></i></a>
                                                 <a href="#" data-panel-id="{{$value->jobId}}"onclick="deletejobrequest(this)">
                                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                 </a>
@@ -87,6 +87,7 @@
                     </div>
                 </div>
             </div>
+        {{ $newjobrequest->links() }}
 
             <!--state overview end-->
         </section>

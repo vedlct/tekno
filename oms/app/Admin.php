@@ -22,7 +22,8 @@ class Admin extends Model
 
         $jobrequest=DB::table('job')
             ->orderBy('jobId','desc')
-            ->get();
+            ->paginate(10);
+//            ->get();
 
         return $jobrequest;
     }

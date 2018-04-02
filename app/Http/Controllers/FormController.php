@@ -83,6 +83,7 @@ class FormController extends Controller
         $job->reference=$r->References;
         $job->businessArea=$r->BusinessArea;
         $job->category='brochure';
+        $job->EstimatedTime=$r->EstimatedTime;
         $job->save();
 
         $brochure=new Brochure;
@@ -130,6 +131,7 @@ class FormController extends Controller
         $job->reference=$r->ReferenceWeb;
         $job->comments=$r->OtherComments;
         $job->category='website';
+        $job->EstimatedTime=$r->EstimatedTime;
         $job->save();
 
         $website=new Website;
@@ -183,6 +185,7 @@ class FormController extends Controller
         $job->companyWebsiteUrl=$r->CompanyWebsite;
         $job->businessArea=$r->BusinessArea;
         $job->category='leaflet';
+        $job->EstimatedTime=$r->EstimatedTime;
         $job->save();
 
         $leaflet=new Leaflet;
@@ -229,6 +232,7 @@ class FormController extends Controller
         $job->comments=$r->Comments;
         $job->businessArea=$r->BusinessArea;
         $job->category='banner';
+        $job->EstimatedTime=$r->EstimatedTime;
         $job->save();
 
         $banner=new Banner;
@@ -280,6 +284,7 @@ class FormController extends Controller
         $job->address=$r->CompanyAddress;
         $job->businessArea=$r->BusinessArea;
         $job->category='corporate';
+        $job->EstimatedTime=$r->EstimatedTime;
         $job->save();
 
 
@@ -330,6 +335,7 @@ class FormController extends Controller
         $job->companyName=$r->companyName;
         $job->comments=$r->OtherComments;
         $job->category='logo';
+        $job->EstimatedTime=$r->EstimatedTime;
         $job->save();
 
         $logo = new Logo;
@@ -348,6 +354,7 @@ class FormController extends Controller
         $job->companyName=$r->companyName;
         $job->comments=$r->Comments;
         $job->category='vector';
+        $job->EstimatedTime=$r->EstimatedTime;
         $job->save();
 
 

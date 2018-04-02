@@ -42,7 +42,8 @@ Route::get('/Admin_profile', 'AdminController@profile')->name('adminprofile');
 Route::get('/User_profile', 'UserController@profile')->name('userprofile');
 
 
-Route::get('/NewJobRequest', 'AdminController@newjobrequest')->name('adminnewjobrequest');
+Route::get('/NewJobRequest', 'JobController@newjobrequest')->name('adminnewjobrequest');
+Route::get('/job/{id}', 'JobController@getJob')->name('job.get');
 Route::get('/deletejobreq/{id}','AdminController@jobreqdelete');
 Route::get('/NewJobRequest_user', 'UserController@newjobrequest')->name('usernewjobrequest');
 
