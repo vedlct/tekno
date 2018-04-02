@@ -11,55 +11,56 @@
         <div class="form-group">
             <label class="form-input">Please Select Job Request Type :</label>
         </div>
-    @if(isset($cat)) {{$cat}}@endif
-    <select class="form-control input-height" required id="job" name="job" >
-        <option value="">SELECT JOB REQUEST</option>
-        <option @if(isset($cat) && $cat=="brochure") selected @endif value="brochure">Brochure</option>
-        <option value="website">Website</option>
-        <option value="leaflet">Leaflet</option>
-        <option value="banner">Banner/Flyer</option>
-        <option value="corporate">Corporate-CI</option>
-        <option value="logo">Logo</option>
-        <option value="vector">Vector</option>
-    </select>
+        @if(isset($cat)) {{$cat}}@endif
+        <select class="form-control input-height" required id="job" name="job" >
+            <option value="">SELECT JOB REQUEST</option>
+            <option @if(isset($cat) && $cat=="brochure") selected @endif value="brochure">Brochure</option>
+            <option value="website">Website</option>
+            <option value="leaflet">Leaflet</option>
+            <option value="banner">Banner/Flyer</option>
+            <option value="corporate">Corporate-CI</option>
+            <option value="logo">Logo</option>
+            <option value="vector">Vector</option>
+        </select>
 
-    <br>
-    <div id="element"></div>
-</div>
-
-
-<meta name="csrf-token" content="{{ csrf_token() }}" />
+        <br>
+        <div id="element"></div>
+    </div>
 
 
-
-<script>
-
-    $( document ).ready(function() {
-
-    });
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 
-    $("#job").change(function() {
+
+    <script>
 
 
-        var name=$(this).val();
+//        $.ajaxSetup({
+//            headers: {
+//                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//            }
+//        });
 
-        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-        $.ajax({
-            type:'POST',
-            url:"{{ route('getJobForm') }}",
-            cache: false,
-            data:{'option':name, _token: CSRF_TOKEN},
-            success:function(data) {
-                 $("#element").html(data);
-                //console.log(data);
-            }
+        $("#job").change(function() {
+
+            var name=$(this).val();
+            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+            $.ajax({
+                type:'POST',
+                url:"{{ route('getJobForm') }}",
+                cache: false,
+                data:{_token:CSRF_TOKEN,'option':name},
+                success:function(data) {
+                    $("#element").html(data);
+//                    console.log(data);
+
+                }
+
+            });
 
         });
 
-    });
 
-
-</script>
+    </script>
 
 @endsection

@@ -50,14 +50,21 @@ class JobController extends Controller
         elseif($job->category=='website'){
 
             $jobCat=Website::leftJoin('job','website.jobId','job.jobId')
-                ->where('website.jobId',$id)->get();
+                ->where('website.jobId',$id)->first();
 
-            return $jobCat;
+
+
+            return view('job.website')
+                ->with('jobCat',$jobCat);
 
         }
         elseif($job->category=='leaflet'){
             $jobCat=Leaflet::leftJoin('job','leaflet.jobId','job.jobId')
-                ->where('leaflet.jobId',$id)->get();
+                ->where('leaflet.jobId',$id)
+                ->get();
+
+            return view('job.leaflet')
+                ->with('jobCat',$jobCat);
 
         }
         elseif($job->category=='banner'){

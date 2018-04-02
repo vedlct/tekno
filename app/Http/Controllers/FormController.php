@@ -24,6 +24,7 @@ class FormController extends Controller
 
 
 
+
         if ($r->option =='brochure'){
 
             return view('form.brochure');
