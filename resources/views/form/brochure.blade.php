@@ -197,11 +197,11 @@
 
 
 <script>
-    $( "#target" ).submit(function( event ) {
-
-
-        event.preventDefault();
-    });
+//    $( "#target" ).submit(function( event ) {
+//
+//
+//        event.preventDefault();
+//    });
 
 
 </script>

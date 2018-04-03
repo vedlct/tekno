@@ -18,7 +18,7 @@
 <!--header end-->
     <!--sidebar start-->
     <aside>
-        <div id="sidebar"  class="nav-collapse ">
+        <div id="sidebar"  class="nav-collapse">
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
                 @include('Navigation.menu')
@@ -26,7 +26,6 @@
             <!-- sidebar menu end-->
         </div>
     </aside>
-
 
 
     <section id="main-content">
@@ -38,7 +37,6 @@
                         <div  class="panel-heading">
                             <h2>Brochure</h2>
                         </div>
-
                         <!-- /.panel-heading -->
                         <div class="panel-body">
 
@@ -50,7 +48,6 @@
                                         <label class="col-md-3 control-label" for="name"> Company Name:</label>
                                         <div class="col-md-9">
                                             <input class="form-control" type="text" placeholder="Company name"  value="{{$jobCat->companyName}}" required></br>
-
                                         </div>
                                     </div>
 

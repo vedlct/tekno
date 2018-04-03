@@ -53,7 +53,6 @@
                 success:function(data) {
                     $("#element").html(data);
 //                    console.log(data);
-
                 }
 
             });

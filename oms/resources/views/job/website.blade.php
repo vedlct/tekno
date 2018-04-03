@@ -49,7 +49,7 @@
 
 
                                     <div class="form-group">
-                                        <label class="col-md-3 control-label" for="name">Company Name:*</label>
+                                        <label class="col-md-3 control-label" for="name">Company Name:</label>
                                         <div class="col-md-9">
                                             <input class="form-control" type="text" placeholder="Company name" value="{{$jobCat->companyName}}" required></br>
 
@@ -58,7 +58,7 @@
 
 
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">Website Type:*</label>
+                                        <label class="col-sm-3 control-label">Website Type:</label>
                                         <div >
                                             &nbsp;  <div class="col-md-9">
                                                 <input class="form-control" type="text" value="{{$jobCat->websiteType}}" required></br>
@@ -67,14 +67,14 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label" for="name">Business Detail:*</label>
+                                        <label class="col-sm-3 control-label" for="name">Business Detail:</label>
                                         <div class="col-sm-9">
                                             <textarea class="form-control" name="BusinessDetail"   required rows="6" placeholder="Please describe in short about your business" >{{$jobCat->comments}}</textarea></br>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label" for="name"> Number Of Page;*</label>
+                                        <label class="col-sm-3 control-label" for="name"> Number Of Page:</label>
                                         <div class="col-sm-9">
                                             <input class="form-control" type="number" value="{{$jobCat->numberOfPage}}"> <br>
                                         </div>
@@ -98,14 +98,14 @@
 
 
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label" for="name"> Reference Website:*</label>
+                                        <label class="col-sm-3 control-label" for="name"> Reference Website:</label>
                                         <div class="col-sm-9">
                                             <textarea class="form-control" name="ReferenceWeb" c rows="6" placeholder="Please provide one or more than one URLs of websites you prefer">{{$jobCat->reference}}</textarea></br>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label" for="name">Social Media URLs:*</label>
+                                        <label class="col-sm-3 control-label" for="name">Social Media URLs:</label>
                                         <div class="col-sm-9">
                                             <textarea class="form-control"  name="MediaURLs" cols="30" rows="6" placeholder="Please provide your company’s social media account URLs (if any)">{{$jobCat->socialMediaUrl}}</textarea></br>
                                         </div>
@@ -128,7 +128,7 @@
 
 
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label" for="name">Estimated Development Time:*</label>
+                                        <label class="col-sm-3 control-label" for="name">Estimated Development Time:</label>
                                         <div class="col-sm-9">
                                             <textarea class="form-control"type="text" name="ExistingWeb" placeholder="Give Estimated Development Time"  required>{{$jobCat->EstimatedTime}}</textarea><br>
 
@@ -149,11 +149,6 @@
                                     </div>
                                     &nbsp;
                             </div>
-
-
-
-
-
 
 
 

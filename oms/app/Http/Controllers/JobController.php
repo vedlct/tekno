@@ -35,12 +35,9 @@ class JobController extends Controller
     public function getJob($id){
         $job=Job::findOrFail($id);
 
-
-
         if($job->category=='brochure'){
             $jobCat=Brochure::leftJoin('job','brochure.jobId','job.jobId')
                                     ->where('brochure.jobId',$id)->first();
-
 
             return view('job.brochure')
                     ->with('jobCat',$jobCat);
@@ -53,7 +50,6 @@ class JobController extends Controller
                 ->where('website.jobId',$id)->first();
 
 
-
             return view('job.website')
                 ->with('jobCat',$jobCat);
 
@@ -61,7 +57,7 @@ class JobController extends Controller
         elseif($job->category=='leaflet'){
             $jobCat=Leaflet::leftJoin('job','leaflet.jobId','job.jobId')
                 ->where('leaflet.jobId',$id)
-                ->get();
+                ->first();
 
             return view('job.leaflet')
                 ->with('jobCat',$jobCat);
@@ -69,20 +65,34 @@ class JobController extends Controller
         }
         elseif($job->category=='banner'){
             $jobCat=Banner::leftJoin('job','banner.jobId','job.jobId')
-                ->where('banner.jobId',$id)->get();
+                ->where('banner.jobId',$id)->first();
+
+            return view('job.banner')
+                ->with('jobCat',$jobCat);
         }
         elseif($job->category=='corporate'){
-            $jobCat=Corporate::leftJoin('job','corporate.jobId','job.jobId')
-                ->where('corporate.jobId',$id)->get();
+            $jobCat=Corporate::leftJoin('job','corporate-cl.jobId','job.jobId')
+                ->where('corporate-cl.jobId',$id)
+                ->first();
+
+            return view('job.corporate')
+                ->with('jobCat',$jobCat);
 
         }
         elseif($job->category=='logo'){
             $jobCat=Logo::leftJoin('job','logo.jobId','job.jobId')
-                ->where('logo.jobId',$id)->get();
+                ->where('logo.jobId',$id)
+                ->first();
+
+
+            return view('job.logo')
+                ->with('jobCat',$jobCat);
 
         }
         elseif($job->category=='vector'){
-            return view('job.get');
+            $jobCat=$job;
+            return view('job.vector')
+                ->with('jobCat',$jobCat);;
 
         }
 

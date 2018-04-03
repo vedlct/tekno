@@ -60,7 +60,6 @@
 
 
 
-
     <footer class="site-footer">
         @include('layout.footer')
     </footer>
