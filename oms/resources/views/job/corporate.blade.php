@@ -143,13 +143,22 @@
 
 
 
-                                    <div class="form-group" >
-                                        <label class="control-label col-sm-3" >Attach logo eps / ai file:</label>
-                                        <div class="col-sm-9">
-                                            <input type="file" class=""  name="LogoFile[]" >
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="name">Attach Logo & Images: </label><br>
+                                            <div class="row">
+                                                @foreach($images as $img)
+                                                    <div style="height: 100px; width: 100px;" class="col-md-4">
+
+                                                        <img src="{{url('../'.$img->path)}}" class="img-thumbnail">
+
+
+                                                    </div>
+                                                @endforeach
+
+
+                                            </div>
 
                                         </div>
-                                    </div>
 
 
 

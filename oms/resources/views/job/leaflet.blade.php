@@ -156,13 +156,22 @@
                                         </div>
                                     </div>
 
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="name">Attach Logo & Images: </label><br>
+                                    <div class="row">
+                                        @foreach($images as $img)
+                                            <div style="height: 100px; width: 100px;" class="col-md-4">
 
-                                    <div class="form-group">
-                                        <label for="example-color-input" class="col-sm-3 control-label">Attach Logo & Images: </label>
-                                        <div class="col-sm-9">
-                                            <input class="" type="file" name="DevelopmentTime"><br>
-                                        </div>
+                                                <img src="{{url('../'.$img->path)}}" class="img-thumbnail">
+
+
+                                            </div>
+                                        @endforeach
+
+
                                     </div>
+
+                                </div>
 
 
 

@@ -12,6 +12,7 @@ use App\Brochure;
 use App\Logo;
 use App\Leaflet;
 use App\Corporate;
+use App\Image;
 
 class JobController extends Controller
 {
@@ -39,7 +40,9 @@ class JobController extends Controller
             $jobCat=Brochure::leftJoin('job','brochure.jobId','job.jobId')
                                     ->where('brochure.jobId',$id)->first();
 
+            $images=Image::where('jobId',$id)->get();
             return view('job.brochure')
+                    ->with('images',$images)
                     ->with('jobCat',$jobCat);
 
 
@@ -48,9 +51,10 @@ class JobController extends Controller
 
             $jobCat=Website::leftJoin('job','website.jobId','job.jobId')
                 ->where('website.jobId',$id)->first();
-
+            $images=Image::where('jobId',$id)->get();
 
             return view('job.website')
+                ->with('images',$images)
                 ->with('jobCat',$jobCat);
 
         }
@@ -59,7 +63,10 @@ class JobController extends Controller
                 ->where('leaflet.jobId',$id)
                 ->first();
 
+            $images=Image::where('jobId',$id)->get();
+
             return view('job.leaflet')
+                ->with('images',$images)
                 ->with('jobCat',$jobCat);
 
         }
@@ -67,7 +74,10 @@ class JobController extends Controller
             $jobCat=Banner::leftJoin('job','banner.jobId','job.jobId')
                 ->where('banner.jobId',$id)->first();
 
+            $images=Image::where('jobId',$id)->get();
+
             return view('job.banner')
+                ->with('images',$images)
                 ->with('jobCat',$jobCat);
         }
         elseif($job->category=='corporate'){
@@ -75,7 +85,10 @@ class JobController extends Controller
                 ->where('corporate-cl.jobId',$id)
                 ->first();
 
+            $images=Image::where('jobId',$id)->get();
+
             return view('job.corporate')
+                ->with('images',$images)
                 ->with('jobCat',$jobCat);
 
         }

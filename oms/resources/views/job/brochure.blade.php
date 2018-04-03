@@ -150,9 +150,16 @@
 
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="name">Attach Logo & Images: </label><br>
-                                        <div class="col-md-9">
-                                            <input type="file" id="AttachLogo[]" name="AttachLogo[]" multiple>
+                                        <div class="row">
+                                            @foreach($images as $img)
+                                            <div class="col-md-3">
+                                            <img src="{{$img->path}}" >
+                                            </div>
+                                                @endforeach
+
+
                                         </div>
+
                                     </div>
                                     &nbsp;
 

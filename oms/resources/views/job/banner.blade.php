@@ -120,18 +120,22 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group" >
-                                        <label class="control-label col-sm-3" >Attach Logo & Images:</label>
-                                        <div class="col-sm-9">
-                                            <input type="file" class=""  name="AttachLogo[]">
-                                            @if ($errors->has('AttachLogo'))
-                                                <span class="invalid-feedback">
-                        <strong>{{ $errors->first('AttachLogo') }}</strong>
-                    </span>
-                                            @endif
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="name">Attach Logo & Images: </label><br>
+                                    <div class="row">
+                                        @foreach($images as $img)
+                                            <div style="height: 100px; width: 100px;" class="col-md-4">
 
-                                        </div>
+                                                <img src="{{url('../'.$img->path)}}" class="img-thumbnail">
+
+
+                                            </div>
+                                        @endforeach
+
+
                                     </div>
+
+                                </div>
                                     &nbsp;
 
 

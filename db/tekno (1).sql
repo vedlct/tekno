@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2018 at 08:44 AM
+-- Generation Time: Apr 03, 2018 at 08:25 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -377,7 +377,16 @@ INSERT INTO `log_info` (`id`, `company_name`, `login_details`, `logout_details`,
 (86, 'TCL', '2018-03-31 16:37:53', NULL, '127.0.0.1', '1'),
 (87, 'TCL', '2018-03-31 17:17:22', NULL, '::1', '1'),
 (88, 'TCL', '2018-04-02 05:12:05', NULL, '::1', '1'),
-(89, 'TCL', '2018-04-02 11:14:25', NULL, '::1', '1');
+(89, 'TCL', '2018-04-02 11:14:25', NULL, '::1', '1'),
+(90, 'TCL', '2018-04-02 13:25:31', NULL, '::1', '1'),
+(91, 'TCL', '2018-04-02 13:58:19', NULL, '::1', '1'),
+(92, 'TCL', '2018-04-02 13:58:54', NULL, '::1', '1'),
+(93, 'TCL', '2018-04-02 14:00:06', NULL, '::1', '1'),
+(94, 'TCL', '2018-04-02 14:20:28', NULL, '::1', '1'),
+(95, 'TCL', '2018-04-02 14:21:06', NULL, '::1', '1'),
+(96, 'TCL', '2018-04-02 14:21:20', NULL, '::1', '1'),
+(97, 'TCL', '2018-04-02 15:01:27', NULL, '::1', '1'),
+(98, 'TCL', '2018-04-03 10:44:18', NULL, '::1', '1');
 
 -- --------------------------------------------------------
 
@@ -756,7 +765,7 @@ ALTER TABLE `logo`
 -- AUTO_INCREMENT for table `log_info`
 --
 ALTER TABLE `log_info`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- AUTO_INCREMENT for table `message`
