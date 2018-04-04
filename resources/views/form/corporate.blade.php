@@ -158,7 +158,7 @@
         <div class="form-group" >
             <label class="control-label col-sm-3" >Attach logo eps / ai file:</label>
             <div class="col-sm-9">
-                <input type="file" class=""  name="LogoFile[]" multiple>
+                <input type="file" id="AttachLogo[]" name="AttachLogo[]" multiple>
                 @if ($errors->has('LogoFile'))
                     <span class="invalid-feedback">
                         <strong>{{ $errors->first('LogoFile') }}</strong>

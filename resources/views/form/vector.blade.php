@@ -25,7 +25,7 @@
             <label class="control-label col-sm-3" >Attach High Res Image: *</label>
             <div class="col-sm-9">
 
-                <input type="file" id="ResImage" name="ResImage[]" class=""  multiple/>
+                <input type="file" id="AttachLogo[]" name="AttachLogo[]" multiple>
                 @if ($errors->has('ResImage'))
                     <span class="invalid-feedback">
                         <strong>{{ $errors->first('ResImage') }}</strong>
