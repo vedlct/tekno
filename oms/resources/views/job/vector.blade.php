@@ -54,29 +54,39 @@
                                     </div>
 
 
-                                    <div class="form-group">
-                                        <label class="control-label col-sm-3" >Attach High Res Image: *</label>
-                                        <div class="col-sm-9">
 
-                                            <input type="file" id="ResImage" name="ResImage[]" class=""  multiple/><br>
-
-                                        </div>
-                                    </div>
 
                                     <div class="form-group">
                                         <label class="control-label col-sm-3">Comments (optional): </label>
                                         <div class="col-sm-9">
 
-                                            <textarea id="Comments" name="Comments" rows="6" class="form-control">{{$jobCat->comments}}</textarea>
+                                            <textarea id="Comments" name="Comments" rows="6" class="form-control">{{$jobCat->comments}}</textarea><br>
 
                                         </div>
                                     </div>
 
 
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" >Attach High Res Image: *</label>
+                                    <div class="col-sm-9">
+
+                                        <div class="row">
+                                            @foreach($images as $img)
+                                                <div class="col-md-3">
+                                                    <img src="{{$img->path}}" >
+                                                </div>
+                                            @endforeach
+
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+
 
                             </div>
-
-
 
                         </div>
                     </div>

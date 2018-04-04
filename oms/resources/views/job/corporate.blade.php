@@ -114,13 +114,18 @@
                                     </div>
 
 
-                                    <div class="form-group" style="margin-top: 30px; ">
+                                    <div class="form-group">
                                         <label class="control-label col-sm-3" >QR CODE: </label>
 
-                                        <div required="required" >
-                                            <div class="col-sm-2">  <input type="radio" name="QRcode" id="QRcode0" value="1"  /> YES &nbsp;&nbsp;  </div>&nbsp;
-                                            <div class="col-sm-2"><input type="radio" name="QRcode" id="QRcode1" value="0"  /> NO &nbsp; &nbsp;&nbsp;</div>
-                                            &nbsp;&nbsp;
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" placeholder="Enter Tag Line"
+                                                   @if($jobCat->qrCode==1)
+                                                   value="Yes"
+                                                    @else
+                                                   value="No"
+                                                    @endif
+                                            ></br>
+
                                         </div>
                                     </div>
 

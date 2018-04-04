@@ -40,7 +40,7 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="table-responsive">
-                                            <table class="table table-striped table-bordered table-hover">
+                                            <table class="table table-striped table-bordered table-hover" id="example">
                                                 <thead>
                                                 <tr>
                                         <th width="2%" scope="col">Sl.</th>
@@ -87,7 +87,6 @@
                     </div>
                 </div>
             </div>
-        {{ $newjobrequest->links() }}
 
             <!--state overview end-->
         </section>
@@ -103,11 +102,22 @@
 @include('js.js')
 
 
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+
 <script>
 
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
 
 
-    function deletejobrequest(x)
+
+
+
+
+function deletejobrequest(x)
     {
         btn = $(x).data('panel-id');
 

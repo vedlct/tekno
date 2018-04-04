@@ -83,7 +83,15 @@
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label"> Portfolio Page:</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" value="{{$jobCat->portfolioPage}}"> <br>
+                                            <input class="form-control" type="text"
+                                                   @if($jobCat->portfolioPage==1)
+                                                   value="Yes"
+                                                   @else
+                                                   value="No"
+                                                       @endif
+
+
+                                            > <br>
                                         </div>
 
 

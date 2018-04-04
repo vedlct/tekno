@@ -104,8 +104,10 @@ class JobController extends Controller
         }
         elseif($job->category=='vector'){
             $jobCat=$job;
+            $images=Image::where('jobId',$id)->get();
             return view('job.vector')
-                ->with('jobCat',$jobCat);;
+                ->with('images',$images)
+                ->with('jobCat',$jobCat);
 
         }
 

@@ -17,8 +17,16 @@
 <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
 
 <link href="{{url('css/chat.css')}}" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+<link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" >
+
+
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
 <!--[if lt IE 9]>
 <script src="{{url('js/html5shiv.js')}}"></script>
 <script src="{{url('js/respond.min.js')}}"></script>
+
+
+
+
 <![endif]-->
