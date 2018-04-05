@@ -67,21 +67,20 @@
 
 
                                 <div class="form-group">
-                                    <label class="control-label col-sm-3" >Attach High Res Image: *</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-md-3 control-label" for="name">Attach Logo & Images: </label><br>
+                                    <div class="row">
+                                        @foreach($images as $img)
+                                            <div style="height: 100px; width: 100px;" class="col-md-4">
 
-                                        <div class="row">
-                                            @foreach($images as $img)
-                                                <div class="col-md-3">
-                                                    <img src="{{$img->path}}" >
-                                                </div>
-                                            @endforeach
+                                                <img src="{{url('../'.$img->path)}}" class="img-thumbnail">
 
 
-                                        </div>
+                                            </div>
+                                        @endforeach
 
 
                                     </div>
+
                                 </div>
 
 

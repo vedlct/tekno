@@ -62,9 +62,9 @@
                                     <tr>
                                         <td>{{$sl}}</td>
                                         <td>
-                                            {{$value->company_name}}
+                                            {{$value->companyName}}
                                         </td>
-                                        <td>{{$value->service}}</td>
+                                        <td>{{$value->category}}</td>
                                         <td>
                                             <?php echo $value->instruction ?><br>
                                         </td>

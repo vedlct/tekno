@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use App\Job;
 
 class Admin extends Model
 {
@@ -57,10 +58,12 @@ class Admin extends Model
     public function ongoingjob(){
 
 
-        $ongoing=DB::table('job_request')
-
-            ->join('customer_info', 'job_request.client_id', '=', 'customer_info.user_id')
-            ->where('job_status','On Going')
+//        $ongoing=DB::table('job_request')
+//            ->join('customer_info', 'job_request.client_id', '=', 'customer_info.user_id')
+//            ->where('job_status','On Going')
+//            ->get();
+        $ongoing=Job::where('status','on going')
+            ->orderBy('jobId','desc')
             ->get();
 
         return $ongoing;
@@ -69,10 +72,13 @@ class Admin extends Model
     public function jobdone(){
 
 
-        $finshedwork=DB::table('job_request')
-
-            ->join('customer_info', 'job_request.client_id', '=', 'customer_info.user_id')
-            ->where('job_status','Done')
+//        $finshedwork=DB::table('job_request')
+//
+//            ->join('customer_info', 'job_request.client_id', '=', 'customer_info.user_id')
+//            ->where('job_status','Done')
+//            ->get();
+        $finshedwork=Job::where('status','done')
+            ->orderBy('jobId','desc')
             ->get();
 
         return $finshedwork;

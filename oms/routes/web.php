@@ -53,6 +53,8 @@ Route::post('/insertnewjob', 'UserController@insertnewjob')->name('insertjobuser
 
 
 Route::get('/changejobstatus/{id}','AdminController@changejobstatus');
+//Changing job status
+Route::post('job/changestatus','JobController@changestatus')->name('job.changestatus');
 
 Route::get('/NewUserRequest', 'AdminController@newuserrequest')->name('newuserrequest');
 Route::get('/changeuserstatus/{id}','AdminController@changeuserstatus');

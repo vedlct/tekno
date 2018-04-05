@@ -28,6 +28,8 @@
     </aside>
     <!--sidebar end-->
     <!--main content start-->
+
+
     <section id="main-content">
         <section class="wrapper">
             <!--state overview start-->
@@ -48,6 +50,7 @@
                                         <th width="5%" scope="col">category</th>
                                         <th width="10%" scope="col">email</th>
                                         <th width="30%" scope="col">comments</th>
+                                        <th width="5%" scope="col">status</th>
                                         <th width="5%" scope="col">Created At</th>
                                                     <th width="5%"> Action</th>
                                     </tr>
@@ -65,6 +68,22 @@
                                         <td>{{$value->category}}</td>
                                         <td>{{$value->email}}</td>
                                         <td>{{$value->comments}}</td>
+                                        <td>
+                                            {{--{{$value->status}}--}}
+                                            <select  data-panel-id="{{$value->jobId}}" name="jobStatus" onChange="changestatus(this)">
+                                                @foreach(JOBSTATUS as $status)
+                                                    <option id="{{$value->jobId}}"  value="{{$status}}"
+                                                    @if($value->status == $status)
+                                                        selected
+                                                    @endif
+                                                    >{{$status}}</option>
+
+                                                @endforeach
+
+
+                                            </select>
+
+                                        </td>
                                         <td>{{$value->created_at}}</td>
                                         <td>
                                             <div align="center">
@@ -102,15 +121,47 @@
 @include('js.js')
 
 
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
 
 <script>
 
     $(document).ready(function() {
         $('#example').DataTable();
     } );
+
+
+
+
+    function changestatus(x)
+    {
+        var id = $(x).data('panel-id');
+
+        var status = $(x).val();
+
+
+
+        $.ajax({
+            type:'post',
+            url:"{{route('job.changestatus')}}",
+            data:{ "_token": "{{ csrf_token() }}",'id':id,'status':status},
+            cache: false,
+            success:function(data)
+            {
+                $.alert({
+                    title: 'Success!',
+                    content: 'Status Changed!',
+                });
+
+            }
+
+        });
+    }
+
+
+
 
 
 

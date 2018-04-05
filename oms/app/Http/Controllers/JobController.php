@@ -17,6 +17,16 @@ use App\Image;
 class JobController extends Controller
 {
 
+    public function changestatus(Request $r){
+        $job=Job::findOrFail($r->id);
+        $job->status=$r->status;
+        $job->save();
+
+        return Response('true');
+
+    }
+
+
     public function newjobrequest()
     {
 

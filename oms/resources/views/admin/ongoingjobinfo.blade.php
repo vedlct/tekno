@@ -63,19 +63,19 @@
                                     <tr>
                                         <td>{{$sl}}</td>
                                         <td>
-                                            {{$value->company_name}}
+                                            {{$value->companyName}}
                                         </td>
-                                        <td>{{$value->service}}</td>
+                                        <td>{{$value->category}}</td>
                                         <td>
                                             <?php echo $value->instruction ?><br>
                                         </td>
                                         <td>
-                                            <select name="paymenttype" id="{{$value->job_id}}" onChange="changestatus(this.id)">
+                                            <select name="paymenttype"  data-panel-id="{{$value->jobId}}" id="{{$value->job_id}}" onChange="changestatus(this)">
 
-                                                @if ($value->job_status == "On Going")
+                                                @if ($value->status== "on going")
 
-                                                    <option selected value='On Going'>On Going</option>
-												  <option value='Done'>Done</option>
+                                                    <option selected value='on going'>On Going</option>
+												  <option value='done'>Done</option>
 
                                                 @else
 
@@ -129,25 +129,29 @@
 </section>
 
 @include('js.js')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
 
 
 <script>
 
+    function changestatus(x) {
+        var id = $(x).data('panel-id');
 
-    function changestatus(x)
-    {
-        var option = document.getElementById(x).value;
+        var status = $(x).val();
+
 
         $.ajax({
-            type:'get',
-            url:'{{url('/changejobstatus')}}/'+option,
-            data:{'id':x,'value':option},
+            type: 'post',
+            url: "{{route('job.changestatus')}}",
+            data: {"_token": "{{ csrf_token() }}", 'id': id, 'status': status},
             cache: false,
-            success:function(data)
-            {
-                //$('#txtHint').html(data);
-                alert(data);
-                location.reload();
+            success: function (data) {
+                $.alert({
+                    title: 'Success!',
+                    content: 'Status Changed!',
+                });
+
             }
 
         });

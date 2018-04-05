@@ -219,6 +219,7 @@ $sms = DB::select( DB::raw("SELECT * FROM `message` WHERE (`sender` = 'Admin' OR
             );
 
         }
+
         DB::table('message')->insert($data);
         //return $comment;
     }
