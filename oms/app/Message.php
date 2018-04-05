@@ -152,7 +152,7 @@ $sms = DB::select( DB::raw("SELECT * FROM `message` WHERE (`sender` = 'Admin' OR
     }
 
 
-    public function comment($job_id){
+    public function comment($jobId){
 
 //        $type=session('user-type');
 //
@@ -182,11 +182,11 @@ $sms = DB::select( DB::raw("SELECT * FROM `message` WHERE (`sender` = 'Admin' OR
 //                ->update($data1);
 //        }
 
-        $comment=DB::table('job_request')
+        $comment=DB::table('job')
 
-            ->join('message', 'job_request.job_id', '=', 'message.job')
-            ->where('job_status','On Going')
-            ->where('job_id',$job_id)
+            ->join('message', 'job.jobId', '=', 'message.job')
+            ->where('job.status','on going')
+            ->where('jobId',$jobId)
             ->get();
 
         return $comment;

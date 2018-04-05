@@ -65,17 +65,17 @@ class MessageController extends Controller
 
     public function jobcomment(Request $request){
 
-        $job_id= $request->id;
+        $jobId= $request->id;
 
-        $jobcomment=(new Message)->comment($job_id);
+        $jobcomment=(new Message)->comment($jobId);
 
        // echo $jobcomment;
-        return view('allcomment' ,compact('jobcomment','job_id'));
+        return view('allcomment' ,compact('jobcomment','jobId'));
 
     }
 
 
-    public function insert_job_comment(Request $request,$job_id){
+    public function insert_job_comment(Request $request,$jobId){
 
 
         $text= $request->sms;
@@ -84,7 +84,7 @@ class MessageController extends Controller
 
         try
         {
-            $jobcomment=(new Message)->insert_comment($job_id,$text);
+            $jobcomment=(new Message)->insert_comment($jobId,$text);
             $type=session('user-type');
 
             if ($type == "User") {

@@ -1,2 +1,2 @@
 <?php
-define('JOBSTATUS',array("pending", "on going"));
+define('JOBSTATUS',array("pending", "on going","done"));

@@ -1,5 +1,5 @@
 
-<form method="post" action="{{route('insertjobcomment',['job_id'=>$job_id])}}">
+<form method="post" action="{{route('insertjobcomment',['jobId'=>$jobId])}}">
     {{csrf_field()}}
 
     <div class="form-group" style="overflow:auto;width: 100%;height: 200px">

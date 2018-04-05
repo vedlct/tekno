@@ -42,6 +42,7 @@
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
+
                                     <tr>
                                         <th width="5%" scope="col">Sl.</th>
                                         <th width="10%" scope="col">Client Name</th>
@@ -60,7 +61,7 @@
 
                                     ?>
                                     @foreach($ongoingwork as $value)
-                                    <tr>
+                                    <tr id="myTableRow{{$value->jobId}}">
                                         <td>{{$sl}}</td>
                                         <td>
                                             {{$value->companyName}}
@@ -70,7 +71,7 @@
                                             <?php echo $value->instruction ?><br>
                                         </td>
                                         <td>
-                                            <select name="paymenttype"  data-panel-id="{{$value->jobId}}" id="{{$value->job_id}}" onChange="changestatus(this)">
+                                            <select name="paymenttype"  data-panel-id="{{$value->jobId}}" id="{{$value->jobId}}" onChange="changestatus(this)">
 
                                                 @if ($value->status== "on going")
 
@@ -84,7 +85,7 @@
                                                 @endif
                                             </select>
                                         </td>
-                                        <td><a href="#" data-panel-id="{{$value->job_id}}" onclick="comment(this)"><div align="center"><i class="fa fa-comments" aria-hidden="true"></i></div></a></td>
+                                        <td><a href="#" data-panel-id="{{$value->jobId}}" onclick="comment(this)"><div align="center"><i class="fa fa-comments" aria-hidden="true"></i></div></a></td>
                                     </tr>
 
                                     <?php
@@ -141,6 +142,7 @@
         var status = $(x).val();
 
 
+
         $.ajax({
             type: 'post',
             url: "{{route('job.changestatus')}}",
@@ -151,6 +153,7 @@
                     title: 'Success!',
                     content: 'Status Changed!',
                 });
+                $('#myTableRow'+id).remove();
 
             }
 
@@ -169,10 +172,11 @@
 
         btn = $(x).data('panel-id');
 
+
         $.ajax({
-            type:'get',
+            type:'POST',
             url:'{{route('jobcomment')}}',
-            data:{id:btn},
+            data:{"_token": "{{ csrf_token() }}",id:btn},
             cache: false,
             success:function(data)
             {
