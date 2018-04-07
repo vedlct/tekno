@@ -30,14 +30,24 @@
 
 <div class="container">
 
-    <form class="form-signin" action="{{url('/logincheck')}}" method="post">
+    <form class="form-signin" action="{{ route('login') }}" method="post">
         <h2 class="form-signin-heading">sign in now</h2>
         <br>
         <center><img class="img-responsive img-thumbnail" src="{{url('img/TCL_logo.png')}}" width="150"></center>
         <div class="login-wrap">
             {{csrf_field()}}
-            <input type="text" class="form-control" name="name" placeholder="User Name" autofocus>
-            <input type="password" class="form-control" name="pass" placeholder="Password">
+            <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="User Name" autofocus>
+            @if ($errors->has('username'))
+                <span class="help-block">
+                                        <strong>{{ $errors->first('username') }}</strong>
+                                    </span>
+            @endif
+            <input type="password" class="form-control" name="password" placeholder="Password">
+            @if ($errors->has('password'))
+                <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+            @endif
 
             <button class="btn btn-lg btn-login btn-block" type="submit" name="login">Sign in</button>
 

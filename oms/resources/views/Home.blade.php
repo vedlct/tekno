@@ -66,9 +66,9 @@
                         </div>
                         <div class="value">
                             <h1 class="count">
-                                0
+                                {{$pending}}
                             </h1>
-                            <p>This is Demo Text</p>
+                            <p>Pending Jobs</p>
                         </div>
                     </section>
                 </div>
@@ -79,9 +79,9 @@
                         </div>
                         <div class="value">
                             <h1 class=" count2">
-                                0
+                                {{$going}}
                             </h1>
-                            <p>TThis is Demo Text</p>
+                            <p>On Going Jobs</p>
 
                         </div>
                     </section>

@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use App\Job;
-
+use Hash;
 class Admin extends Model
 {
     public function get(){
@@ -22,6 +22,7 @@ class Admin extends Model
     public function newjobrequest(){
 
         $jobrequest=DB::table('job')
+            ->where('status','pending')
             ->orderBy('jobId','desc')
             ->get();
 
@@ -172,7 +173,8 @@ class Admin extends Model
 
     public function changepass($id,$pass){
 
-        $password=md5($pass);
+//        $password=md5($pass);
+        $password=Hash::make($pass);
 
         $data=array(
             'password'=>$password

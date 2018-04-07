@@ -42,6 +42,14 @@ $sms = DB::select( DB::raw("SELECT COUNT(*) AS total  FROM `message` WHERE `rece
         <span>New Job Request</span>
     </a>
 </li>
+
+<li>
+    <a  href="{{route('usernewjobrequest')}}">
+        <i class="fa fa-briefcase"></i>
+        <span>All Job Request</span>
+    </a>
+</li>
+
 <li class="sub-menu">
     <a href="javascript:;" >
         <i class="fa fa-laptop"></i>

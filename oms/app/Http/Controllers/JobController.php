@@ -16,6 +16,13 @@ use App\Image;
 
 class JobController extends Controller
 {
+    public function home(){
+        $pending=Job::where('status','pending')->count();
+        $going=Job::where('status','on going')->count();
+        return view('Home')
+            ->with('pending',$pending)
+            ->with('going',$going);
+    }
 
     public function changestatus(Request $r){
         $job=Job::findOrFail($r->id);

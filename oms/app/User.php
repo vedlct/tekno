@@ -27,6 +27,9 @@ class User extends Authenticatable
 //    protected $hidden = [
 //        'password', 'remember_token',
 //    ];
+    public $timestamps = false;
+    protected $primaryKey = 'user_id';
+    protected $table = 'customer_info';
 
     public function get(){
 

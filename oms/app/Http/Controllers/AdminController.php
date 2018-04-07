@@ -356,7 +356,6 @@ class AdminController extends Controller
                     $changepass = (new Admin)->changepass($id, $pass);
                     echo "<script type=\"text/javascript\" >
 				        alert(\"Password Changed Successfully\");
-				window.location=\"/demo/demo11/PasswordChange\";
 				</script>";
                     //return redirect(url('/PasswordChange'));
 
@@ -375,12 +374,11 @@ class AdminController extends Controller
 
                 echo "<script type=\"text/javascript\" >
 				alert(\"Password and Confirm Password doesn't match.please try again\");
-				window.location=\"/demo/demo11/PasswordChange\";
 				</script>";
 
                 //return redirect(url('/PasswordChange'));
             }
-
+            return back();
         }
         else {
             return redirect(url('/'));

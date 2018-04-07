@@ -24,10 +24,10 @@ Route::get('/Registration', function () {
 //Route::get('/Home','LoginController@home');
 Route::post('/insertreg','Registration@insertdata');
 
-Route::get('/Home', function () {
-    return view('Home');
-});
-
+//Route::get('/Home', function () {
+//    return view('Home');
+//});
+Route::get('/Home','JobController@home');
 
 Route::post('/logincheck','LoginController@validate_user');
 //Route::get('/Home','LoginController@home');
@@ -117,3 +117,8 @@ Route::get('/getlivemsgdata', 'MessageController@getlivemsgdata');
 
 Route::get('/user_check', 'Registration@user_check');
 
+
+Auth::routes();
+
+Route::get('/home', 'JobController@home')->name('home');
+//Route::get('/Home','JobController@home');
