@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Admin;
-
+use App\Message;
 use League\Flysystem\Exception;
+use stdClass;
 
 class AdminController extends Controller
 {
@@ -112,7 +113,23 @@ class AdminController extends Controller
 
         $ongoingwork = (new Admin)->ongoingjob();
 
-        return view('admin.ongoingjobinfo', compact('ongoingwork'));
+        $messages =array();
+        foreach ($ongoingwork as $work){
+            $sms=Message::select('sms')->where('job',$work->jobId)->orderBy('id','desc')->first();
+            $u = new stdClass;
+            $u->id=$work->jobId;
+            if(empty($sms)){
+                $u->msg='';
+            }
+            else{
+                $u->msg=$sms->sms;
+            }
+
+
+            array_push($messages, $u);
+        }
+
+        return view('admin.ongoingjobinfo', compact('ongoingwork','messages'));
     }
         else {
             return redirect(url('/'));
@@ -127,7 +144,23 @@ class AdminController extends Controller
 
             $finshedwork = (new Admin)->jobdone();
 
-            return view('admin.jobfinised', compact('finshedwork'));
+            $messages =array();
+            foreach ($finshedwork as $work){
+                $sms=Message::select('sms')->where('job',$work->jobId)->orderBy('id','desc')->first();
+                $u = new stdClass;
+                $u->id=$work->jobId;
+                if(empty($sms)){
+                    $u->msg='';
+                }
+                else{
+                    $u->msg=$sms->sms;
+                }
+
+
+                array_push($messages, $u);
+            }
+
+            return view('admin.jobfinised', compact('finshedwork','messages'));
         }
         else {
             return redirect(url('/'));
@@ -286,23 +319,6 @@ class AdminController extends Controller
                 //return redirect(url('/Service'));
             }
 
-//        if (count($insert_service)!='')
-//        {
-//            echo "<script type=\"text/javascript\">
-//				alert(\"Services Added Successfully\");
-//				window.location=\"/Service\";
-//				</script>";
-//
-//        }
-//        else
-//        {
-//
-//            echo "<script type=\"text/javascript\">
-//				alert(\"Something goes Wrong Pls try again\");
-//				window.location=\"/Service\";
-//				</script>";
-//
-//        }
 
 
         }

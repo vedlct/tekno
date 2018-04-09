@@ -68,7 +68,11 @@
                                         </td>
                                         <td>{{$value->category}}</td>
                                         <td>
-                                            <?php echo $value->instruction ?><br>
+                                            @foreach($messages as $text)
+                                                @if($text->id == $value->jobId)
+                                                {{$text->msg}}
+                                                @endif
+                                            @endforeach
                                         </td>
                                         <td>
                                             <select name="paymenttype"  data-panel-id="{{$value->jobId}}" id="{{$value->jobId}}" onChange="changestatus(this)">

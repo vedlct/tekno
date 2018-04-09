@@ -59,11 +59,8 @@ class Admin extends Model
     public function ongoingjob(){
 
 
-//        $ongoing=DB::table('job_request')
-//            ->join('customer_info', 'job_request.client_id', '=', 'customer_info.user_id')
-//            ->where('job_status','On Going')
-//            ->get();
-        $ongoing=Job::where('status','on going')
+        $ongoing=Job::select('jobId','companyName','category')
+            ->where('job.status','on going')
             ->orderBy('jobId','desc')
             ->get();
 
@@ -78,7 +75,8 @@ class Admin extends Model
 //            ->join('customer_info', 'job_request.client_id', '=', 'customer_info.user_id')
 //            ->where('job_status','Done')
 //            ->get();
-        $finshedwork=Job::where('status','done')
+        $finshedwork=Job::select('jobId','companyName','category')
+            ->where('status','done')
             ->orderBy('jobId','desc')
             ->get();
 
@@ -89,9 +87,11 @@ class Admin extends Model
 
         //$id=session('user-id');
 
-        $client_view= DB::table('customer_info')
-
-            ->where('client_status', '!=', 'Pending')
+//        $client_view= DB::table('customer_info')
+//            ->where('client_status', '!=', 'Pending')
+//            ->get();
+        $client_view= DB::table('job')
+            ->where('status', '!=', 'pending')
             ->get();
         return $client_view;
 

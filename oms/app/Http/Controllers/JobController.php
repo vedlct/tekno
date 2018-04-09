@@ -13,6 +13,7 @@ use App\Logo;
 use App\Leaflet;
 use App\Corporate;
 use App\Image;
+use stdClass;
 
 class JobController extends Controller
 {
@@ -42,10 +43,9 @@ class JobController extends Controller
 
 //        $id=session('user-id');
             $newjobrequest = (new Admin)->newjobrequest();
-
-
             return view('admin.newjobrequest', compact('newjobrequest'));
-        } else {
+        }
+        else {
 
             return redirect(url('/'));
         }

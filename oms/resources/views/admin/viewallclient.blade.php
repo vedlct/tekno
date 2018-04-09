@@ -46,14 +46,9 @@
                                     <tr>
                                         <th width="4%" scope="col">Sl.</th>
                                         <th width="19%" scope="col">Client</th>
-                                        <th width="6%" scope="col">Type</th>
-                                        <th width="11%" scope="col">Username</th>
-                                        <!--<th width="11%" scope="col">Password</th>-->
-                                        <th width="15%" scope="col">Key Person</th>
                                         <th width="14%" scope="col">Email</th>
                                         <th width="11%" scope="col">Number</th>
-                                        <th width="9%" scope="col">Status</th>
-                                        <th width="6%" scope="col">Action</th>
+                                        {{--<th width="6%" scope="col">Action</th>--}}
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -67,30 +62,10 @@
                                     @foreach($client_view as $value)
                                     <tr>
                                         <td>{{$sl}}</td>
-                                        <td>{{$value->company_name}}</td>
-                                        <td>{{$value->user_type}}</td>
-                                        <td>{{$value->username}}</td>
-                                        <!--<td>{{$value->password}}</td>-->
-                                        <td>{{$value->contact_person}}</td>
+                                        <td>{{$value->companyName}}</td>
                                         <td>{{$value->email}}</td>
-                                        <td>{{$value->contact_no}}</td>
-                                        <td>
-                                            <select name="paymenttype" id="{{$value->user_id}}" onChange="changestatus(this.id)">
-
-                                                @if ($value->client_status == "Active")
-
-                                                    <option selected value='Active'>Active</option>
-                                        		  <option value='Deactive'>Deactive</option>
-
-                                                @else
-                                                    <option value='Active'>Active</option>
-                                        		  <option selected value='Deactive'>Deactive</option>
-                                                @endif
-                                            </select>
-
-                                        </td>
-
-                                        <td><div align="center"><a href="#" data-panel-id="{{$value->user_id}}"onclick="edit(this)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div></td>
+                                        <td>{{$value->phoneNumber}}</td>
+                                        {{--<td><div align="center"><a href="#" data-panel-id="{{$value->jobId}}"onclick="edit(this)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div></td>--}}
                                     </tr>
                                     <?php
                                     $sl++;

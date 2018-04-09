@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\DB;
 class Message extends Model
 {
 
+    public $timestamps = false;
+    protected $primaryKey = 'id';
+    protected $table = 'message';
+
     public function getClientunseen()
     {
         $clientunseen= DB::table('message')
