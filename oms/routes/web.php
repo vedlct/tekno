@@ -73,8 +73,6 @@ Route::get('/ClientInfo/{id}','AdminController@clientinfo');
 Route::post('/ClientInfo', 'AdminController@updateclientinfo')->name('updateinfo');
 
 
-Route::get('/Service', 'AdminController@serviceinfo');
-Route::post('/Service', 'AdminController@insertservice')->name('insertservice');
 Route::get('/changeservicestatus/{id}','AdminController@changeservicestatus');
 Route::get('/deleteservice/{id}','AdminController@servicedelete');
 

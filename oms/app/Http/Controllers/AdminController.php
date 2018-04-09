@@ -5,6 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Admin;
 use App\Message;
+use App\Job;
+use App\Brochure;
+use App\Website;
+use App\Leaflet;
+use App\Banner;
+use App\Corporate;
+use App\Logo;
+use App\Image;
+
 use League\Flysystem\Exception;
 use stdClass;
 
@@ -238,94 +247,6 @@ class AdminController extends Controller
             return redirect(url('/'));
         }
     }
-    public function serviceinfo()
-    {
-
-        $type = session('user-type');
-        if ($type == 'Admin') {
-
-            $allservice = (new Admin)->viewservice();
-            return view('admin.sevice', compact('allservice'));
-        }
-        else {
-            return redirect(url('/'));
-        }
-    }
-
-    public function changeservicestatus(Request $request)
-    {
-        $type = session('user-type');
-        if ($type == 'Admin') {
-
-
-            $id = $request->id;
-            $value = $request->value;
-
-
-            //$client_view=(new Admin)->change_service_status($id,$value);
-
-            try {
-                $client_view = (new Admin)->change_service_status($id, $value);
-                echo "Service " . $value . " successfully.";
-
-            } catch (Exception $e) {
-
-                echo "There is an issue. Please Refresh the page and try again.";
-            }
-
-
-//        if (count($client_view)!='')
-//        {
-//            echo "Service ".$value." successfully.";
-//        }
-//        else
-//        {
-//            echo "There is an issue. Please Refresh the page and try again.";
-//        }
-
-
-        }else {
-            return redirect(url('/'));
-        }
-    }
-
-    public function insertservice(Request $request)
-    {
-
-        $type = session('user-type');
-        if ($type == 'Admin') {
-
-            $name = $request->name;
-            $type = $request->type;
-            $status = $request->status;
-            //$type=$request->type;
-
-            // $insert_service=(new Admin)->insert_service($name,$type,$status);
-
-            try {
-                $insert_service = (new Admin)->insert_service($name, $type, $status);
-                echo "<script type=\"text/javascript\">
-				alert(\"Services Added Successfully\");
-				window.location=\"/demo/demo11/Service\";
-				</script>";
-                //return redirect(url('/Service'));
-
-            } catch (Exception $e) {
-
-                echo "<script type=\"text/javascript\">
-				alert(\"Something goes Wrong Pls try again\");
-				window.location=\"/demo/demo11/Service\";
-				</script>";
-                //return redirect(url('/Service'));
-            }
-
-
-
-        }
-        else {
-            return redirect(url('/'));
-        }
-    }
 
     public function passchange()
     {
@@ -436,24 +357,37 @@ class AdminController extends Controller
         $type = session('user-type');
         if ($type == 'Admin') {
 
-            try {
-                $del_job_req = (new Admin)->delete_job_req($id);
-                echo " Pending Job Request deleted successfully";
-
-            } catch (Exception $e) {
-
-                echo "There is an issue. Please Refresh the page and try again.";
+            $job=Job::findOrFail($id);
+            if($job->category=='brochure'){
+                Brochure::where('jobId',$job->jobId)->delete();
+                Image::where('jobId',$job->jobId)->delete();
             }
+            elseif($job->category=='website'){
+                Website::where('jobId',$job->jobId)->delete();
+                Image::where('jobId',$job->jobId)->delete();
 
+            }
+            elseif($job->category=='leaflet'){
+                Leaflet::where('jobId',$job->jobId)->delete();
+                Image::where('jobId',$job->jobId)->delete();
 
-//        if (count($del_job_req)!=''){
-//
-//            echo " Pending Job Request deleted successfully";
-//        }
-//        else{
-//            echo "Something Wrong.please try again";
-//        }
-            //return view('admin.passwordchange',compact('getpass'));
+            }
+            elseif($job->category=='banner'){
+                Banner::where('jobId',$job->jobId)->delete();
+                Image::where('jobId',$job->jobId)->delete();
+
+            }
+            elseif($job->category=='corporate'){
+                Corporate::where('jobId',$job->jobId)->delete();
+                Image::where('jobId',$job->jobId)->delete();
+
+            }
+            elseif($job->category=='logo'){
+                Logo::where('jobId',$job->jobId)->delete();
+                Image::where('jobId',$job->jobId)->delete();
+
+            }
+            $job->delete();
         }
         else {
             return redirect(url('/'));

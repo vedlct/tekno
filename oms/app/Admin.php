@@ -196,15 +196,7 @@ class Admin extends Model
 
     }
 
-    public function delete_job_req($id){
 
-        $job= DB::table('job_request')
-            ->where('job_id',$id)
-            ->delete();
-
-       // return $job;
-
-    }
 
 
 

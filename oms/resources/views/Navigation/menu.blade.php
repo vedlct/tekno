@@ -156,7 +156,6 @@ $sms = DB::select( DB::raw("SELECT COUNT(*) AS total  FROM `message` WHERE `send
     </a>
     <ul class="sub">
 
-        <li><a  href="{{url('/Service')}}">Service Information</a></li>
         <li><a  href="{{route('passchange')}}">Password Change</a></li>
     </ul>
 </li>

@@ -141,8 +141,6 @@
 
         var status = $(x).val();
 
-
-
         $.ajax({
             type:'post',
             url:"{{route('job.changestatus')}}",
@@ -183,7 +181,6 @@ function deletejobrequest(x)
                 success:function(data)
                 {
                     //$('#txtHint').html(data);
-                    alert(data);
                     window.location="{{url('/NewJobRequest')}}";
                 }
 
