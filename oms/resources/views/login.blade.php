@@ -55,12 +55,7 @@
     </form>
     <div class="col-lg-4">
     </div>
-    <div class="col-lg-4">
-        <br><center>OR</center><br>
-        <a href="{{url('/Registration')}}" target="_blank"><button class="btn btn-lg btn-login btn-block" style="background: #4bb158;;box-shadow: 0 4px #4bb158;color: white;">Create New Account</button></a>
-        
 
-    </div>
     
     
     <div align="center" class="col-lg-4">

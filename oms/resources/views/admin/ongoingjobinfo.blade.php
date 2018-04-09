@@ -76,7 +76,7 @@
                                         </td>
                                         <td>
                                             <select name="paymenttype"  data-panel-id="{{$value->jobId}}" id="{{$value->jobId}}" onChange="changestatus(this)">
-                                                
+
 
                                                     <option selected value='on going'>On Going</option>
 												  <option value='done'>Done</option>

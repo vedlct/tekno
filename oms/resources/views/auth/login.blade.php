@@ -1,69 +1,77 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="{{url('img/TCL_logo.png')}}">
 
-@section('content')
+    <title>User Login | Order Management System</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{url('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{url('css/bootstrap-reset.css')}}" rel="stylesheet">
+    <!--external css-->
+    <link href="{{url('pages/css/font-awesome.css')}}" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="{{url('css/style.css')}}" rel="stylesheet">
+    <link href="{{url('css/style-res')}}" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+    <script src="{{url('js/html5shiv.js')}}"></script>
+    <script src="{{url('js/respond.min.js')}}"></script>
+    <![endif]-->
+</head>
+
+<body class="login-body">
+
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Name</label>
-
-                            <div class="col-md-6">
-                                <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
-
-                                @if ($errors->has('username'))
-                                    <span class="help-block">
+    <form class="form-signin" action="{{ route('login') }}" method="post">
+        <h2 class="form-signin-heading">sign in now</h2>
+        <br>
+        <center><img class="img-responsive img-thumbnail" src="{{url('img/TCL_logo.png')}}" width="150"></center>
+        <div class="login-wrap">
+            {{csrf_field()}}
+            <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="User Name" autofocus>
+            @if ($errors->has('username'))
+                <span class="help-block">
                                         <strong>{{ $errors->first('username') }}</strong>
                                     </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
+            @endif
+            <input type="password" class="form-control" name="password" placeholder="Password">
+            @if ($errors->has('password'))
+                <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
-                                @endif
-                            </div>
-                        </div>
+            @endif
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+            <button class="btn btn-lg btn-login btn-block" type="submit" name="login">Sign in</button>
 
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
         </div>
+    </form>
+    <div class="col-lg-4">
+    </div>
+
+
+
+    <div align="center" class="col-lg-4">
+
+
     </div>
 </div>
-@endsection
+<div align="center"><a target="_blank" href ="http://instabite.com/webp/pdffile/OMS(Job).pdf"><h2>User guide</h2></a></div>
+
+
+
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="{{url('js/jquery.js')}}"></script>
+<script src="{{url('js/bootstrap.min.js')}}"></script>
+
+
+
+</body>
+</html>

@@ -118,7 +118,7 @@
     </section>
     <!--main content end-->
     <!--footer start-->
-    <footer class="site-footer">
+    <footer class="site-footer" >
 
             @include('layout.footer')
     </footer>

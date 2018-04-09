@@ -5,14 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\registrationm;
-
+use Hash;
+use Session;
 class Registration extends Controller
 {
+     public function create(){
+
+         return view('admin.createUser');
+
+     }
     protected function insertdata(Request $request){
 
 
         $loginname = $request->loginname;
-        $pass = md5($request->pass);
+        $pass = Hash::make($request->pass);
         $clientname = $request->clientname;
         $contact = $request->contact;
         $number = $request->number;
@@ -30,15 +36,17 @@ class Registration extends Controller
 
             echo "<script type=\"text/javascript\">
 				alert(\"Registration Request Sent Successfully\");
-				window.location=\"/demo/demo11/\";
 				</script>";
         }
         catch(Exception $e){
             echo "<script type=\"text/javascript\">
 				alert(\"There is an issue. Please Refresh the page and try again.\");
-				window.location=\"/demo/demo11/Registration\";
 				</script>";
         }
+
+
+
+        return back();
 
 
     }

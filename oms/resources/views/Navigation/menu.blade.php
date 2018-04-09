@@ -148,17 +148,6 @@ $sms = DB::select( DB::raw("SELECT COUNT(*) AS total  FROM `message` WHERE `send
     </a>
 </li>
 
-<!--<li class="sub-menu">
-    <a href="javascript:;" >
-        <i class="fa fa-laptop"></i>
-        <span>Report</span>
-    </a>
-    <ul class="sub">
-        <li><a  href="AllocationHistory.php">Allocation History</a></li>
-        <li><a  href="SendReport.php">SMS Delivery Status</a></li>
-        <li><a  href="Allocation&Payments.php">Allocation & Payment</a></li>
-    </ul>
-</li> -->
 
 <li class="sub-menu">
     <a href="javascript:;" >
@@ -176,6 +165,13 @@ $sms = DB::select( DB::raw("SELECT COUNT(*) AS total  FROM `message` WHERE `send
     <a href="{{route('adminsms')}}" >
         <i class="fa fa-comment"></i>
         <span>Message</span><span id="output2" style="color:#FFF;;margin: 1px;font-size: 13px;"></span>
+    </a>
+
+</li>
+
+<li class="sub-menu">
+    <a href="{{route('user.create')}}" >
+     Create New User
     </a>
 
 </li>

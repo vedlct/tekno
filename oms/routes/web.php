@@ -11,18 +11,15 @@
 |
 */
 use Illuminate\Http\Request;
-Route::get('/', function () {
-    return view('login');
-});
+//Route::get('/', function () {
+//    return view('login');
+//});
+Route::get('/','Auth\LoginController@showLoginForm');
 
 
-
-Route::get('/Registration', function () {
-    return view('Registration');
-});
 //Route::post('/logincheck','LoginController@validate_user');
 //Route::get('/Home','LoginController@home');
-Route::post('/insertreg','Registration@insertdata');
+Route::post('/insertreg','Registration@insertdata')->name('user.insert');
 
 //Route::get('/Home', function () {
 //    return view('Home');
@@ -114,9 +111,7 @@ Route::get('/getNotifUser', 'MessageController@getNotifUser');
 Route::get('/getlivemsg', 'MessageController@getlivemsg');
 Route::get('/getlivemsgdata', 'MessageController@getlivemsgdata');
 
-
-Route::get('/user_check', 'Registration@user_check');
-
+Route::get('/user/create','Registration@create')->name('user.create');
 
 Auth::routes();
 
