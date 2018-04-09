@@ -76,17 +76,12 @@
                                         </td>
                                         <td>
                                             <select name="paymenttype"  data-panel-id="{{$value->jobId}}" id="{{$value->jobId}}" onChange="changestatus(this)">
-
-                                                @if ($value->status== "on going")
+                                                
 
                                                     <option selected value='on going'>On Going</option>
 												  <option value='done'>Done</option>
 
-                                                @else
 
-                                                    <option selected value='Done'>Done</option>
-
-                                                @endif
                                             </select>
                                         </td>
                                         <td><a href="#" data-panel-id="{{$value->jobId}}" onclick="comment(this)"><div align="center"><i class="fa fa-comments" aria-hidden="true"></i></div></a></td>
