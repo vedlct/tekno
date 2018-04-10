@@ -60,7 +60,8 @@ class JobController extends Controller
             $images=Image::where('jobId',$id)->get();
             return view('job.brochure')
                     ->with('images',$images)
-                    ->with('jobCat',$jobCat);
+                    ->with('jobCat',$jobCat)
+                    ->with('job',$job);
 
 
         }
@@ -72,7 +73,8 @@ class JobController extends Controller
 
             return view('job.website')
                 ->with('images',$images)
-                ->with('jobCat',$jobCat);
+                ->with('jobCat',$jobCat)
+                ->with('job',$job);
 
         }
         elseif($job->category=='leaflet'){
@@ -84,7 +86,8 @@ class JobController extends Controller
 
             return view('job.leaflet')
                 ->with('images',$images)
-                ->with('jobCat',$jobCat);
+                ->with('jobCat',$jobCat)
+                ->with('job',$job);
 
         }
         elseif($job->category=='banner'){
@@ -95,7 +98,8 @@ class JobController extends Controller
 
             return view('job.banner')
                 ->with('images',$images)
-                ->with('jobCat',$jobCat);
+                ->with('jobCat',$jobCat)
+                ->with('job',$job);
         }
         elseif($job->category=='corporate'){
             $jobCat=Corporate::leftJoin('job','corporate-cl.jobId','job.jobId')
@@ -106,7 +110,8 @@ class JobController extends Controller
 
             return view('job.corporate')
                 ->with('images',$images)
-                ->with('jobCat',$jobCat);
+                ->with('jobCat',$jobCat)
+                ->with('job',$job);
 
         }
         elseif($job->category=='logo'){
@@ -116,7 +121,8 @@ class JobController extends Controller
 
 
             return view('job.logo')
-                ->with('jobCat',$jobCat);
+                ->with('jobCat',$jobCat)
+                ->with('job',$job);
 
         }
         elseif($job->category=='vector'){

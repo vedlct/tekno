@@ -47,7 +47,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="name">Company Name:</label>
                                         <div class="col-md-9">
-                                            <input class="form-control" type="text" placeholder="Company name" value="{{$jobCat->companyName}}"></br>
+                                            <input class="form-control" type="text" placeholder="Company name" value="{{$job->companyName}}"></br>
 
                                         </div>
                                     </div>
@@ -83,7 +83,7 @@
                                         <label class="control-label col-sm-3" >Other comments:</label>
                                         <div class="col-sm-9">
 
-                                            <textarea id="OtherComments" name="OtherComments" rows="6" required class="form-control">{{$jobCat->comments}}</textarea><br>
+                                            <textarea id="OtherComments" name="OtherComments" rows="6" required class="form-control">{{$job->comments}}</textarea><br>
 
                                         </div>
                                     </div>

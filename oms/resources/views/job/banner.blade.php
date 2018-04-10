@@ -44,7 +44,7 @@
                                 <div class="form-group">
                                         <label class="col-md-3 control-label" for="name">Company Name:</label>
                                         <div class="col-md-9">
-                                            <input class="form-control" type="text" placeholder="Company name" value="{{$jobCat->companyName}}"></br>
+                                            <input class="form-control" type="text" placeholder="Company name" value="{{$job->companyName}}"></br>
                                         </div>
                                 </div>
 
@@ -62,7 +62,7 @@
                                 <div class="form-group" >
                                         <label class="control-label col-sm-3" >Company Business Area:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter Business Area"  value="{{$jobCat->businessArea}}"><br>
+                                            <input type="text" class="form-control" placeholder="Enter Business Area"  value="{{$job->businessArea}}"><br>
                                         </div>
                                 </div>
 
@@ -98,7 +98,7 @@
                                 <div class="form-group" >
                                         <label class="control-label col-sm-3" >References (if any): </label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter Reference"  value="{{$jobCat->reference}}"><br>
+                                            <input type="text" class="form-control" placeholder="Enter Reference"  value="{{$job->reference}}"><br>
 
                                         </div>
                                 </div>
@@ -107,7 +107,7 @@
                                 <div class="form-group" >
                                         <label class="control-label col-sm-3" >Estimated Time: </label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter Estimated Time"  value="{{$jobCat->EstimatedTime}}"><br>
+                                            <input type="text" class="form-control" placeholder="Enter Estimated Time"  value="{{$job->EstimatedTime}}"><br>
                                         </div>
                                 </div>
 
@@ -115,7 +115,7 @@
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Comments (optional): </label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter Comments" value="{{$jobCat->comments}}"><br>
+                                            <input type="text" class="form-control" placeholder="Enter Comments" value="{{$job->comments}}"><br>
 
                                         </div>
                                     </div>

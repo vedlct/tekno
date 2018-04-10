@@ -48,7 +48,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="name">Company Name:</label>
                                         <div class="col-md-9">
-                                            <input class="form-control" type="text" placeholder="Company name" value="{{$jobCat->companyName}}"></br>
+                                            <input class="form-control" type="text" placeholder="Company name" value="{{$job->companyName}}"></br>
                                         </div>
                                     </div>
 
@@ -56,7 +56,7 @@
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Company Business Area:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter Business Area"  value="{{$jobCat->businessArea}}"></br>
+                                            <input type="text" class="form-control" placeholder="Enter Business Area"  value="{{$job->businessArea}}"></br>
 
                                         </div>
                                     </div>
@@ -82,7 +82,7 @@
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Company Official Email Address:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter Email" value="{{$jobCat->email}}"></br>
+                                            <input type="text" class="form-control" placeholder="Enter Email" value="{{$job->email}}"></br>
 
                                         </div>
                                     </div>
@@ -92,7 +92,7 @@
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Company Phone number:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Phone Number" value="{{$jobCat->phoneNumber}}"></br>
+                                            <input type="text" class="form-control" placeholder="Phone Number" value="{{$job->phoneNumber}}"></br>
 
                                         </div>
                                     </div>
@@ -100,7 +100,7 @@
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Company Address: :</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter Address" value="{{$jobCat->address}}"></br>
+                                            <input type="text" class="form-control" placeholder="Enter Address" value="{{$job->address}}"></br>
 
                                         </div>
                                     </div>
@@ -142,7 +142,7 @@
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Estimated time:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter Estimated Time" value="{{$jobCat->EstimatedTime}}"></br>
+                                            <input type="text" class="form-control" placeholder="Enter Estimated Time" value="{{$job->EstimatedTime}}"></br>
                                         </div>
                                     </div>
 

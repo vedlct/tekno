@@ -104,9 +104,9 @@
 
 
                                     <div class="form-group">
-                                        <label class="col-md-3 control-label" for="name">Brochure Type (description)): </label>
+                                        <label class="col-md-3 control-label" for="name">Brochure Type (description): </label>
                                         <div class="col-md-9">
-                                            <textarea class="form-control" rows="6" required >{{$jobCat->comments}}</textarea></br>
+                                            <textarea class="form-control" rows="6" required >{{$job->comments}}</textarea></br>
 
                                         </div>
                                     </div>
@@ -149,7 +149,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="name">Estimated Time:  </label>
                                         <div class="col-md-9">
-                                            <input class="form-control" type="text" value="{{$jobCat->EstimatedTime}}"></br>
+                                            <input class="form-control" type="text" value="{{$job->EstimatedTime}}"></br>
                                         </div>
                                     </div>
 

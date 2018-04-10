@@ -69,7 +69,7 @@
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label" for="name">Business Detail:</label>
                                         <div class="col-sm-9">
-                                            <textarea class="form-control" name="BusinessDetail"   required rows="6" placeholder="Please describe in short about your business" >{{$jobCat->comments}}</textarea></br>
+                                            <textarea class="form-control" name="BusinessDetail"   required rows="6" placeholder="Please describe in short about your business" >{{$jobCat->businessDetails}}</textarea></br>
                                         </div>
                                     </div>
 
@@ -108,7 +108,7 @@
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label" for="name"> Reference Website:</label>
                                         <div class="col-sm-9">
-                                            <textarea class="form-control" name="ReferenceWeb" c rows="6" placeholder="Please provide one or more than one URLs of websites you prefer">{{$jobCat->reference}}</textarea></br>
+                                            <textarea class="form-control" name="ReferenceWeb" c rows="6" placeholder="Please provide one or more than one URLs of websites you prefer">{{$job->reference}}</textarea></br>
                                         </div>
                                     </div>
 
@@ -129,7 +129,7 @@
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label" for="name">Other Comments (if any):</label>
                                         <div class="col-sm-9">
-                                            <textarea class="form-control" name="OtherComments" cols="30" rows="6" placeholder="Please mention some words regarding your primary requirements (it may change / increase / decrease in future if you want so)"></textarea></br>
+                                            <textarea class="form-control" name="OtherComments" cols="30" rows="6" placeholder="">{{$job->comments}}</textarea></br>
 
                                         </div>
                                     </div>
@@ -138,7 +138,7 @@
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label" for="name">Estimated Development Time:</label>
                                         <div class="col-sm-9">
-                                            <textarea class="form-control"type="text" name="ExistingWeb" placeholder="Give Estimated Development Time"  required>{{$jobCat->EstimatedTime}}</textarea><br>
+                                            <textarea class="form-control"type="text" name="ExistingWeb" placeholder="Give Estimated Development Time"  required>{{$job->EstimatedTime}}</textarea><br>
 
                                         </div>
 
