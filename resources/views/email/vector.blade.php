@@ -29,16 +29,16 @@
     <table>
 
         <tr>
-            <th style="width: 30%">Job Type</th>
-            <th>Vector</th>
+            <tr style="width: 30%">Job Type</tr>
+            <tr>Vector</tr>
         </tr>
         <tr>
             <td>Company Name:</td>
-            <td>name</td>
+            <td>{{$name}}</td>
         </tr>
         <tr>
             <td>Comments (optional):</td>
-            <td>comment</td>
+            <td>{{$comment}}</td>
         </tr>
 
     </table>

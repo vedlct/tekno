@@ -28,29 +28,29 @@
 <div align="center">
     <table>
         <tr>
-            <th style="width: 30%">Job Type</th>
-            <th>Logo</th>
+            <tr style="width: 30%">Job Type</tr>
+            <tr>Logo</tr>
         </tr>
         <tr>
             <td>Company Name:</td>
-            <td>Maria Anders</td>
+            <td>{{$name}}</td>
         </tr>
         <tr>
             <td>Logo Shape:</td>
-            <td>Francisco Chang</td>
+            <td>{{$logoShape}}</td>
         </tr>
 
         <tr>
             <td>Prefered Color:</td>
-            <td>Yoshi Tannamuri</td>
+            <td>{{$preferedColor}}</td>
         </tr>
         <tr>
             <td>Business Type:</td>
-            <td>Giovanni Rovelli</td>
+            <td>{{$businessType}}</td>
         </tr>
         <tr>
             <td>Other comments:</td>
-            <td>Giovanni Rovelli</td>
+            <td>{{$comment}}</td>
         </tr>
 
     </table>

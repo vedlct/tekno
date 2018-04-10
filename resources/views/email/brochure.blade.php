@@ -39,51 +39,51 @@
     </tr>
     <tr>
         <td>Company Name:</td>
-        <td>Maria Anders</td>
+        <td>{{$name}}</td>
     </tr>
     <tr>
         <td>Brochure Size</td>
-        <td>Francisco Chang</td>
+        <td>{{$size}}</td>
     </tr>
     <tr>
         <td>Brochure Pages:</td>
-        <td>Roland Mendel</td>
+        <td>{{$pages}}</td>
     </tr>
     <tr>
         <td>Company Business Area:</td>
-        <td>Helen Bennett</td>
+        <td>{{$businessArea}}</td>
     </tr>
     <tr>
         <td>Company Theme Color:</td>
-        <td>Yoshi Tannamuri</td>
+        <td>{{$themeColor}}</td>
     </tr>
     <tr>
         <td>Tagline / Slogan (if any)</td>
-        <td>Giovanni Rovelli</td>
+        <td>{{$tagline}}</td>
     </tr>
     <tr>
         <td>Brochure Type (description)</td>
-        <td>Giovanni Rovelli</td>
+        <td>{{$description}}</td>
     </tr>
     <tr>
         <td>Main Focus:</td>
-        <td>Giovanni Rovelli</td>
+        <td>{{$focus}}</td>
     </tr>
     <tr>
         <td>TText(soft file, which will be live on leaflet):</td>
-        <td>Giovanni Rovelli</td>
+        <td>{{$TText}}</td>
     </tr>
     <tr>
         <td>Company social media urls. (if any):</td>
-        <td>Giovanni Rovelli</td>
+        <td>{{$mediaUrl}}</td>
     </tr>
     <tr>
         <td>References (if any):</td>
-        <td>Giovanni Rovelli</td>
+        <td>{{$reference}}</td>
     </tr>
     <tr>
         <td>Estimated Time:</td>
-        <td>Giovanni Rovelli</td>
+        <td>{{$estimatedTime}}</td>
     </tr>
 </table>
 </div>

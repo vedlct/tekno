@@ -28,47 +28,47 @@
 <div align="center">
     <table>
         <tr>
-            <th style="width: 30%">Job Type</th>
-            <th>Banner</th>
+            <td style="width: 30%">Job Type</td>
+            <td>Banner</td>
         </tr>
         <tr>
             <td>Company Name:</td>
-            <td>Maria Anders</td>
+            <td>{{$name}}</td>
         </tr>
         <tr>
             <td>Banner Size</td>
-            <td>Francisco Chang</td>
+            <td>{{$size}}</td>
         </tr>
         <tr>
             <td>Headline(if ready):</td>
-            <td>Roland Mendel</td>
+            <td>{{$Headline}}</td>
         </tr>
         <tr>
             <td>Company Business Area:</td>
-            <td>Helen Bennett</td>
+            <td>{{$BusinessArea}}</td>
         </tr>
         <tr>
             <td>Banner Type:</td>
-            <td>Yoshi Tannamuri</td>
+            <td>{{$BannerType}}</td>
         </tr>
         <tr>
             <td>Comments (optional):</td>
-            <td>Giovanni Rovelli</td>
+            <td>{{$comment}}</td>
         </tr>
 
 
         <tr>
             <td>Text (soft file, which will be live on leaflet):</td>
-            <td>Giovanni Rovelli</td>
+            <td>{{$TextSoftFile}}</td>
         </tr>
 
         <tr>
             <td>References (if any):</td>
-            <td>Giovanni Rovelli</td>
+            <td>{{$reference}}</td>
         </tr>
         <tr>
             <td>Estimated Time:</td>
-            <td>Giovanni Rovelli</td>
+            <td>{{$EstimatedTime}}</td>
         </tr>
     </table>
 </div>

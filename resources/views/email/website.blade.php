@@ -33,47 +33,47 @@
         </tr>
         <tr>
             <td>Company Name:</td>
-            <td>Maria Anders</td>
+            <td>{{$name}}</td>
         </tr>
         <tr>
             <td>Website Type:</td>
-            <td>Francisco Chang</td>
+            <td>{{$type}}</td>
         </tr>
         <tr>
             <td>Business Detail:</td>
-            <td>Roland Mendel</td>
+            <td>{{$businessDetail}}</td>
         </tr>
         <tr>
             <td>Number Of Page:</td>
-            <td>Helen Bennett</td>
+            <td>{{$NumberOfPages}}</td>
         </tr>
         <tr>
             <td>Portfolio Page:</td>
-            <td>Yoshi Tannamuri</td>
+            <td>{{$portfolioPage}}</td>
         </tr>
         <tr>
             <td>Website Content Management:</td>
-            <td>Giovanni Rovelli</td>
+            <td>{{$ContentManage}}</td>
         </tr>
         <tr>
             <td>Reference Website:</td>
-            <td>Giovanni Rovelli</td>
+            <td>{{$reference}}</td>
         </tr>
         <tr>
             <td>Social Media URLs:</td>
-            <td>Giovanni Rovelli</td>
+            <td>{{$mediaUrl}}</td>
         </tr>
         <tr>
             <td>Existing Website (if any):</td>
-            <td>Giovanni Rovelli</td>
+            <td>{{$ExistingWeb}}</td>
         </tr>
         <tr>
             <td>Other Comments (if any):</td>
-            <td>Giovanni Rovelli</td>
+            <td>{{$comment}}</td>
         </tr>
         <tr>
             <td>Estimated Development Time:</td>
-            <td>Giovanni Rovelli</td>
+            <td>{{$EstimatedTime}}</td>
         </tr>
     </table>
 </div>

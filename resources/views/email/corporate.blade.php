@@ -28,56 +28,53 @@
 <div align="center">
     <table>
         <tr>
-            <th style="width: 30%">Job Type</th>
-            <th>Corporate-CI</th>
+            <td style="width: 30%">Job Type</td>
+            <td>Corporate-CI</td>
         </tr>
         <tr>
             <td>Company Name:</td>
-            <td>Maria Anders</td>
+            <td>{{$name}}</td>
         </tr>
         <tr>
             <td>Company Official Email Address:</td>
-            <td>Francisco Chang</td>
+            <td>{{$mail}}</td>
         </tr>
-        <tr>
-            <td>Brochure Pages:</td>
-            <td>Roland Mendel</td>
-        </tr>
+
         <tr>
             <td>Company Business Area:</td>
-            <td>Helen Bennett</td>
+            <td>{{$BusinessArea}}</td>
         </tr>
         <tr>
             <td>Company Theme Color:</td>
-            <td>Yoshi Tannamuri</td>
+            <td>{{$themeColo}}</td>
         </tr>
         <tr>
             <td>Company Phone number:</td>
-            <td>Giovanni Rovelli</td>
+            <td>{{$number}}</td>
         </tr>
         <tr>
             <td>Company Address:</td>
-            <td>Giovanni Rovelli</td>
+            <td>{{$address}}</td>
         </tr>
         <tr>
             <td>Company Official Email Address:</td>
-            <td>Giovanni Rovelli</td>
+            <td>{{$email}}</td>
         </tr>
         <tr>
             <td>Name and Designation for visiting cards:</td>
-            <td>Giovanni Rovelli</td>
+            <td>{{$designation}}</td>
         </tr>
         <tr>
             <td>QR CODE:</td>
-            <td>Giovanni Rovelli</td>
+            <td>{{$qr}}</td>
         </tr>
         <tr>
             <td>CI Types:</td>
-            <td>Giovanni Rovelli</td>
+            <td>{{$ciType}}</td>
         </tr>
         <tr>
             <td>Estimated Time:</td>
-            <td>Giovanni Rovelli</td>
+            <td>{{$EstimatedTime}}</td>
         </tr>
     </table>
 </div>
