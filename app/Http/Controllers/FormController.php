@@ -354,7 +354,7 @@ class FormController extends Controller
     public function storeVector(Request $r){
         $job=new Job;
         $job->companyName=$r->companyName;
-        $job->comments=$r->Comments;
+        $job->comments= $r->Comments;
         $job->category='vector';
         $job->EstimatedTime=$r->EstimatedTime;
         $job->save();
@@ -382,9 +382,9 @@ class FormController extends Controller
                 $picture->save();
             }
         }
+        $data=array('name'=>$r->companyName, 'comment'=> $r->Comments);
 
-
-        Mail::send('email.vector',$r, function($message)
+        Mail::send('email.vector',$data, function($message) use ($r)
         {
 //                $message->from('Techcloud', 'Discount Offer');
             $message->to(EMAIL, 'demo client')->subject('New Job Offer!');

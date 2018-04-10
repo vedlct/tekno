@@ -27,17 +27,18 @@
 
 <div align="center">
     <table>
+
         <tr>
             <th style="width: 30%">Job Type</th>
             <th>Vector</th>
         </tr>
         <tr>
             <td>Company Name:</td>
-            <td>Maria Anders</td>
+            <td>name</td>
         </tr>
         <tr>
             <td>Comments (optional):</td>
-            <td>Giovanni Rovelli</td>
+            <td>comment</td>
         </tr>
 
     </table>
