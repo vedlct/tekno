@@ -38,17 +38,17 @@ class JobController extends Controller
     public function newjobrequest()
     {
 
-        $type = session('user-type');
-        if ($type == 'Admin') {
+//        $type = session('user-type');
+//        if ($type == 'Admin') {
 
 //        $id=session('user-id');
             $newjobrequest = (new Admin)->newjobrequest();
             return view('admin.newjobrequest', compact('newjobrequest'));
-        }
-        else {
-
-            return redirect(url('/'));
-        }
+//        }
+//        else {
+//
+//            return redirect(url('/'));
+//        }
     }
     public function getJob($id){
         $job=Job::findOrFail($id);

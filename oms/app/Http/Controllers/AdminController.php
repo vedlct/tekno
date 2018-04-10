@@ -117,8 +117,8 @@ class AdminController extends Controller
 
     public function ongoingjob()
     {
-        $type = session('user-type');
-        if ($type == 'Admin') {
+//        $type = session('user-type');
+//        if ($type == 'Admin') {
 
         $ongoingwork = (new Admin)->ongoingjob();
 
@@ -139,17 +139,17 @@ class AdminController extends Controller
         }
 
         return view('admin.ongoingjobinfo', compact('ongoingwork','messages'));
-    }
-        else {
-            return redirect(url('/'));
-        }
+//    }
+//        else {
+//            return redirect(url('/'));
+//        }
 }
 
     public function finshedjob()
     {
-
-        $type = session('user-type');
-        if ($type == 'Admin') {
+//
+//        $type = session('user-type');
+//        if ($type == 'Admin') {
 
             $finshedwork = (new Admin)->jobdone();
 
@@ -170,10 +170,10 @@ class AdminController extends Controller
             }
 
             return view('admin.jobfinised', compact('finshedwork','messages'));
-        }
-        else {
-            return redirect(url('/'));
-        }
+//        }
+//        else {
+//            return redirect(url('/'));
+//        }
     }
 
     public function viewclient()

@@ -17,6 +17,7 @@ use Image;
 use File;
 use Session;
 use Validator;
+use Illuminate\Support\Facades\Mail;
 
 class FormController extends Controller
 {
@@ -381,6 +382,14 @@ class FormController extends Controller
                 $picture->save();
             }
         }
+
+
+        Mail::send('email.vector',$r, function($message)
+        {
+//                $message->from('Techcloud', 'Discount Offer');
+            $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
+        });
+
 
 
         Session::flash('message', 'Logo Added Successfully');

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2018 at 08:13 AM
+-- Generation Time: Apr 10, 2018 at 09:05 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -69,12 +69,11 @@ CREATE TABLE `brochure` (
 INSERT INTO `brochure` (`brochureId`, `jobId`, `size`, `page`, `themeColor`, `tagline`, `mainFocus`, `tText`, `socialMediaUrl`) VALUES
 (2, 3, 'Brochure size', 'PanelFold', 'dfdfdf', 'dfdfd', 'ProductShowcase', 'dfd', 'dfdfdfd'),
 (3, 12, 'fgfg', NULL, 'gfg', 'fgfg', NULL, 'fgfg', 'fgfgf'),
-(4, 13, 'fgfg', NULL, 'gfg', 'fgfg', NULL, 'fgfg', 'fgfgf'),
 (5, 14, '65', 'HalfFold', '656', 'wew', 'ProductShowcase', 'dfdf', 'dfdfd'),
-(6, 15, '5454', 'HalfFold', 'sdsd', 'sdsd', NULL, 'sds', 'sdsd'),
 (7, 18, 'gfgf', 'HalfFold', 'fgfg', 'gfgf', NULL, 'fgf', 'fgf'),
 (8, 19, '656', 'HalfFold', 'test tor 4/4/2018', 'test tor 4/4/2018', 'ProductShowcase', 'test tor 4/4/2018', 'test tor 4/4/2018'),
-(9, 21, '65', 'HalfFold', 'gfg', 'fgfg', 'ProductShowcase', 'fgf', 'fgf');
+(9, 21, '65', 'HalfFold', 'gfg', 'fgfg', 'ProductShowcase', 'fgf', 'fgf'),
+(10, 22, '656', 'TriFold', 'green', 'lol', 'ProductShowcase', 'dfd', 'dfd');
 
 -- --------------------------------------------------------
 
@@ -126,9 +125,10 @@ CREATE TABLE `customer_info` (
 
 INSERT INTO `customer_info` (`user_id`, `username`, `password`, `user_type`, `company_name`, `short_name`, `contact_person`, `contact_no`, `email`, `address`, `webaddress`, `client_status`) VALUES
 (1, 'admin', '$2y$10$iZulWAQ1e/CVhqnnajUZS.GeoNAk2cb6UioJ0f9d1mTchtItfcYaW', 'Admin', 'TCL', 'TCL', 'forhad', '01616404404', 'fcml44@gmail.com', 'baridhara', 'errorsworld.com', 'Active'),
-(2, 'test', 'e10adc3949ba59abbe56e057f20f883e', 'User', 'TCL1', 'TCL1', 'test1', '444', 'test1@test.com', 'test1', 'test1', 'Active'),
-(5, 'chandan', '123', 'User', 'Tecno ERP', 'TE', 'Me', '01722504422', 'fcml44@gmail.com', 'baridhara', 'errorsworld.com', 'Active'),
-(4, 'sgdj', 'sgdj@123', 'User', 'Sangini Gold & Diamond Jewellery', 'SG&DJ', 'test', '014444', 'test@404.com', 'sss', 'ddd', 'Active');
+(2, 'test', '$2y$10$sWHQUlT5YI0gXlUGPRkOyuKOT9I3AngZAsGijpjv4jc9Fxdvs8fYS', 'User', 'TCL1', 'TCL1', 'test1', '444', 'test1@test.com', 'test1', 'test1', 'Active'),
+(5, 'chandan', '$2y$10$Zmb28A845j.HIPIpaSw/he.B.G40bA6NTtfrrdMydWW.VOGk3OdDa', 'User', 'Tecno ERP', 'TE', 'Me', '01722504422', 'fcml44@gmail.com', 'baridhara', 'errorsworld.com', 'Active'),
+(4, 'sgdj', '$2y$10$4O7RQn71cVjvUQF1YGC5.Oqi4DV34cNqWrmqKMuv31JrLUGKgPSv2', 'User', 'Sangini Gold & Diamond Jewellery', 'SG&DJ', 'test', '014444', 'test@404.com', 'sss', 'ddd', 'Active'),
+(6, 'farzad', '$2y$10$B2n0T6EVHICBjna8BxtsZexTuCuJqJL6zMV83n5n2y/b2PAacentC', 'User', 'fdsfsd', 'f', 'dfdf', '01656565', 'farzad@yahoo.com', NULL, NULL, 'Pending');
 
 -- --------------------------------------------------------
 
@@ -147,21 +147,16 @@ CREATE TABLE `image` (
 --
 
 INSERT INTO `image` (`imageId`, `jobId`, `path`) VALUES
-(1, 13, 'public/teknovisual/Client_File/2018-03-31/head-659651_960_720.png.png'),
-(2, 13, 'public/teknovisual/Client_File/2018-03-31/profile-icon-male-emotion-avatar-man-cartoon-portrait-happy-smiling-face-sing-vector-illustration-94159259.jpg.jpg'),
-(3, 13, 'public/teknovisual/Client_File/2018-03-31/ProfileImage.jpg.jpg'),
 (4, 14, 'public/teknovisual/Client_File/2018-03-31Tech Cloud/head-659651_960_720.png'),
 (5, 14, 'public/teknovisual/Client_File/2018-03-31Tech Cloud/profile-icon-male-emotion-avatar-man-cartoon-portrait-happy-smiling-face-sing-vector-illustration-94159259.jpg'),
 (6, 14, 'public/teknovisual/Client_File/2018-03-31Tech Cloud/ProfileImage.jpg'),
-(7, 15, 'public/teknovisual/Client_File/2018-03-31/Tech Cloud/head-659651_960_720.png'),
-(8, 15, 'public/teknovisual/Client_File/2018-03-31/Tech Cloud/profile-icon-male-emotion-avatar-man-cartoon-portrait-happy-smiling-face-sing-vector-illustration-94159259.jpg'),
-(9, 15, 'public/teknovisual/Client_File/2018-03-31/Tech Cloud/ProfileImage.jpg'),
 (10, 16, 'public/teknovisual/Client_File/2018-03-31/website company/9cpz9bKxi.png'),
 (11, 16, 'public/teknovisual/Client_File/2018-03-31/website company/head-659651_960_720.png'),
 (12, 19, 'public/teknovisual/Client_File/2018-04-04/test tor 4/4/2018/9cpz9bKxi.png'),
 (13, 19, 'public/teknovisual/Client_File/2018-04-04/test tor 4/4/2018/head-659651_960_720.png'),
 (14, 21, 'public/teknovisual/Client_File/2018-04-04/brochure-test/9cpz9bKxi.png'),
-(15, 21, 'public/teknovisual/Client_File/2018-04-04/brochure-test/bg14.jpg');
+(15, 21, 'public/teknovisual/Client_File/2018-04-04/brochure-test/bg14.jpg'),
+(16, 22, 'public/teknovisual/Client_File/2018-04-07/test brochure/9cpz9bKxi.png');
 
 -- --------------------------------------------------------
 
@@ -196,17 +191,15 @@ INSERT INTO `job` (`jobId`, `companyName`, `reference`, `email`, `phoneNumber`, 
 (6, 'Banner', 'Banner', NULL, NULL, NULL, 'Banner', 'banner', NULL, 'Banner', NULL, 'pending', '2018-03-31 11:35:56'),
 (8, 'Corporate-CI', NULL, 'Corporate-CI', 'Corporate-CI', 'Corporate-CI', NULL, 'corporate', NULL, 'Corporate-CI', NULL, 'pending', '2018-03-31 11:35:56'),
 (10, 'Logo', NULL, NULL, NULL, NULL, 'Logo', 'logo', NULL, NULL, NULL, 'pending', '2018-03-31 11:35:56'),
-(11, 'Vector', NULL, NULL, NULL, NULL, 'Vector', 'vector', NULL, NULL, NULL, 'pending', '2018-03-31 11:35:56'),
-(12, NULL, 'fgfgfg', NULL, NULL, NULL, NULL, 'brochure', NULL, 'gfg', NULL, 'pending', '2018-03-31 11:35:56'),
-(13, NULL, 'fgfgfg', NULL, NULL, NULL, NULL, 'brochure', NULL, 'gfg', NULL, 'pending', '2018-03-31 11:35:56'),
+(12, 'fgf', 'fgfgfg', NULL, NULL, NULL, NULL, 'brochure', NULL, 'gfg', NULL, 'pending', '2018-03-31 11:35:56'),
 (14, 'Tech Cloud', 'dfd', NULL, NULL, NULL, NULL, 'brochure', NULL, '656', NULL, 'pending', '2018-03-31 11:35:56'),
-(15, 'Tech Cloud', 'dsd', NULL, NULL, NULL, NULL, 'brochure', NULL, 'sds', NULL, 'pending', '2018-03-31 11:35:56'),
 (16, 'website company', 'website company', NULL, NULL, NULL, 'website company', 'website', NULL, NULL, NULL, 'on going', '2018-03-31 11:35:56'),
-(17, NULL, 'dfd', NULL, NULL, NULL, 'dfdf', 'website', NULL, NULL, NULL, 'on going', '2018-03-31 11:35:56'),
+(17, 'gfgfgf', 'dfd', NULL, NULL, NULL, 'dfdf', 'website', NULL, NULL, NULL, 'done', '2018-03-31 11:35:56'),
 (18, 'fgf', 'fgfg', NULL, NULL, NULL, NULL, 'brochure', NULL, 'fgf', NULL, 'done', '2018-03-31 11:35:56'),
 (19, 'test tor 4/4/2018', '6565', NULL, NULL, NULL, NULL, 'brochure', NULL, 'test tor 4/4/2018', '564', 'done', '2018-04-04 06:30:37'),
 (20, 'leaflet test', 'dsdsd', 'sdsd@dsd.dsd', '5456', 'sds.@dsd.dd', NULL, 'leaflet', 'sds', 'dsd', NULL, 'done', '2018-04-04 06:32:17'),
-(21, 'brochure-test', 'gf', NULL, NULL, NULL, NULL, 'brochure', NULL, 'fgfg', 'gfg', 'done', '2018-04-04 06:35:31');
+(21, 'brochure-test', 'gf', NULL, NULL, NULL, NULL, 'brochure', NULL, 'fgfg', 'gfg', 'done', '2018-04-04 06:35:31'),
+(22, 'test brochure', 'fdf', NULL, NULL, NULL, NULL, 'brochure', NULL, '500', 'dfd', 'on going', '2018-04-07 10:36:47');
 
 -- --------------------------------------------------------
 
@@ -432,9 +425,10 @@ CREATE TABLE `message` (
 
 INSERT INTO `message` (`id`, `sender`, `receiver`, `sms`, `job`, `status`, `inserted_time`) VALUES
 (1, 'Admin', 'TCL', 'hey', '18', 'unseen', '2018-04-05 07:47:11'),
-(2, 'Admin', 'TCL', NULL, '17', 'unseen', '2018-04-06 06:35:57'),
+(2, 'Admin', 'TCL', '....', '17', 'unseen', '2018-04-09 06:24:27'),
 (3, 'Admin', 'TCL', 'hey there', '17', 'unseen', '2018-04-06 06:36:06'),
-(4, 'Admin', 'TCL', 'fgfg', '17', 'unseen', '2018-04-07 05:51:32');
+(4, 'Admin', 'TCL', 'fgfg', '17', 'unseen', '2018-04-07 05:51:32'),
+(5, 'Admin', 'TCL', 'ok', '16', 'unseen', '2018-04-09 06:51:56');
 
 -- --------------------------------------------------------
 
@@ -586,7 +580,7 @@ ALTER TABLE `banner`
 -- AUTO_INCREMENT for table `brochure`
 --
 ALTER TABLE `brochure`
-  MODIFY `brochureId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `brochureId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `corporate-cl`
@@ -598,19 +592,19 @@ ALTER TABLE `corporate-cl`
 -- AUTO_INCREMENT for table `customer_info`
 --
 ALTER TABLE `customer_info`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `image`
 --
 ALTER TABLE `image`
-  MODIFY `imageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `imageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `job`
 --
 ALTER TABLE `job`
-  MODIFY `jobId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `jobId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `job_request`
@@ -640,13 +634,13 @@ ALTER TABLE `log_info`
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
-  MODIFY `service_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `service_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `website`
