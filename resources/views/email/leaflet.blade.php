@@ -27,8 +27,8 @@
 <div align="center">
     <table>
         <tr>
-            <tr style="width: 30%">Job Type</tr>
-            <tr>Leaflet</tr>
+            <td style="width: 30%">Job Type</td>
+            <td>Leaflet</td>
         </tr>
         <tr>
             <td>Company Name:</td>

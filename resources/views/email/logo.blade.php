@@ -28,8 +28,8 @@
 <div align="center">
     <table>
         <tr>
-            <tr style="width: 30%">Job Type</tr>
-            <tr>Logo</tr>
+            <td style="width: 30%">Job Type</td>
+            <td>Logo</td>
         </tr>
         <tr>
             <td>Company Name:</td>

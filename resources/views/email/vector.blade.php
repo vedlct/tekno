@@ -29,8 +29,8 @@
     <table>
 
         <tr>
-            <tr style="width: 30%">Job Type</tr>
-            <tr>Vector</tr>
+            <td style="width: 30%">Job Type</td>
+            <td>Vector</td>
         </tr>
         <tr>
             <td>Company Name:</td>
