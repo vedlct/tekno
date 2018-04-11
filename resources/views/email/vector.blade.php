@@ -30,7 +30,7 @@
 
         <tr>
             <td style="width: 30%">Job Type</td>
-            <td>Vector</td>
+            <td><b>Vector</b></td>
         </tr>
         <tr>
             <td>Company Name:</td>

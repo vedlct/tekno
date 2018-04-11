@@ -29,7 +29,7 @@
     <table>
         <tr>
             <td style="width: 30%">Job Type</td>
-            <td>Corporate-CI</td>
+            <td><b>Corporate-CI</b></td>
         </tr>
         <tr>
             <td>Company Name:</td>
@@ -46,7 +46,7 @@
         </tr>
         <tr>
             <td>Company Theme Color:</td>
-            <td>{{$themeColo}}</td>
+            <td>{{$themeColor}}</td>
         </tr>
         <tr>
             <td>Company Phone number:</td>

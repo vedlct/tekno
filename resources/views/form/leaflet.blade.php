@@ -183,10 +183,10 @@
         <div class="form-group row">
             <label for="example-tel-input" class="col-sm-3 control-label">Estimated Time: </label>
             <div class="col-sm-9">
-                <textarea class="form-control" type="text" id="TextSoftFile" name="estimatedTime" required></textarea>
-                @if ($errors->has('estimatedTime'))
+                <textarea class="form-control" type="text" id="TextSoftFile" name="EstimatedTime" required></textarea>
+                @if ($errors->has('EstimatedTime'))
                     <span class="invalid-feedback">
-                        <strong>{{ $errors->first('estimatedTime') }}</strong>
+                        <strong>{{ $errors->first('EstimatedTime') }}</strong>
                     </span>
                 @endif
             </div>

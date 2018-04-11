@@ -123,10 +123,10 @@
         <div class="form-group">
             <label class="col-sm-3 control-label" for="name">Estimated Development Time:*</label>
             <div class="col-sm-9">
-                <textarea class="form-control"type="text" name="ExistingWeb" placeholder="Give Estimated Development Time"  required></textarea><br>
-                @if ($errors->has('ExistingWeb'))
+                <textarea class="form-control"type="text" name="EstimatedTime" placeholder="Give Estimated Development Time"  required></textarea><br>
+                @if ($errors->has('EstimatedTime'))
                     <span class="invalid-feedback">
-                        <strong>{{ $errors->first('ExistingWeb') }}</strong>
+                        <strong>{{ $errors->first('EstimatedTime') }}</strong>
                     </span>
                 @endif
             </div>

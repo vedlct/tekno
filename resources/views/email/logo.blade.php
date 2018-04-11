@@ -29,7 +29,7 @@
     <table>
         <tr>
             <td style="width: 30%">Job Type</td>
-            <td>Logo</td>
+            <td><b>Logo</b></td>
         </tr>
         <tr>
             <td>Company Name:</td>

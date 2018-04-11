@@ -35,7 +35,7 @@
 <table>
     <tr>
         <td style="width: 30%">Job Type</td>
-        <td>Brochure</td>
+        <td><b>Brochure</b></td>
     </tr>
     <tr>
         <td>Company Name:</td>

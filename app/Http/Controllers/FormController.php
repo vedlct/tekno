@@ -122,7 +122,7 @@ class FormController extends Controller
             'estimatedTime'=>$r->EstimatedTime,
 
         );
-        Mail::send('email.website',$data, function($message)
+        Mail::send('email.brochure',$data, function($message)
         {
             $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
         });
