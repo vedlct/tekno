@@ -37,6 +37,14 @@
             <td>{{$name}}</td>
         </tr>
         <tr>
+            <td>Company Email:</td>
+            <td>{{$email}}</td>
+        </tr>
+        <tr>
+            <td>Phone Number:</td>
+            <td>{{$number}}</td>
+        </tr>
+        <tr>
             <td>Comments (optional):</td>
             <td>{{$comment}}</td>
         </tr>

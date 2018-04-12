@@ -67,6 +67,10 @@ class FormController extends Controller
 
         $job=new Job;
         $job->companyName=$r->companyName;
+
+        $job->email=$r->email;
+        $job->phoneNumber=$r->phoneNumber;
+
         $job->reference=$r->References;
         $job->businessArea=$r->BusinessArea;
         $job->category='brochure';
@@ -109,6 +113,8 @@ class FormController extends Controller
         }
 
         $data=array('name'=>$r->companyName,
+            'email'=> $r->email,
+            'number' => $r->phoneNumber,
             'size'=> $r->BrochureSize,
             'pages'=> $r->BrochurePages,
             'businessArea'=>$r->BusinessArea,
@@ -135,6 +141,8 @@ class FormController extends Controller
     public function storeWebsite(Request $r){
         $job=new Job;
         $job->companyName=$r->companyName;
+        $job->email=$r->email;
+        $job->phoneNumber=$r->phoneNumber;
         $job->reference=$r->ReferenceWeb;
         $job->comments=$r->OtherComments;
         $job->category='website';
@@ -177,6 +185,8 @@ class FormController extends Controller
 
 
         $data=array('name'=>$r->companyName,
+            'email'=> $r->email,
+            'number' => $r->phoneNumber,
             'type'=> $r->WebsiteType,
             'NumberOfPages'=> $r->NumberOfPages,
             'portfolioPage'=> $r->portfolioPage,
@@ -273,6 +283,8 @@ class FormController extends Controller
     public function storeBanner(Request $r){
         $job=new Job;
         $job->companyName=$r->companyName;
+        $job->email=$r->email;
+        $job->phoneNumber=$r->phoneNumber;
         $job->reference=$r->references;
         $job->comments=$r->Comments;
         $job->businessArea=$r->BusinessArea;
@@ -313,6 +325,8 @@ class FormController extends Controller
         }
 
         $data=array('name'=>$r->companyName,
+            'email'=> $r->email,
+            'number' => $r->phoneNumber,
             'size'=> $r->bannerSize,
             'Headline'=> $r->Headline,
             'BannerType'=> $r->BannerType,
@@ -408,6 +422,8 @@ class FormController extends Controller
 
         $job=new Job;
         $job->companyName=$r->companyName;
+        $job->email=$r->email;
+        $job->phoneNumber=$r->phoneNumber;
         $job->comments=$r->OtherComments;
         $job->category='logo';
         $job->EstimatedTime=$r->EstimatedTime;
@@ -421,6 +437,8 @@ class FormController extends Controller
         $logo->save();
 
         $data=array('name'=>$r->companyName,
+            'email'=> $r->email,
+            'number' => $r->phoneNumber,
             'comment'=> $r->OtherComments,
             'EstimatedTime'=>$r->EstimatedTime,
             'logoShape'=>$r->LogoShape,
@@ -438,6 +456,8 @@ class FormController extends Controller
     public function storeVector(Request $r){
         $job=new Job;
         $job->companyName=$r->companyName;
+        $job->email=$r->email;
+        $job->phoneNumber=$r->phoneNumber;
         $job->comments= $r->Comments;
         $job->category='vector';
         $job->EstimatedTime=$r->EstimatedTime;
@@ -466,7 +486,10 @@ class FormController extends Controller
                 $picture->save();
             }
         }
-        $data=array('name'=>$r->companyName, 'comment'=> $r->Comments);
+        $data=array('name'=>$r->companyName,
+            'email'=> $r->email,
+            'number' => $r->phoneNumber,
+            'comment'=> $r->Comments);
 
         Mail::send('email.vector',$data, function($message)
         {

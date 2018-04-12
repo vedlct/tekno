@@ -21,6 +21,33 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="name"> Company Email:*</label>
+            <div class="col-md-9">
+                <input class="form-control" type="text" placeholder="email" name="email" id="email" required></br>
+
+                @if ($errors->has('email'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('email')}}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="name">Phone Number:*</label>
+            <div class="col-md-9">
+                <input class="form-control" type="text" placeholder="number" name="phoneNumber" id="email" required></br>
+
+                @if ($errors->has('phoneNumber'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('phoneNumber') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+
 
         <div class="form-group">
             <label style="margin-right: 20px;" class="col-sm-3 control-label">Website Type:*</label>
