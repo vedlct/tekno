@@ -205,12 +205,12 @@
             </div>
         </div>
 
-        <div class="progress">
-            <div class="bar"></div >
-            <div class="percent">0%</div >
-        </div>
+        {{--<div class="progress">--}}
+            {{--<div class="bar"></div >--}}
+            {{--<div class="percent">0%</div >--}}
+        {{--</div>--}}
 
-        <div id="status"></div>
+        {{--<div id="status"></div>--}}
 
 
         <legend >Your Action</legend>
