@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use App\Job;
+use App\User;
 use Hash;
 class Admin extends Model
 {
@@ -12,8 +13,7 @@ class Admin extends Model
 
         $id=session('user-id');
 
-        $profile_info= DB::table('customer_info')
-                            ->where('user_id',$id)
+        $profile_info= User::where('user_id',$id)
                             ->limit(1)
                             ->get();
         return $profile_info;
@@ -39,8 +39,7 @@ class Admin extends Model
 
     public function change_user_status($id,$value){
 
-        DB::table('customer_info')
-            ->where('user_id',$id)
+        User::where('user_id',$id)
             ->update(array('client_status'=>$value));
 
         //return true;
@@ -48,8 +47,7 @@ class Admin extends Model
 
     public function newuserrequest(){
 
-        $userrequest= DB::table('customer_info')
-            ->where('client_status','Pending')
+        $userrequest= User::where('client_status','Pending')
             ->get();
 
 
@@ -98,8 +96,7 @@ class Admin extends Model
     }
 
     public function viewclient($id){
-        $client_view= DB::table('customer_info')
-            ->where('user_id',$id)
+        $client_view= User::where('user_id',$id)
             ->get();
         return $client_view;
 
@@ -107,8 +104,7 @@ class Admin extends Model
 
     public function updateclient($id, $type, $company_name, $contact_person, $contact_number, $email, $address, $web){
 
-        DB::table('customer_info')
-            ->where('user_id',$id)
+       User::where('user_id',$id)
             ->update(array(
                 'user_type'=>$type,
                 'company_name'=>$company_name,
@@ -154,8 +150,7 @@ class Admin extends Model
 
     public function getinfo(){
 
-        $info= DB::table('customer_info')
-            ->where('client_status', 'Active')
+        $info= User::where('client_status', 'Active')
             ->orderBy('company_name', 'ASC')
             ->get();
         return $info;
@@ -163,8 +158,7 @@ class Admin extends Model
     }
     public function getpass($id){
 
-        $profile_info= DB::table('customer_info')
-            ->where('user_id',$id)
+        $profile_info= User::where('user_id',$id)
             ->limit(1)
             ->get();
         return $profile_info;
@@ -180,8 +174,7 @@ class Admin extends Model
             'password'=>$password
         );
 
-        DB::table('customer_info')
-            ->where('user_id',$id)
+        User::where('user_id',$id)
             ->update($data);
         //return true;
     }
