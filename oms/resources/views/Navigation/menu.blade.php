@@ -31,7 +31,7 @@
 </li>
 <li class="sub-menu">
     <a href="{{route('user.create')}}" >
-        Create New User
+        <i class="fa fa-plus"></i>   Create New User
     </a>
 
 </li>

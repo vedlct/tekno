@@ -80,6 +80,13 @@
                                         </div>
                                     </div>
 
+                                <div class="form-group" >
+                                    <label class="control-label col-sm-3" >Estimated Time: </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" placeholder=""  value="{{$job->EstimatedTime}}"><br>
+                                    </div>
+                                </div>
+
 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="name">Attach Logo & Images: </label><br>

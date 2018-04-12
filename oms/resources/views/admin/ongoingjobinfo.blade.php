@@ -49,12 +49,11 @@
                                         <th width="15%" scope="col">Service Type</th>
                                         <th width="50%" scope="col">Brief</th>
                                         <th width="5%" scope="col">Status</th>
-                                        <th width="5%" scope="col">Client Comments</th>
+                                        <th width="5%" scope="col">Comments</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <?php
-
 
 
                                     $sl = 1;

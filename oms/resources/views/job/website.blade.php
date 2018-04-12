@@ -151,14 +151,12 @@
                                     </div>
 
 
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label" for="name">Estimated Development Time:</label>
-                                        <div class="col-sm-9">
-                                            <textarea class="form-control"type="text" name="ExistingWeb" placeholder="Give Estimated Development Time"  required>{{$job->EstimatedTime}}</textarea><br>
-
-                                        </div>
-
+                                <div class="form-group" >
+                                    <label class="control-label col-sm-3" >Estimated Time: </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" placeholder=""  value="{{$job->EstimatedTime}}"><br>
                                     </div>
+                                </div>
 
 
 
