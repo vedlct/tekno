@@ -203,4 +203,8 @@
 </section>
 
 @include('js.js')
+<script>
+    $('input').attr('readonly', 'readonly');
+    $('textarea').attr('readonly', 'readonly');
+</script>
 

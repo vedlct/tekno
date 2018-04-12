@@ -53,10 +53,25 @@
                                         </div>
                                     </div>
 
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="name"> Company Email:*</label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" type="text" placeholder="email" name="email" id="email" value="{{$jobCat->email}}" ></br>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="name">Phone Number:*</label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" type="text" placeholder="number" name="phoneNumber" value="{{$jobCat->phoneNumber}}"  ></br>
+                                    </div>
+                                </div>
 
 
 
-                                    <div class="form-group">
+
+                                <div class="form-group">
                                         <label class="control-label col-sm-3">Comments (optional): </label>
                                         <div class="col-sm-9">
 
@@ -114,4 +129,8 @@
 </section>
 
 @include('js.js')
+<script>
+    $('input').attr('readonly', 'readonly');
+    $('textarea').attr('readonly', 'readonly');
+</script>
 
