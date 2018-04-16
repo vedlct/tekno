@@ -2,7 +2,7 @@
 <form method="post" action="{{route('insertjobcomment',['jobId'=>$jobId])}}">
     {{csrf_field()}}
 
-    <div class="form-group" style="overflow:auto;width: 100%;height: 200px">
+    <div id="mydiv" class="form-group" style="overflow:auto;width: 100%;height: 200px">
         @foreach($jobcomment as $comment)
             @if($comment->sender =='Admin')
                 <div align="left"><span style="color: red">Admin</span>
@@ -34,4 +34,8 @@
         <button type="submit" class="btn btn-success ">Submit</button>
     </div>
 </form>
+
+<script>
+    $("#mydiv").scrollTop($("#mydiv")[0].scrollHeight);
+</script>
 

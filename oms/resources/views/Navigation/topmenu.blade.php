@@ -1,3 +1,6 @@
+
+
+
 <header class="header white-bg">
     <div class="sidebar-toggle-box">
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
@@ -11,8 +14,9 @@
         <!--search & user info start-->
         <ul class="nav pull-right top-menu">
             <li>
-                <input type="text" class="form-control search" placeholder="Search">
+              <a href="{{route('ongoingjob')}}"><i class="fa fa-bell"></i><b id="notification"></b></a>
             </li>
+
 
             <!-- user login dropdown start-->
             <li class="dropdown">

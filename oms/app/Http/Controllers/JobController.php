@@ -13,6 +13,8 @@ use App\Logo;
 use App\Leaflet;
 use App\Corporate;
 use App\Image;
+use App\Notification;
+use Illuminate\Support\Facades\Auth;
 use stdClass;
 
 class JobController extends Controller
@@ -20,6 +22,14 @@ class JobController extends Controller
     public function home(){
         $pending=Job::where('status','pending')->count();
         $going=Job::where('status','on going')->count();
+
+//        $notification=Notification::where('userId',Auth::user()->user_id)
+//            ->where('seen',0)->count();
+//
+//        return $notification;
+
+
+
         return view('Home')
             ->with('pending',$pending)
             ->with('going',$going);
@@ -137,5 +147,40 @@ class JobController extends Controller
         return view('job.get');
 
     }
+
+
+    public function editJob(Request $r){
+        $job=Job::findOrFail($r->id);
+        $job->companyName=$r->companyName;
+        $job->reference=$r->reference;
+        $job->email=$r->email;
+        $job->phoneNumber=$r->phoneNumber;
+        $job->address=$r->address;
+        $job->comments=$r->comments;
+        $job->companyWebsiteUrl=$r->companyWebsiteUrl;
+        $job->businessArea=$r->businessArea;
+        $job->EstimatedTime=$r->EstimatedTime;
+
+//        $job->save();
+
+
+
+
+        if($job->category =='brochure'){
+            $brochure=Brochure::findOrFail($r->brochureId);
+            $brochure->size=$r->size;
+            $brochure->page=$r->page;
+
+
+
+            return $brochure;
+
+        }
+
+
+        return $job;
+
+    }
+
 
 }

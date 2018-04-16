@@ -44,6 +44,8 @@
 
                                     <legend><h2>Vector</h2></legend>
 
+                                {{csrf_field()}}
+                                <input type="hidden" name="id" value="{{$jobCat->jobId}}">
 
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="name">Company Name:*</label>
@@ -106,6 +108,12 @@
                                 </div>
 
 
+                                @if(Auth::user()->user_type ==USERTYPE[0])
+                                    <button class="btn btn-info pull-right">Edit</button>
+                                @endif
+
+
+
 
                             </div>
 
@@ -136,8 +144,9 @@
 </section>
 
 @include('js.js')
-<script>
-    $('input').attr('readonly', 'readonly');
-    $('textarea').attr('readonly', 'readonly');
-</script>
-
+@if(Auth::user()->user_type !=USERTYPE[0])
+    <script>
+        $('input').attr('readonly', 'readonly');
+        $('textarea').attr('readonly', 'readonly');
+    </script>
+@endif

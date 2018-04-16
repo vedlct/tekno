@@ -42,6 +42,8 @@
                             <!--    Corporate-->
 
                             <div id="Corporateform">
+                                {{csrf_field()}}
+                                <input type="hidden" name="id" value="{{$jobCat->jobId}}">
 
                                     <legend>Corporate-CI</legend>
 
@@ -166,11 +168,17 @@
                                         </div>
 
 
+                                        @if(Auth::user()->user_type ==USERTYPE[0])
+                                            <button class="btn btn-info pull-right">Edit</button>
+                                        @endif
 
 
 
 
-                            </div>
+
+
+
+                                    </div>
 
 
 
@@ -201,8 +209,9 @@
 </section>
 
 @include('js.js')
-<script>
-    $('input').attr('readonly', 'readonly');
-    $('textarea').attr('readonly', 'readonly');
-</script>
-
+@if(Auth::user()->user_type !=USERTYPE[0])
+    <script>
+        $('input').attr('readonly', 'readonly');
+        $('textarea').attr('readonly', 'readonly');
+    </script>
+@endif

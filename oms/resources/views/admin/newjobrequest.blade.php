@@ -1,34 +1,5 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="keyword" content="">
-    @include('css.css')
-</head>
-
-<body>
-
-<section id="container" >
-    <!--header start-->
-@include('Navigation.topmenu')
-<!--header end-->
-    <!--sidebar start-->
-    <aside>
-        <div id="sidebar"  class="nav-collapse ">
-            <!-- sidebar menu start-->
-            <ul class="sidebar-menu" id="nav-accordion">
-                @include('Navigation.menu')
-            </ul>
-            <!-- sidebar menu end-->
-        </div>
-    </aside>
-    <!--sidebar end-->
-    <!--main content start-->
-
+@extends('main')
+    @section('content')
 
     <section id="main-content">
         <section class="wrapper">
@@ -112,26 +83,16 @@
     </section>
     <!--main content end-->
     <!--footer start-->
-    <footer class="site-footer">
-        @include('layout.footer')
-    </footer>
-    <!--footer end-->
-</section>
 
-@include('js.js')
-
-
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
-
+@endsection
+@section('foot-js')
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 <script>
 
     $(document).ready(function() {
         $('#example').DataTable();
     } );
-
 
 
 
@@ -197,7 +158,4 @@ function deletejobrequest(x)
 
 
 </script>
-
-</body>
-</html>
-
+@endsection

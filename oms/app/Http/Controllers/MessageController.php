@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use App\Message;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use League\Flysystem\Exception;
+use App\Notification;
+use App\User;
+use DB;
 
 class MessageController extends Controller
 {
@@ -15,6 +19,13 @@ class MessageController extends Controller
         $client_seen=(new Message)->getClientseen();
         return view('admin.message',compact('client_unseen','client_seen'));
 
+    }
+
+    public function getNotification(Request $r){
+        $notification= \App\Notification::where('userId',Auth::user()->user_id)
+            ->where('seen',0)->count();
+
+        return $notification;
     }
 
     protected function showsmsuser($client1){
@@ -69,6 +80,11 @@ class MessageController extends Controller
 
         $jobcomment=(new Message)->comment($jobId);
 
+
+//        $affected = DB::table('table')->update(array('confirmed' => 1));
+        $notification=Notification::where('userId',Auth::user()->user_id)
+                                    ->where('jobId',$jobId)->update(['seen' => 1]);
+
        // echo $jobcomment;
         return view('allcomment' ,compact('jobcomment','jobId'));
 
@@ -92,7 +108,7 @@ class MessageController extends Controller
 				alert(\"Comment Added on This Job Successfully.\");
 				//window.location.replace('/Home');
 				</script>";
-                return redirect()->route('ongoingjob_user');
+
             }
             elseif ($type == "Admin")
             {
@@ -100,8 +116,35 @@ class MessageController extends Controller
 				alert(\"Comment Added on This Job Successfully.\");
 				//window.location.replace('/Home');
 				</script>";
-                return redirect()->route('ongoingjob');
+
             }
+
+
+
+            $users= DB::table('user')
+                ->select('user_id','username')
+                ->get();
+
+            foreach ($users as $user) {
+                $notification=new Notification;
+                $notification->name=$user->username;
+                if(Auth::user()->user_id == $user->user_id){
+                    $notification->seen=1;
+                }
+                else{
+                    $notification->seen=0;
+                }
+
+                $notification->userId=$user->user_id;
+                $notification->jobId=$jobId;
+                $notification->save();
+
+
+            }
+
+
+
+            return redirect()->route('ongoingjob');
 
         }
         catch (Exception $e)

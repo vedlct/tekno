@@ -67,4 +67,10 @@
 </section>
 
 @include('js.js')
+@if(Auth::user()->user_type !=USERTYPE[0])
+    <script>
+        $('input').attr('readonly', 'readonly');
+        $('textarea').attr('readonly', 'readonly');
+    </script>
+@endif
 

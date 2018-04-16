@@ -1,33 +1,5 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="keyword" content="">
-    @include('css.css')
-</head>
-
-<body>
-
-<section id="container" >
-    <!--header start-->
-@include('Navigation.topmenu')
-<!--header end-->
-    <!--sidebar start-->
-    <aside>
-        <div id="sidebar"  class="nav-collapse ">
-            <!-- sidebar menu start-->
-            <ul class="sidebar-menu" id="nav-accordion">
-                @include('Navigation.menu')
-            </ul>
-            <!-- sidebar menu end-->
-        </div>
-    </aside>
-    <!--sidebar end-->
-    <!--main content start-->
+@extends('main')
+@section('content')
     <section id="main-content">
         <section class="wrapper">
             <!--state overview start-->
@@ -40,7 +12,7 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover">
+                                <table id="table" class="table table-striped table-bordered table-hover">
                                     <thead>
                                     <tr>
                                         <th width="5%" scope="col">Sl.</th>
@@ -73,25 +45,11 @@
                                             @endforeach
                                         </td>
                                         <td>
-                                            {{--<select name="paymenttype" id="{{$value->job_id}}" onChange="changestatus(this.id)">--}}
-
-                                                {{--@if ($value->job_status == "On Going")--}}
-
-                                                    {{--<option selected value='On Going'>On Going</option>--}}
-												  {{--<option value='Done'>Done</option>--}}
-
-                                               {{--@else--}}
-
-                                                    {{--<option selected value='Done'>Done</option>--}}
-
-                                                {{--@endif--}}
-                                            {{--</select>--}}
                                             Done
                                         </td>
                                     </tr>
                                     <?php
                                     $sl++;
-
                                     ?>
                                     @endforeach
                                     </tbody>
@@ -105,19 +63,19 @@
             <!--state overview end-->
         </section>
     </section>
-    <!--main content end-->
-    <!--footer start-->
-    <footer class="site-footer">
-        @include('layout.footer')
-    </footer>
-    <!--footer end-->
-</section>
+@endsection
+    @section('foot-js')
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 
-@include('js.js')
+<script>
+    $(document).ready(function() {
+        $('#table').DataTable();
+    } );
+
+</script>
+@endsection
 
 
 
-
-</body>
-</html>
 

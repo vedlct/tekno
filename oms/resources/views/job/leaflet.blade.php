@@ -41,8 +41,8 @@
 
                             <!--  Leaflet Form -->
                             <div id="Leafletform">
-
-
+                                {{csrf_field()}}
+                                <input type="hidden" name="id" value="{{$jobCat->jobId}}">
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="name">Company Name:</label>
                                         <div class="col-md-9">
@@ -174,6 +174,12 @@
                                 </div>
 
 
+                                @if(Auth::user()->user_type ==USERTYPE[0])
+                                    <button class="btn btn-info pull-right">Edit</button>
+                                @endif
+
+
+
 
                             </div>
                     </div>
@@ -203,8 +209,9 @@
 </section>
 
 @include('js.js')
-<script>
-    $('input').attr('readonly', 'readonly');
-    $('textarea').attr('readonly', 'readonly');
-</script>
-
+@if(Auth::user()->user_type !=USERTYPE[0])
+    <script>
+        $('input').attr('readonly', 'readonly');
+        $('textarea').attr('readonly', 'readonly');
+    </script>
+@endif

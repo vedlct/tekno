@@ -3,8 +3,8 @@
     {{csrf_field()}}
     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
         <tr>
-            <td>Agent Name :</td>
-            <td><input type="text" class="form-control" name="aname" id="field"  value="{{$pass->company_name}}" disabled /></td>
+            <td>User Name :</td>
+            <td><input type="text" class="form-control" name="aname" id="field"  value="{{$pass->username}}" disabled /></td>
         </tr>
         <tr>
             <td>Password :</td>

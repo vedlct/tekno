@@ -39,6 +39,8 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
 
+                            {{csrf_field()}}
+                            <input type="hidden" name="id" value="{{$jobCat->jobId}}">
 
                             <div id="Bannerform" >
                                 <div class="form-group">
@@ -153,7 +155,13 @@
 
                                     </div>
                                 </div>
-                                    &nbsp;
+
+
+                                @if(Auth::user()->user_type ==USERTYPE[0])
+                                    <button class="btn btn-info pull-right">Edit</button>
+                                @endif
+
+                                &nbsp;
 
 
 
@@ -193,8 +201,9 @@
 </section>
 
 @include('js.js')
-<script>
-    $('input').attr('readonly', 'readonly');
-    $('textarea').attr('readonly', 'readonly');
-</script>
-
+@if(Auth::user()->user_type !=USERTYPE[0])
+    <script>
+        $('input').attr('readonly', 'readonly');
+        $('textarea').attr('readonly', 'readonly');
+    </script>
+@endif

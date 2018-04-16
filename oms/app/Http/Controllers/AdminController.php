@@ -13,9 +13,13 @@ use App\Banner;
 use App\Corporate;
 use App\Logo;
 use App\Image;
-
+use App\User;
+use App\Notification;
 use League\Flysystem\Exception;
 use stdClass;
+use Auth;
+use DB;
+
 
 class AdminController extends Controller
 {
@@ -121,6 +125,12 @@ class AdminController extends Controller
 //        if ($type == 'Admin') {
 
         $ongoingwork = (new Admin)->ongoingjob();
+        $unseen=Notification::select('jobId',DB::Raw("Count('jobId') as total"))
+            ->where('userId',Auth::user()->user_id)
+            ->where('seen',0)
+            ->groupBy('jobId')
+            ->get();
+
 
         $messages =array();
         foreach ($ongoingwork as $work){
@@ -138,7 +148,7 @@ class AdminController extends Controller
             array_push($messages, $u);
         }
 
-        return view('admin.ongoingjobinfo', compact('ongoingwork','messages'));
+        return view('admin.ongoingjobinfo', compact('ongoingwork','messages','unseen'));
 //    }
 //        else {
 //            return redirect(url('/'));
@@ -178,30 +188,30 @@ class AdminController extends Controller
 
     public function viewclient()
     {
-        $type = session('user-type');
-        if ($type == 'Admin') {
+//        $type = session('user-type');
+//        if ($type == 'Admin') {
             $client_view = (new Admin)->clientinfoview();
             return view('admin.viewallclient', compact('client_view'));
-        }
-        else {
-            return redirect(url('/'));
-        }
+//        }
+//        else {
+//            return redirect(url('/'));
+//        }
     }
 
     public function clientinfo(Request $request)
     {
 
-        $type = session('user-type');
-        if ($type == 'Admin') {
+//        $type = session('user-type');
+//        if ($type == 'Admin') {
 
             $id = $request->id;
 
             $client_view = (new Admin)->viewclient($id);
             return view('admin.clientinfo', compact('client_view'));
             //echo $id;
-        } else {
-            return redirect(url('/'));
-        }
+//        } else {
+//            return redirect(url('/'));
+//        }
     }
 
     public function updateclientinfo(Request $request)
@@ -256,21 +266,24 @@ class AdminController extends Controller
             return view('admin.user_info_password', compact('getinfo'));
         }
         else {
-            return redirect(url('/'));
+
+
+            $getinfo= User::where('user_id',Auth::user()->user_id)->get();
+
+            return view('admin.user_info_password', compact('getinfo'));
         }
     }
     public function changeuserpass($id)
     {
-        $type = session('user-type');
-        if ($type == 'Admin') {
-
+//        $type = session('user-type');
+//        if ($type == 'Admin') {
 
             $getpass = (new Admin)->getpass($id);
             return view('admin.passwordchange', compact('getpass'));
-        }
-        else {
-            return redirect(url('/'));
-        }
+//        }
+//        else {
+//            return redirect(url('/'));
+//        }
     }
     public function changepass(Request $request)
     {

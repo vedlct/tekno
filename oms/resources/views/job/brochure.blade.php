@@ -49,11 +49,15 @@
                             <!--    Brochure-->
 
                             <div id="Brochureform">
+                                <form method="post" action="{{route('job.edit')}}">
+                                {{csrf_field()}}
+                                <input type="hidden" name="id" value="{{$jobCat->jobId}}">
+                                <input type="hidden" name="brochureId" value="{{$jobCat->brochureId}}">
 
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="name"> Company Name:</label>
                                         <div class="col-md-9">
-                                            <input class="form-control" type="text" placeholder="Company name"  value="{{$jobCat->companyName}}" required></br>
+                                            <input class="form-control" type="text" name="companyName" placeholder="Company name"  value="{{$jobCat->companyName}}" required></br>
                                         </div>
                                     </div>
 
@@ -76,7 +80,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="name">Brochure Size:</label>
                                         <div class="col-md-9">
-                                            <input class="form-control" type="text" value="{{$jobCat->size}}" required="required"></br>
+                                            <input class="form-control" type="text" value="{{$jobCat->size}}" name="size" required="required"></br>
                                         </div>
                                     </div>
 
@@ -84,7 +88,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="name" >Brochure Pages: </label>
                                         <div class="col-md-9">
-                                            <input class="form-control" type="text" value="{{$jobCat->page}}" required="required"></br>
+                                            <input class="form-control" type="text" value="{{$jobCat->page}}"  name="page" required="required"></br>
                                         </div>&nbsp;
                                     </div>
 
@@ -92,7 +96,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="name">Company Business Area:</label>
                                         <div class="col-md-9">
-                                            <input class="form-control" type="text" value="{{$jobCat->businessArea}}" required="required" ></br>
+                                            <input class="form-control" type="text" name="businessArea" value="{{$jobCat->businessArea}}" required="required" ></br>
                                         </div>
                                     </div>
 
@@ -102,7 +106,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="name">Company Theme Color:</label>
                                         <div class="col-md-9">
-                                            <input class="form-control" type="text"  value="{{$jobCat->themeColor}}" required="required" ></br>
+                                            <input class="form-control" type="text" name="themeColor"  value="{{$jobCat->themeColor}}" required="required" ></br>
                                         </div>
                                     </div>
 
@@ -111,7 +115,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="name">Tagline / Slogan (if any): </label>
                                         <div class="col-md-9">
-                                            <input class="form-control" type="text" value="{{$jobCat->tagline}}"  required="required"  ></br>
+                                            <input class="form-control" type="text" name="tagline" value="{{$jobCat->tagline}}"  required="required"  ></br>
 
                                         </div>
                                     </div>
@@ -121,7 +125,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="name">Brochure Type (description): </label>
                                         <div class="col-md-9">
-                                            <textarea class="form-control" rows="6" required >{{$job->comments}}</textarea></br>
+                                            <textarea class="form-control" rows="6" name="comments" required >{{$job->comments}}</textarea></br>
 
                                         </div>
                                     </div>
@@ -130,7 +134,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="name"  >Main Focus: </label>
                                         <div class="col-md-9">
-                                            <input class="form-control" type="text" value="{{$jobCat->mainFocus}}"  required="required"  ></br>
+                                            <input class="form-control" type="text" name="mainFocus" value="{{$jobCat->mainFocus}}"  required="required"  ></br>
 
                                         </div>
                                     </div>
@@ -138,7 +142,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="name">TText(soft file, which will be live on leaflet):</label>
                                         <div class="col-md-9">
-                                            <input class="form-control" type="text" value="{{$jobCat->tText}}"></br>
+                                            <input class="form-control" name="tText" type="text" value="{{$jobCat->tText}}"></br>
                                         </div>
                                     </div>
 
@@ -146,7 +150,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="name">Company social media urls. (if any):</label>
                                         <div class="col-md-9">
-                                            <textarea class="form-control" rows="6" >{{$jobCat->socialMediaUrl}}</textarea></br>
+                                            <textarea class="form-control" name="socialMediaUrl" rows="6" >{{$jobCat->socialMediaUrl}}</textarea></br>
                                         </div>
                                     </div>
 
@@ -154,7 +158,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="name">References (if any): </label>
                                         <div class="col-md-9">
-                                            <input class="form-control" type="text" value="{{$jobCat->reference}}"></br>
+                                            <input class="form-control" name="reference" type="text" value="{{$jobCat->reference}}"></br>
                                         </div>
                                     </div>
 
@@ -164,7 +168,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="name">Estimated Time:  </label>
                                         <div class="col-md-9">
-                                            <input class="form-control" type="text" value="{{$job->EstimatedTime}}"></br>
+                                            <input class="form-control" type="text" name="EstimatedTime" value="{{$job->EstimatedTime}}"></br>
                                         </div>
                                     </div>
 
@@ -180,11 +184,17 @@
 
                                             </div>
                                         @endforeach
-
-
                                     </div>
 
+
+                                    @if(Auth::user()->user_type ==USERTYPE[0])
+                                    <button class="btn btn-info pull-right">Edit</button>
+                                    @endif
+                                </form>
+
                                 </div>
+
+
                                     &nbsp;
 
 
@@ -218,8 +228,9 @@
 </section>
 
 @include('js.js')
-
+@if(Auth::user()->user_type !=USERTYPE[0])
 <script>
     $('input').attr('readonly', 'readonly');
     $('textarea').attr('readonly', 'readonly');
 </script>
+    @endif

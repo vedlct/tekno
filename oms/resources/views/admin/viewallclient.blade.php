@@ -48,7 +48,8 @@
                                         <th width="19%" scope="col">Client</th>
                                         <th width="14%" scope="col">Email</th>
                                         <th width="11%" scope="col">Number</th>
-                                        {{--<th width="6%" scope="col">Action</th>--}}
+                                        <th width="11%" scope="col">Job Type</th>
+                                        <th width="6%" scope="col">view</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -65,7 +66,9 @@
                                         <td>{{$value->companyName}}</td>
                                         <td>{{$value->email}}</td>
                                         <td>{{$value->phoneNumber}}</td>
-                                        {{--<td><div align="center"><a href="#" data-panel-id="{{$value->jobId}}"onclick="edit(this)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div></td>--}}
+                                        <td>{{$value->category}}</td>
+                                        <td> <a href="{{route('job.get',['id'=>$value->jobId])}}"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+
                                     </tr>
                                     <?php
                                     $sl++;

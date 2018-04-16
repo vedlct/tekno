@@ -1,33 +1,5 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="keyword" content="">
-    @include('css.css')
-</head>
-
-<body>
-
-<section id="container" >
-    <!--header start-->
-@include('Navigation.topmenu')
-<!--header end-->
-    <!--sidebar start-->
-    <aside>
-        <div id="sidebar"  class="nav-collapse ">
-            <!-- sidebar menu start-->
-            <ul class="sidebar-menu" id="nav-accordion">
-                @include('Navigation.menu')
-            </ul>
-            <!-- sidebar menu end-->
-        </div>
-    </aside>
-    <!--sidebar end-->
-    <!--main content start-->
+@extends('main')
+    @section('content')
     <section id="main-content">
         <section class="wrapper">
             <!--state overview start-->
@@ -40,16 +12,17 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover">
+                                <table id="table" class="table table-striped table-bordered table-hover">
                                     <thead>
 
                                     <tr>
                                         <th width="5%" scope="col">Sl.</th>
                                         <th width="10%" scope="col">Client Name</th>
-                                        <th width="15%" scope="col">Service Type</th>
+                                        <th width="15%" scope="col">Job Type</th>
                                         <th width="50%" scope="col">Brief</th>
                                         <th width="5%" scope="col">Status</th>
                                         <th width="5%" scope="col">Comments</th>
+                                        <th width="5%" scope="col">details</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -83,7 +56,18 @@
 
                                             </select>
                                         </td>
-                                        <td><a href="#" data-panel-id="{{$value->jobId}}" onclick="comment(this)"><div align="center"><i class="fa fa-comments" aria-hidden="true"></i></div></a></td>
+                                        <td>
+                                            <a href="#" data-panel-id="{{$value->jobId}}" onclick="comment(this)"><div align="center"><i class="fa fa-comments" aria-hidden="true"></i>
+                                                    @foreach($unseen as $u)
+                                                        @if($u->jobId == $value->jobId)
+                                                           <b style="color: red">({{$u->total}})</b>
+                                                        @endif
+                                                    @endforeach
+                                                </div></a>
+
+                                        </td>
+
+                                        <td> <a href="{{route('job.get',['id'=>$value->jobId])}}"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
                                     </tr>
 
                                     <?php
@@ -105,7 +89,7 @@
 
                 <!-- Modal content -->
 
-                <div class="modal-content" style="padding: 35px; width: 50%; margin: 0 auto">
+                <div class="modal-content" style="padding: 35px; width: 50%; margin: 0 auto; border: solid 2px black;">
                     <span class="close">×</span>
 
                     <h2>Add a Comment</h2>
@@ -119,21 +103,16 @@
             <!--state overview end-->
         </section>
     </section>
-    <!--main content end-->
-    <!--footer start-->
-    <footer class="site-footer">
-        @include('layout.footer')
-    </footer>
-    <!--footer end-->
-</section>
-
-@include('js.js')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
+@endsection
+@section('foot-js')
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 
 
 <script>
-
+    $(document).ready(function() {
+        $('#table').DataTable();
+    } );
     function changestatus(x) {
         var id = $(x).data('panel-id');
 
@@ -179,6 +158,7 @@
             success:function(data)
             {
                 $('#txtHint').html(data);
+                getNotification();
                 // alert(data);
             }
 
@@ -199,7 +179,7 @@
     }
 
 </script>
+    @endsection
 
-</body>
-</html>
+
 
