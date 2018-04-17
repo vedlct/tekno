@@ -41,12 +41,15 @@
 
                             <!--  Leaflet Form -->
                             <div id="Leafletform">
+                                <form method="post" action="{{route('job.edit')}}">
                                 {{csrf_field()}}
                                 <input type="hidden" name="id" value="{{$jobCat->jobId}}">
+                                    <input type="hidden" name="leafletId" value="{{$jobCat->leafletId}}">
+
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="name">Company Name:</label>
                                         <div class="col-md-9">
-                                            <input class="form-control" type="text" placeholder="Company name" value="{{$job->companyName}}"></br>
+                                            <input class="form-control" type="text" placeholder="Company name" name="companyName" value="{{$job->companyName}}"></br>
                                         </div>
                                     </div>
 
@@ -55,7 +58,7 @@
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Leaflet Size:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" value="{{$jobCat->leafletSize}}"><br>
+                                            <input type="text" class="form-control" name="leafletSize" value="{{$jobCat->leafletSize}}"><br>
                                         </div>
                                     </div>
 
@@ -64,14 +67,14 @@
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Company Business Area:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control"value="{{$job->businessArea}}"><br>
+                                            <input type="text" class="form-control" name="businessArea" value="{{$job->businessArea}}"><br>
                                         </div>
                                     </div>
 
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Company Website:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" value="{{$job->companyWebsiteUrl}}"><br>
+                                            <input type="text" class="form-control" name="companyWebsiteUrl" value="{{$job->companyWebsiteUrl}}"><br>
                                         </div>
                                     </div>
 
@@ -80,7 +83,7 @@
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Company Email Address:</label>
                                         <div class="col-sm-9">
-                                            <input type="email" class="form-control" value="{{$job->email}}"><br>
+                                            <input type="email" class="form-control" name="email" value="{{$job->email}}"><br>
                                         </div>
                                     </div>
 
@@ -89,7 +92,7 @@
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Company Phone Number:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" value="{{$job->phoneNumber}}"><br>
+                                            <input type="text" class="form-control" name="phoneNumber" value="{{$job->phoneNumber}}"><br>
                                         </div>
                                     </div>
 
@@ -99,7 +102,7 @@
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Company Address:</label>
                                         <div class="col-sm-9">
-                                            <textarea class="form-control" id="exampleTextarea" name="CompanyAddress" rows="3" placeholder="Please give Company Address" required>{{$job->address}}</textarea><br>
+                                            <textarea class="form-control" id="exampleTextarea" name="address" rows="3" placeholder="Please give Company Address" required>{{$job->address}}</textarea><br>
                                         </div>
                                     </div>
 
@@ -109,7 +112,7 @@
                                     <div class="form-group" style="margin-top: 30px; ">
                                         <label class="control-label col-sm-3" >Main Focus: </label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" value="{{$jobCat->mainFocus}}"><br>
+                                            <input type="text" class="form-control" name="mainFocus" value="{{$jobCat->mainFocus}}"><br>
                                         </div>
                                     </div>
 
@@ -118,7 +121,7 @@
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Tagline / Slogan (if any):</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control"  value="{{$jobCat->tagline}}"><br>
+                                            <input type="text" class="form-control" name="tagline"  value="{{$jobCat->tagline}}"><br>
                                         </div>
                                     </div>
 
@@ -126,7 +129,7 @@
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Text (soft file, which will be live on leaflet): </label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" value="{{$jobCat->	tText}}"><br>
+                                            <input type="text" class="form-control" name="tText" value="{{$jobCat->	tText}}"><br>
                                         </div>
                                     </div>
 
@@ -136,7 +139,7 @@
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Company social media urls. (if any):</label>
                                         <div class="col-sm-9">
-                                            <textarea class="form-control" id="exampleTextarea" rows="3" name="companyMediaUrlAddress" placeholder="Please give Company Address">{{$jobCat->mediaUrl}}</textarea><br>
+                                            <textarea class="form-control" id="exampleTextarea" rows="3" name="mediaUrl" placeholder="Please give Company Address">{{$jobCat->mediaUrl}}</textarea><br>
                                         </div>
                                     </div>
 
@@ -144,7 +147,7 @@
                                 <div class="form-group">
                                         <label for="example-tel-input" class="col-sm-3 control-label">References (if any):</label>
                                         <div class="col-sm-9">
-                                            <textarea class="form-control" type="number" required>{{$jobCat->reference}}</textarea><br>
+                                            <textarea class="form-control" type="number" name="reference" required>{{$jobCat->reference}}</textarea><br>
                                         </div>
                                     </div>
 
@@ -152,7 +155,7 @@
                                     <div class="form-group row">
                                         <label for="example-tel-input" class="col-sm-3 control-label">Estimated Time:</label>
                                         <div class="col-sm-9">
-                                            <textarea class="form-control" type="text" id="TextSoftFile" name="estimatedTime" required>{{$job->EstimatedTime}}</textarea><br>
+                                            <textarea class="form-control" type="text"  name="EstimatedTime" required>{{$job->EstimatedTime}}</textarea><br>
                                         </div>
                                     </div>
 
@@ -178,7 +181,7 @@
                                     <button class="btn btn-info pull-right">Edit</button>
                                 @endif
 
-
+                                </form>
 
 
                             </div>

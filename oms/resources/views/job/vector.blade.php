@@ -46,6 +46,7 @@
 
                                 {{csrf_field()}}
                                 <input type="hidden" name="id" value="{{$jobCat->jobId}}">
+                                <form method="post" action="{{route('job.edit')}}">
 
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="name">Company Name:*</label>
@@ -112,7 +113,7 @@
                                     <button class="btn btn-info pull-right">Edit</button>
                                 @endif
 
-
+                                </form>
 
 
                             </div>

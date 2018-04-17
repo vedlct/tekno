@@ -93,6 +93,12 @@
 <script>
     $(document).ready(function() {
         getNotification();
+
+        setInterval(function(){
+            getNotification();
+        }, 3000);
+
+
     });
 
     function getNotification(){
@@ -106,7 +112,7 @@
 
             },
             success: function (data) {
-//                    console.log(data);
+                    console.log(data);
                     $('#notification').text(data);
             }
 

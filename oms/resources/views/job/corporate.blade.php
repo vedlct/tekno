@@ -40,17 +40,18 @@
                         <div class="panel-body">
 
                             <!--    Corporate-->
-
                             <div id="Corporateform">
+                                <form method="post" action="{{route('job.edit')}}">
                                 {{csrf_field()}}
                                 <input type="hidden" name="id" value="{{$jobCat->jobId}}">
+                                <input type="hidden" name="corporateId" value="{{$jobCat['corporate-ciId']}}">
 
                                     <legend>Corporate-CI</legend>
 
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="name">Company Name:</label>
                                         <div class="col-md-9">
-                                            <input class="form-control" type="text" placeholder="Company name" value="{{$job->companyName}}"></br>
+                                            <input class="form-control" type="text" placeholder="Company name" name="companyName" value="{{$job->companyName}}"></br>
                                         </div>
                                     </div>
 
@@ -58,7 +59,7 @@
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Company Business Area:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter Business Area"  value="{{$job->businessArea}}"></br>
+                                            <input type="text" class="form-control" placeholder="Enter Business Area" name="businessArea"  value="{{$job->businessArea}}"></br>
 
                                         </div>
                                     </div>
@@ -66,7 +67,7 @@
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Company Theme Color:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter Company Theme Color" value="{{$jobCat->themeColor}}"></br>
+                                            <input type="text" class="form-control" placeholder="Enter Company Theme Color" name="themeColor" value="{{$jobCat->themeColor}}"></br>
 
                                         </div>
                                     </div>
@@ -76,7 +77,7 @@
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Tagline/Slogan (if any):</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter Tag Line" value="{{$jobCat->tagline}}"></br>
+                                            <input type="text" class="form-control" placeholder="Enter Tag Line" name="tagline" value="{{$jobCat->tagline}}"></br>
                                         </div>
                                     </div>
 
@@ -84,7 +85,7 @@
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Company Official Email Address:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter Email" value="{{$job->email}}"></br>
+                                            <input type="text" class="form-control" placeholder="Enter Email" name="email" value="{{$job->email}}"></br>
 
                                         </div>
                                     </div>
@@ -94,7 +95,7 @@
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Company Phone number:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Phone Number" value="{{$job->phoneNumber}}"></br>
+                                            <input type="text" class="form-control" placeholder="Phone Number" name="phoneNumber" value="{{$job->phoneNumber}}"></br>
 
                                         </div>
                                     </div>
@@ -102,7 +103,7 @@
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Company Address: :</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter Address" value="{{$job->address}}"></br>
+                                            <input type="text" class="form-control" placeholder="Enter Address" name="address" value="{{$job->address}}"></br>
 
                                         </div>
                                     </div>
@@ -110,7 +111,7 @@
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Name and Designation for visiting cards:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter Tag Line" value="{{$jobCat->nameAndDesignation}}"></br>
+                                            <input type="text" class="form-control" placeholder="Enter Tag Line" name="nameAndDesignation" value="{{$jobCat->nameAndDesignation}}"></br>
 
                                         </div>
                                     </div>
@@ -120,7 +121,7 @@
                                         <label class="control-label col-sm-3" >QR CODE: </label>
 
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter Tag Line"
+                                            <input type="text" class="form-control" name="qrCode" placeholder="Enter Tag Line"
                                                    @if($jobCat->qrCode==1)
                                                    value="Yes"
                                                     @else
@@ -132,10 +133,10 @@
                                     </div>
 
 
-                                    <div class="form-group" >
+                                    <form class="form-group" >
                                         <label class="control-label col-sm-3" >CI Types: </label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter CI Type" value="{{$jobCat->ciType}}"></br>
+                                            <input type="text" class="form-control" placeholder="Enter CI Type" name="ciType" value="{{$jobCat->ciType}}"></br>
 
                                         </div>
 
@@ -144,7 +145,7 @@
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Estimated time:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter Estimated Time" value="{{$job->EstimatedTime}}"></br>
+                                            <input type="text" class="form-control" placeholder="Enter Estimated Time" name="EstimatedTime" value="{{$job->EstimatedTime}}"></br>
                                         </div>
                                     </div>
 
@@ -173,7 +174,7 @@
                                         @endif
 
 
-
+                                    </form>
 
 
 

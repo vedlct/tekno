@@ -161,7 +161,9 @@ class JobController extends Controller
         $job->businessArea=$r->businessArea;
         $job->EstimatedTime=$r->EstimatedTime;
 
-//        $job->save();
+//        return $job;
+
+        $job->save();
 
 
 
@@ -170,15 +172,76 @@ class JobController extends Controller
             $brochure=Brochure::findOrFail($r->brochureId);
             $brochure->size=$r->size;
             $brochure->page=$r->page;
+            $brochure->themeColor=$r->themeColor;
+            $brochure->tagline=$r->tagline;
+            $brochure->mainFocus=$r->mainFocus;
+            $brochure->tText=$r->tText;
+            $brochure->socialMediaUrl=$r->socialMediaUrl;
+
+            $brochure->save();
+
+        }
+
+        elseIf($job->category =='logo'){
+            $logo=Logo::findOrFail($r->logoId);
+            $logo->logoShape=$r->logoShape;
+            $logo->preferedColor=$r->preferedColor;
+            $logo->businessType=$r->businessType;
+            $logo->save();
+
+        }
+
+        elseIf($job->category =='banner'){
+            $banner=Banner::findOrFail($r->bannerId);
+            $banner->bannerSize=$r->bannerSize;
+            $banner->headLine=$r->headLine;
+            $banner->bannerType=$r->bannerType;
+            $banner->tText=$r->tText;
+            $banner->save();
 
 
+        }
+        elseIf($job->category =='corporate'){
+            $corporate=Corporate::findOrFail($r->corporateId);
+            $corporate->themeColor=$r->themeColor;
+            $corporate->tagline=$r->tagline;
+            $corporate->nameAndDesignation=$r->nameAndDesignation;
+            $corporate->qrCode=$r->qrCode;
+            $corporate->ciType=$r->ciType;
 
-            return $brochure;
+            $corporate->save();
+
+        }
+
+        elseIf($job->category =='leaflet'){
+            $leaflet=Leaflet::findOrFail($r->leafletId);
+            $leaflet->leafletSize=$r->leafletSize;
+            $leaflet->mainFocus=$r->mainFocus;
+            $leaflet->tagline=$r->tagline;
+            $leaflet->tText=$r->tText;
+            $leaflet->mediaUrl=$r->mediaUrl;
+
+            $leaflet->save();
+
+
+        }
+
+        elseIf($job->category =='website'){
+            $website=Website::findOrFail($r->websiteId);
+            $website->websiteType=$r->websiteType;
+            $website->numberOfPage=$r->numberOfPage;
+            $website->portfolioPage=$r->portfolioPage;
+            $website->contentManagementType=$r->contentManagementType;
+            $website->socialMediaUrl=$r->socialMediaUrl;
+            $website->existingWebsite=$r->existingWebsite;
+            $website->businessDetails=$r->businessDetails;
+            $website->save();
+
 
         }
 
 
-        return $job;
+        return back();
 
     }
 

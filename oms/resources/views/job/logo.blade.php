@@ -42,13 +42,15 @@
                             <!--    Logoform-->
 
                             <div id="Logoform" >
+                                <form method="post" action="{{route('job.edit')}}">
                                 {{csrf_field()}}
                                 <input type="hidden" name="id" value="{{$jobCat->jobId}}">
+                                    <input type="hidden" name="logoId" value="{{$jobCat->logoId}}">
 
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="name">Company Name:</label>
                                         <div class="col-md-9">
-                                            <input class="form-control" type="text" placeholder="Company name" value="{{$job->companyName}}"></br>
+                                            <input class="form-control" type="text" name="companyName" placeholder="Company name" value="{{$job->companyName}}"></br>
 
                                         </div>
                                     </div>
@@ -73,7 +75,7 @@
                                         <label class="col-md-3 control-label" >Logo Shape:</label>
 
                                         <div class="col-md-9">
-                                            <input class="form-control" type="text" placeholder="Company name" value="{{$jobCat->logoShape}}"></br>
+                                            <input class="form-control" type="text" name="logoShape" placeholder="Company name" value="{{$jobCat->logoShape}}"></br>
 
                                         </div>
                                     </div>
@@ -83,7 +85,7 @@
                                     <div class="form-group" style="margin-bottom: 40px">
                                         <label class="control-label col-sm-3" >Prefered Color:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter color name" value="{{$jobCat->preferedColor}}"><br>
+                                            <input type="text" class="form-control" name="preferedColor" placeholder="Enter color name" value="{{$jobCat->preferedColor}}"><br>
                                         </div>
                                     </div>
                                     <br>
@@ -91,7 +93,7 @@
                                     <div class="form-group"  style="margin-bottom: 80px">
                                         <label class="control-label col-sm-3" >Business Type:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter Business Tpe" value="{{$jobCat->businessType}}"><br>
+                                            <input type="text" class="form-control" name="businessType" placeholder="Enter Business Tpe" value="{{$jobCat->businessType}}"><br>
                                         </div>
                                     </div>
 
@@ -100,7 +102,7 @@
                                         <label class="control-label col-sm-3" >Other comments:</label>
                                         <div class="col-sm-9">
 
-                                            <textarea id="OtherComments" name="OtherComments" rows="6" required class="form-control">{{$job->comments}}</textarea><br>
+                                            <textarea id="OtherComments" name="comments" rows="6" required class="form-control">{{$job->comments}}</textarea><br>
 
                                         </div>
                                     </div>
@@ -108,7 +110,7 @@
                                 <div class="form-group" >
                                     <label class="control-label col-sm-3" >Estimated Time: </label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" placeholder=""  value="{{$job->EstimatedTime}}"><br>
+                                        <input type="text" class="form-control" placeholder="date" name="EstimatedTime" value="{{$job->EstimatedTime}}"><br>
                                     </div>
                                 </div>
 
@@ -123,7 +125,7 @@
 
 
                             </div>
-
+                        </form>
 
 
                         </div>

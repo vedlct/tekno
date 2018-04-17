@@ -39,14 +39,17 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
 
+                            <form method="post" action="{{route('job.edit')}}">
+
                             {{csrf_field()}}
                             <input type="hidden" name="id" value="{{$jobCat->jobId}}">
+                                <input type="hidden" name="bannerId" value="{{$jobCat->bannerId}}">
 
-                            <div id="Bannerform" >
+                            <form id="Bannerform" >
                                 <div class="form-group">
                                         <label class="col-md-3 control-label" for="name">Company Name:</label>
                                         <div class="col-md-9">
-                                            <input class="form-control" type="text" placeholder="Company name" value="{{$job->companyName}}"></br>
+                                            <input class="form-control" type="text" placeholder="Company name" name="companyName" value="{{$job->companyName}}"></br>
                                         </div>
                                 </div>
 
@@ -72,7 +75,7 @@
                                 <div class="form-group" >
                                         <label class="control-label col-sm-3" >Banner Size:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter Banner Size"  value="{{$jobCat->bannerSize}}"><br>
+                                            <input type="text" class="form-control" placeholder="Enter Banner Size" name="bannerSize"  value="{{$jobCat->bannerSize}}"><br>
 
                                         </div>
                                 </div>
@@ -82,14 +85,14 @@
                                 <div class="form-group" >
                                         <label class="control-label col-sm-3" >Company Business Area:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter Business Area"  value="{{$job->businessArea}}"><br>
+                                            <input type="text" class="form-control" placeholder="Enter Business Area" name="businessArea"  value="{{$job->businessArea}}"><br>
                                         </div>
                                 </div>
 
                                 <div class="form-group" >
                                         <label class="control-label col-sm-3" >Headline(if ready): </label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter HeadLine"  value="{{$jobCat->headLine}}"><br>
+                                            <input type="text" class="form-control" placeholder="Enter HeadLine" name="headLine"  value="{{$jobCat->headLine}}"><br>
 
                                         </div>
                                 </div>
@@ -102,7 +105,7 @@
                                         <label class="control-label col-sm-3" >Banner Type: </label>
 
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control"  value="{{$jobCat->bannerType}}"><br>
+                                        <input type="text" class="form-control" name="bannerType"  value="{{$jobCat->bannerType}}"><br>
                                     </div>
                                 </div>
 
@@ -110,7 +113,7 @@
                                 <div class="form-group" >
                                         <label class="control-label col-sm-3" >Text (soft file, which will be live on leaflet):  </label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter text file" value="{{$jobCat->tText}}"><br>
+                                            <input type="text" class="form-control" placeholder="Enter text file" name="tText" value="{{$jobCat->tText}}"><br>
                                         </div>
                                 </div>
 
@@ -118,7 +121,7 @@
                                 <div class="form-group" >
                                         <label class="control-label col-sm-3" >References (if any): </label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter Reference"  value="{{$job->reference}}"><br>
+                                            <input type="text" class="form-control" placeholder="Enter Reference" name="reference"  value="{{$job->reference}}"><br>
 
                                         </div>
                                 </div>
@@ -127,7 +130,7 @@
                                 <div class="form-group" >
                                         <label class="control-label col-sm-3" >Estimated Time: </label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter Estimated Time"  value="{{$job->EstimatedTime}}"><br>
+                                            <input type="text" class="form-control" placeholder="Enter Estimated Time" name="EstimatedTime"  value="{{$job->EstimatedTime}}"><br>
                                         </div>
                                 </div>
 
@@ -135,10 +138,12 @@
                                     <div class="form-group" >
                                         <label class="control-label col-sm-3" >Comments (optional): </label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter Comments" value="{{$job->comments}}"><br>
+                                            <input type="text" class="form-control" placeholder="Enter Comments" name="comments" value="{{$job->comments}}"><br>
 
                                         </div>
                                     </div>
+
+
 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="name">Attach Logo & Images: </label><br>
@@ -160,6 +165,8 @@
                                 @if(Auth::user()->user_type ==USERTYPE[0])
                                     <button class="btn btn-info pull-right">Edit</button>
                                 @endif
+
+                            </form>
 
                                 &nbsp;
 
