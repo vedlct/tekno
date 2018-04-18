@@ -10,6 +10,7 @@ use App\Leaflet;
 use App\Banner;
 use App\Corporate;
 use App\Logo;
+use App\User;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use App\Image as ImageModel;
@@ -23,41 +24,46 @@ class FormController extends Controller
 {
     public function getForm(Request $r){
 
+        $users=User::select('user_id','username')->get();
+
+
+
+
 
 
 
         if ($r->option =='brochure'){
 
-            return view('form.brochure');
+            return view('form.brochure')->with('users',$users);
         }
 
         else if($r->option =='website'){
 
-            return view('form.website');
+            return view('form.website')->with('users',$users);
         }
 
         else if($r->option =='leaflet'){
 
-            return view('form.leaflet');
+            return view('form.leaflet')->with('users',$users);
         }
 
         else if($r->option =='banner'){
 
-            return view('form.banner');
+            return view('form.banner')->with('users',$users);
         }
 
         else if($r->option =='corporate'){
-            return view('form.corporate');
+            return view('form.corporate')->with('users',$users);
         }
 
         else if($r->option =='logo'){
 
-            return view('form.logo');
+            return view('form.logo')->with('users',$users);
         }
 
         else if($r->option =='vector'){
 
-            return view('form.vector');
+            return view('form.vector')->with('users',$users);
         }
 
 
@@ -76,6 +82,7 @@ class FormController extends Controller
         $job->category='brochure';
         $job->EstimatedTime=$r->EstimatedTime;
         $job->comments=$r->BrochureType;
+        $job->userId=$r->userId;
         $job->save();
 
         $brochure=new Brochure;
@@ -147,6 +154,7 @@ class FormController extends Controller
         $job->comments=$r->OtherComments;
         $job->category='website';
         $job->EstimatedTime=$r->EstimatedTime;
+        $job->userId=$r->userId;
         $job->save();
 
         $website=new Website;
@@ -221,6 +229,7 @@ class FormController extends Controller
         $job->businessArea=$r->BusinessArea;
         $job->category='leaflet';
         $job->EstimatedTime=$r->EstimatedTime;
+        $job->userId=$r->userId;
         $job->save();
 
         $leaflet=new Leaflet;
@@ -281,6 +290,9 @@ class FormController extends Controller
 
     }
     public function storeBanner(Request $r){
+
+
+
         $job=new Job;
         $job->companyName=$r->companyName;
         $job->email=$r->email;
@@ -290,6 +302,8 @@ class FormController extends Controller
         $job->businessArea=$r->BusinessArea;
         $job->category='banner';
         $job->EstimatedTime=$r->EstimatedTime;
+        $job->userId=$r->userId;
+        $job->userId=$r->userId;
         $job->save();
 
         $banner=new Banner;
@@ -358,6 +372,7 @@ class FormController extends Controller
         $job->businessArea=$r->BusinessArea;
         $job->category='corporate';
         $job->EstimatedTime=$r->EstimatedTime;
+        $job->userId=$r->userId;
         $job->save();
 
 
@@ -427,6 +442,7 @@ class FormController extends Controller
         $job->comments=$r->OtherComments;
         $job->category='logo';
         $job->EstimatedTime=$r->EstimatedTime;
+        $job->userId=$r->userId;
         $job->save();
 
         $logo = new Logo;
@@ -461,6 +477,7 @@ class FormController extends Controller
         $job->comments= $r->Comments;
         $job->category='vector';
         $job->EstimatedTime=$r->EstimatedTime;
+        $job->userId=$r->userId;
         $job->save();
 
 

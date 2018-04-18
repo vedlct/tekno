@@ -23,7 +23,7 @@
             <ul class="sidebar-menu" id="nav-accordion">
                 @include('Navigation.menu')
             </ul>
-            <!-- sidebar menu end-->
+            <!--sidebar menu end-->
         </div>
     </aside>
 
@@ -89,6 +89,13 @@
                                         <input type="text" class="form-control" placeholder=""  value="{{$job->EstimatedTime}}"><br>
                                     </div>
                                 </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="name">sales representative:  </label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" type="text"  value="{{$job->user['username']}}"></br>
+                                        </div>
+                                    </div>
 
 
                                 <div class="form-group">

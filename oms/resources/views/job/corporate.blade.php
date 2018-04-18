@@ -149,6 +149,13 @@
                                         </div>
                                     </div>
 
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="name">sales representative:  </label>
+                                            <div class="col-md-9">
+                                                <input class="form-control" type="text"  value="{{$job->user['username']}}"></br>
+                                            </div>
+                                        </div>
+
 
 
                                         <div class="form-group">

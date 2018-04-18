@@ -9,4 +9,8 @@ class Job extends Model
     public $timestamps = false;
     protected $primaryKey = 'jobId';
     protected $table = 'job';
+
+
+
+
 }

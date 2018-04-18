@@ -115,6 +115,14 @@
                                 </div>
 
 
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="name">sales representative:  </label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" type="text"  value="{{$job->user['username']}}"></br>
+                                        </div>
+                                    </div>
+
+
                                 @if(Auth::user()->user_type ==USERTYPE[0])
                                     <button class="btn btn-info pull-right">Edit</button>
                                 @endif

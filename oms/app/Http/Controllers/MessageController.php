@@ -101,23 +101,24 @@ class MessageController extends Controller
         try
         {
             $jobcomment=(new Message)->insert_comment($jobId,$text);
-            $type=session('user-type');
+//            $type=session('user-type');
 
-            if ($type == "User") {
-                echo "<script type=\"text/javascript\">
-				alert(\"Comment Added on This Job Successfully.\");
-				//window.location.replace('/Home');
-				</script>";
 
-            }
-            elseif ($type == "Admin")
-            {
-                echo "<script type=\"text/javascript\">
-				alert(\"Comment Added on This Job Successfully.\");
-				//window.location.replace('/Home');
-				</script>";
-
-            }
+//            if ($type == "User") {
+//                echo "<script type=\"text/javascript\">
+//				alert(\"Comment Added on This Job Successfully.\");
+//				//window.location.replace('/Home');
+//				</script>";
+//
+//            }
+//            elseif ($type == "Admin")
+//            {
+//                echo "<script type=\"text/javascript\">
+//				alert(\"Comment Added on This Job Successfully.\");
+//				//window.location.replace('/Home');
+//				</script>";
+//
+//            }
 
 
 
