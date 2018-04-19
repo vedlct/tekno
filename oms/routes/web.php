@@ -44,6 +44,9 @@ Route::get('/job/{id}', 'JobController@getJob')->name('job.get');
 Route::get('/deletejobreq/{id}','AdminController@jobreqdelete');
 Route::get('/NewJobRequest_user', 'UserController@newjobrequest')->name('usernewjobrequest');
 Route::post('/editJob', 'JobController@editJob')->name('job.edit');
+Route::get('/AllJob','JobController@allJob')->name('job.all');
+Route::post('/AllJob','JobController@jobDate')->name('job.data');
+
 
 
 Route::post('/insertnewjob', 'UserController@insertnewjob')->name('insertjobuser');

@@ -149,7 +149,6 @@
                                         <label class="col-sm-3 control-label" for="name">Other Comments (if any):</label>
                                         <div class="col-sm-9">
                                             <textarea class="form-control" name="comments" cols="30" rows="6" placeholder="">{{$job->comments}}</textarea></br>
-
                                         </div>
                                     </div>
 

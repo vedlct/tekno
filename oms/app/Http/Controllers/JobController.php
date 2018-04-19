@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Banner;
+use App\User;
 use App\Website;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -16,6 +17,7 @@ use App\Image;
 use App\Notification;
 use Illuminate\Support\Facades\Auth;
 use stdClass;
+use Yajra\Datatables\Datatables;
 
 class JobController extends Controller
 {
@@ -34,6 +36,38 @@ class JobController extends Controller
             ->with('pending',$pending)
             ->with('going',$going);
     }
+
+
+    public function allJob(){
+
+        $users=User::select('username','user_id')
+            ->get();
+
+
+
+        return view('job.all')->with('users',$users);
+    }
+
+    public function jobDate(Request $r){
+        $jobs=Job::select('jobId','companyName','category','job.email','comments','status','job.userId','username','created_at')->leftJoin('user','user.user_id','job.userId');
+
+        if ($user=$r->user){
+            $jobs->where('job.userId',$user);
+        }
+        if ($status=$r->status){
+            $jobs->where('job.status',$status);
+        }
+
+
+        $jobs=$jobs->orderBy('created_at','desc')->get();
+
+
+        return Datatables::of($jobs)->make(true);
+
+
+
+    }
+
 
     public function changestatus(Request $r){
         $job=Job::findOrFail($r->id);

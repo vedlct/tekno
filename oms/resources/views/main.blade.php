@@ -20,6 +20,8 @@
     <!-- Custom styles for this template -->
     <link href="{{url('css/style.css')}}" rel="stylesheet">
     <link href="{{url('css/style-responsive.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
     <!--[if lt IE 9]>

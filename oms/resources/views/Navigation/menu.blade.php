@@ -12,6 +12,13 @@
     </a>
 </li>
 
+<li>
+    <a  href="{{route('job.all')}}">
+        <i class="fa fa-briefcase"></i>
+        <span>All Jobs</span>
+    </a>
+</li>
+
 {{--<li>--}}
     {{--<a  href="{{route('usernewjobrequest')}}">--}}
         {{--<i class="fa fa-briefcase"></i>--}}
@@ -29,12 +36,14 @@
         <li><a  href="{{route('finshedjob')}}">Done</a></li>
     </ul>
 </li>
+@if(Auth::user()['user_type']==USERTYPE[0])
 <li class="sub-menu">
     <a href="{{route('user.create')}}" >
         <i class="fa fa-plus"></i>   Create New User
     </a>
 
 </li>
+@endif
 <li>
     <a  href="{{route('clintinfo')}}">
         <i class="fa fa-users"></i>

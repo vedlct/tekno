@@ -5,13 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\registrationm;
+use Auth;
 use Hash;
 use Session;
 class Registration extends Controller
 {
      public function create(){
-
-         return view('admin.createUser');
+         if(Auth::user()['user_type']==USERTYPE[0]) {
+             return view('admin.createUser');
+         }
+         return back();
 
      }
     protected function insertdata(Request $request){
