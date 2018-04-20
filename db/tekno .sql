@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2018 at 09:05 AM
+-- Generation Time: Apr 20, 2018 at 08:08 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -42,7 +42,7 @@ CREATE TABLE `banner` (
 --
 
 INSERT INTO `banner` (`bannerId`, `jobId`, `bannerSize`, `headLine`, `bannerType`, `tText`) VALUES
-(1, 6, 'Banner', 'Banner', 'WebsiteBanner', 'Banner');
+(1, 6, 'editBanner', 'editBanner', 'editWebsiteBanner', 'editBanner');
 
 -- --------------------------------------------------------
 
@@ -68,7 +68,7 @@ CREATE TABLE `brochure` (
 
 INSERT INTO `brochure` (`brochureId`, `jobId`, `size`, `page`, `themeColor`, `tagline`, `mainFocus`, `tText`, `socialMediaUrl`) VALUES
 (2, 3, 'Brochure size', 'PanelFold', 'dfdfdf', 'dfdfd', 'ProductShowcase', 'dfd', 'dfdfdfd'),
-(3, 12, 'fgfg', NULL, 'gfg', 'fgfg', NULL, 'fgfg', 'fgfgf'),
+(3, 12, 'fgfg', '6', 'gfg', 'fgfg', 'sds', 'fgfg', 'fgfgf'),
 (5, 14, '65', 'HalfFold', '656', 'wew', 'ProductShowcase', 'dfdf', 'dfdfd'),
 (7, 18, 'gfgf', 'HalfFold', 'fgfg', 'gfgf', NULL, 'fgf', 'fgf'),
 (8, 19, '656', 'HalfFold', 'test tor 4/4/2018', 'test tor 4/4/2018', 'ProductShowcase', 'test tor 4/4/2018', 'test tor 4/4/2018'),
@@ -96,39 +96,7 @@ CREATE TABLE `corporate-cl` (
 --
 
 INSERT INTO `corporate-cl` (`corporate-ciId`, `jobId`, `themeColor`, `tagline`, `nameAndDesignation`, `qrCode`, `ciType`) VALUES
-(1, 8, 'Corporate-CI', 'Corporate-CI', 'Corporate-CI', 1, 'Corporate-CI');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `customer_info`
---
-
-CREATE TABLE `customer_info` (
-  `user_id` int(255) NOT NULL,
-  `username` varchar(100) DEFAULT NULL,
-  `password` varchar(100) DEFAULT NULL,
-  `user_type` varchar(50) DEFAULT NULL,
-  `company_name` varchar(100) DEFAULT NULL,
-  `short_name` varchar(50) DEFAULT NULL,
-  `contact_person` varchar(100) DEFAULT NULL,
-  `contact_no` varchar(100) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `address` varchar(100) DEFAULT NULL,
-  `webaddress` varchar(100) DEFAULT NULL,
-  `client_status` varchar(20) DEFAULT 'Deactive'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `customer_info`
---
-
-INSERT INTO `customer_info` (`user_id`, `username`, `password`, `user_type`, `company_name`, `short_name`, `contact_person`, `contact_no`, `email`, `address`, `webaddress`, `client_status`) VALUES
-(1, 'admin', '$2y$10$iZulWAQ1e/CVhqnnajUZS.GeoNAk2cb6UioJ0f9d1mTchtItfcYaW', 'Admin', 'TCL', 'TCL', 'forhad', '01616404404', 'fcml44@gmail.com', 'baridhara', 'errorsworld.com', 'Active'),
-(2, 'test', '$2y$10$sWHQUlT5YI0gXlUGPRkOyuKOT9I3AngZAsGijpjv4jc9Fxdvs8fYS', 'User', 'TCL1', 'TCL1', 'test1', '444', 'test1@test.com', 'test1', 'test1', 'Active'),
-(5, 'chandan', '$2y$10$Zmb28A845j.HIPIpaSw/he.B.G40bA6NTtfrrdMydWW.VOGk3OdDa', 'User', 'Tecno ERP', 'TE', 'Me', '01722504422', 'fcml44@gmail.com', 'baridhara', 'errorsworld.com', 'Active'),
-(4, 'sgdj', '$2y$10$4O7RQn71cVjvUQF1YGC5.Oqi4DV34cNqWrmqKMuv31JrLUGKgPSv2', 'User', 'Sangini Gold & Diamond Jewellery', 'SG&DJ', 'test', '014444', 'test@404.com', 'sss', 'ddd', 'Active'),
-(6, 'farzad', '$2y$10$B2n0T6EVHICBjna8BxtsZexTuCuJqJL6zMV83n5n2y/b2PAacentC', 'User', 'fdsfsd', 'f', 'dfdf', '01656565', 'farzad@yahoo.com', NULL, NULL, 'Pending');
+(1, 8, 'editCorporate', 'editCorporate', 'editCorporate', 0, 'editCorporate');
 
 -- --------------------------------------------------------
 
@@ -177,6 +145,7 @@ CREATE TABLE `job` (
   `businessArea` varchar(45) DEFAULT NULL,
   `EstimatedTime` varchar(45) DEFAULT NULL,
   `status` varchar(15) NOT NULL DEFAULT 'pending',
+  `userId` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -184,22 +153,22 @@ CREATE TABLE `job` (
 -- Dumping data for table `job`
 --
 
-INSERT INTO `job` (`jobId`, `companyName`, `reference`, `email`, `phoneNumber`, `address`, `comments`, `category`, `companyWebsiteUrl`, `businessArea`, `EstimatedTime`, `status`, `created_at`) VALUES
-(3, 'Brochure company', 'dfdfd', NULL, NULL, NULL, NULL, 'brochure', NULL, 'area', NULL, 'pending', '2018-03-31 11:35:56'),
-(4, 'website', 'sdsd', NULL, NULL, NULL, 'sadasd', 'website', NULL, NULL, NULL, 'pending', '2018-03-31 11:35:56'),
-(5, 'Leaflet', 'Leaflet', 'Leaflet@dfdf.com', 'Leaflet', 'Leaflet', NULL, 'leaflet', 'Leaflet', 'Leaflet', NULL, 'pending', '2018-03-31 11:35:56'),
-(6, 'Banner', 'Banner', NULL, NULL, NULL, 'Banner', 'banner', NULL, 'Banner', NULL, 'pending', '2018-03-31 11:35:56'),
-(8, 'Corporate-CI', NULL, 'Corporate-CI', 'Corporate-CI', 'Corporate-CI', NULL, 'corporate', NULL, 'Corporate-CI', NULL, 'pending', '2018-03-31 11:35:56'),
-(10, 'Logo', NULL, NULL, NULL, NULL, 'Logo', 'logo', NULL, NULL, NULL, 'pending', '2018-03-31 11:35:56'),
-(12, 'fgf', 'fgfgfg', NULL, NULL, NULL, NULL, 'brochure', NULL, 'gfg', NULL, 'pending', '2018-03-31 11:35:56'),
-(14, 'Tech Cloud', 'dfd', NULL, NULL, NULL, NULL, 'brochure', NULL, '656', NULL, 'pending', '2018-03-31 11:35:56'),
-(16, 'website company', 'website company', NULL, NULL, NULL, 'website company', 'website', NULL, NULL, NULL, 'on going', '2018-03-31 11:35:56'),
-(17, 'gfgfgf', 'dfd', NULL, NULL, NULL, 'dfdf', 'website', NULL, NULL, NULL, 'done', '2018-03-31 11:35:56'),
-(18, 'fgf', 'fgfg', NULL, NULL, NULL, NULL, 'brochure', NULL, 'fgf', NULL, 'done', '2018-03-31 11:35:56'),
-(19, 'test tor 4/4/2018', '6565', NULL, NULL, NULL, NULL, 'brochure', NULL, 'test tor 4/4/2018', '564', 'done', '2018-04-04 06:30:37'),
-(20, 'leaflet test', 'dsdsd', 'sdsd@dsd.dsd', '5456', 'sds.@dsd.dd', NULL, 'leaflet', 'sds', 'dsd', NULL, 'done', '2018-04-04 06:32:17'),
-(21, 'brochure-test', 'gf', NULL, NULL, NULL, NULL, 'brochure', NULL, 'fgfg', 'gfg', 'done', '2018-04-04 06:35:31'),
-(22, 'test brochure', 'fdf', NULL, NULL, NULL, NULL, 'brochure', NULL, '500', 'dfd', 'on going', '2018-04-07 10:36:47');
+INSERT INTO `job` (`jobId`, `companyName`, `reference`, `email`, `phoneNumber`, `address`, `comments`, `category`, `companyWebsiteUrl`, `businessArea`, `EstimatedTime`, `status`, `userId`, `created_at`) VALUES
+(3, 'Brochure company', 'dfdfd', NULL, NULL, NULL, NULL, 'brochure', NULL, 'area', NULL, 'pending', NULL, '2018-03-31 11:35:56'),
+(4, 'editwebsite', 'editwebsite', 'editwebsite', '65464', NULL, 'editwebsite', 'website', NULL, NULL, 'editwebsite', 'pending', NULL, '2018-03-31 11:35:56'),
+(5, 'edit', 'edit', 'editmail@dfdf.com', 'edit', 'edit', NULL, 'leaflet', 'edit', 'edit', 'edit', 'pending', NULL, '2018-03-31 11:35:56'),
+(6, 'editBanner', 'editBanner', 'editmail@dfdf.com', '647684', NULL, 'editBanner', 'banner', NULL, 'editBanner', 'edit', 'pending', NULL, '2018-03-31 11:35:56'),
+(8, 'editCorporate', NULL, 'editCorporate', '64654', 'editCorporate', NULL, 'corporate', NULL, 'editCorporate', '20/05/2018', 'pending', NULL, '2018-03-31 11:35:56'),
+(10, 'editLogo', NULL, 'edit', 'edit', NULL, 'editLogo', 'logo', NULL, NULL, 'edit', 'pending', NULL, '2018-03-31 11:35:56'),
+(12, 'fgf', 'fgfgfg', 'editmail@dfdf.com', '46544', NULL, 'sdsd', 'brochure', NULL, 'gfg', '20/05/2018', 'pending', 1, '2018-03-31 11:35:56'),
+(14, 'Tech Cloud', 'dfd', 'tcl', '013565', NULL, '6565', 'brochure', NULL, '656', '11/04/2018', 'done', NULL, '2018-03-31 11:35:56'),
+(16, 'website company', 'website company', NULL, NULL, NULL, 'website company', 'website', NULL, NULL, NULL, 'done', NULL, '2018-03-31 11:35:56'),
+(17, 'gfgfgf', 'dfd', NULL, NULL, NULL, 'dfdf', 'website', NULL, NULL, NULL, 'done', NULL, '2018-03-31 11:35:56'),
+(18, 'fgf', 'fgfg', NULL, NULL, NULL, NULL, 'brochure', NULL, 'fgf', NULL, 'done', NULL, '2018-03-31 11:35:56'),
+(19, 'test tor 4/4/2018', '6565', NULL, NULL, NULL, NULL, 'brochure', NULL, 'test tor 4/4/2018', '564', 'done', NULL, '2018-04-04 06:30:37'),
+(20, 'leaflet test', 'dsdsd', 'sdsd@dsd.dsd', '5456', 'sds.@dsd.dd', NULL, 'leaflet', 'sds', 'dsd', NULL, 'done', NULL, '2018-04-04 06:32:17'),
+(21, 'brochure-test', 'gf', NULL, NULL, NULL, NULL, 'brochure', NULL, 'fgfg', 'gfg', 'done', NULL, '2018-04-04 06:35:31'),
+(22, 'test brochure', 'fdf', NULL, NULL, NULL, NULL, 'brochure', NULL, '500', 'dfd', 'on going', NULL, '2018-04-07 10:36:47');
 
 -- --------------------------------------------------------
 
@@ -241,16 +210,17 @@ CREATE TABLE `leaflet` (
   `leafletSize` varchar(45) DEFAULT NULL,
   `mainFocus` varchar(45) DEFAULT NULL,
   `tagline` varchar(45) DEFAULT NULL,
-  `tText` varchar(45) DEFAULT NULL
+  `tText` varchar(45) DEFAULT NULL,
+  `mediaUrl` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `leaflet`
 --
 
-INSERT INTO `leaflet` (`leafletId`, `jobId`, `leafletSize`, `mainFocus`, `tagline`, `tText`) VALUES
-(1, 5, 'Leaflet', 'Product showcase', 'Leaflet', 'Leaflet'),
-(2, 20, 'ds', 'Product showcase', 'sdsd', 'dsd');
+INSERT INTO `leaflet` (`leafletId`, `jobId`, `leafletSize`, `mainFocus`, `tagline`, `tText`, `mediaUrl`) VALUES
+(1, 5, 'edit', 'edit', 'edit', 'edit', 'edit'),
+(2, 20, 'ds', 'Product showcase', 'sdsd', 'dsd', NULL);
 
 -- --------------------------------------------------------
 
@@ -271,7 +241,7 @@ CREATE TABLE `logo` (
 --
 
 INSERT INTO `logo` (`logoId`, `jobId`, `logoShape`, `preferedColor`, `businessType`) VALUES
-(1, 10, 'Rectangular', 'Logo', 'Logo');
+(1, 10, 'editRectangular', 'editLogo', 'editLogo');
 
 -- --------------------------------------------------------
 
@@ -375,7 +345,7 @@ INSERT INTO `log_info` (`id`, `company_name`, `login_details`, `logout_details`,
 (80, 'TCL', '2018-03-13 14:34:22', '2018-03-13 14:35:02', '127.0.0.1', '0'),
 (81, 'TCL1', '2018-03-13 14:35:06', '2018-03-13 14:35:41', '127.0.0.1', '0'),
 (82, 'TCL', '2018-03-13 14:35:43', '2018-03-13 14:41:33', '127.0.0.1', '0'),
-(83, 'TCL1', '2018-03-13 14:41:42', NULL, '127.0.0.1', '1'),
+(83, 'TCL1', '2018-03-13 14:41:42', '2018-04-16 15:20:52', '127.0.0.1', '0'),
 (84, 'TCL', '2018-03-13 14:42:08', '2018-04-03 13:55:47', '127.0.0.1', '0'),
 (85, 'TCL', '2018-03-14 12:49:45', '2018-04-03 13:55:47', '127.0.0.1', '0'),
 (86, 'TCL', '2018-03-31 16:37:53', '2018-04-03 13:55:47', '127.0.0.1', '0'),
@@ -424,11 +394,58 @@ CREATE TABLE `message` (
 --
 
 INSERT INTO `message` (`id`, `sender`, `receiver`, `sms`, `job`, `status`, `inserted_time`) VALUES
-(1, 'Admin', 'TCL', 'hey', '18', 'unseen', '2018-04-05 07:47:11'),
-(2, 'Admin', 'TCL', '....', '17', 'unseen', '2018-04-09 06:24:27'),
-(3, 'Admin', 'TCL', 'hey there', '17', 'unseen', '2018-04-06 06:36:06'),
-(4, 'Admin', 'TCL', 'fgfg', '17', 'unseen', '2018-04-07 05:51:32'),
-(5, 'Admin', 'TCL', 'ok', '16', 'unseen', '2018-04-09 06:51:56');
+(17, 'Admin', 'TCL', 'make this fast', '22', 'unseen', '2018-04-16 09:46:24'),
+(18, 'Admin', 'TCL', 'do this', '16', 'unseen', '2018-04-16 09:46:30'),
+(19, 'TCL1', 'Admin', 'erere', '22', 'unseen', '2018-04-16 10:13:07'),
+(20, 'Admin', 'TCL', 'okk', '22', 'unseen', '2018-04-16 11:27:58'),
+(21, 'f', 'Admin', 'admin please check this asap', '22', 'unseen', '2018-04-17 04:51:10'),
+(22, 'Admin', 'TCL', 'okk', '22', 'unseen', '2018-04-17 04:52:57'),
+(23, 'f', 'Admin', 'okey', '22', 'unseen', '2018-04-17 04:53:44'),
+(24, 'f', 'Admin', 'fsdfsdf', '22', 'unseen', '2018-04-17 06:24:22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notification`
+--
+
+CREATE TABLE `notification` (
+  `notificationId` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `seen` int(11) NOT NULL,
+  `userId` int(11) DEFAULT NULL,
+  `jobId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `notification`
+--
+
+INSERT INTO `notification` (`notificationId`, `name`, `seen`, `userId`, `jobId`) VALUES
+(23, 'admin', 1, 1, 22),
+(24, 'test', 1, 2, 22),
+(25, 'farzad', 1, 6, 22),
+(26, 'admin', 1, 1, 16),
+(27, 'test', 1, 2, 16),
+(28, 'farzad', 0, 6, 16),
+(29, 'admin', 1, 1, 22),
+(30, 'test', 1, 2, 22),
+(31, 'farzad', 1, 6, 22),
+(32, 'admin', 1, 1, 22),
+(33, 'test', 0, 2, 22),
+(34, 'farzad', 1, 6, 22),
+(35, 'admin', 1, 1, 22),
+(36, 'test', 0, 2, 22),
+(37, 'farzad', 1, 6, 22),
+(38, 'admin', 1, 1, 22),
+(39, 'test', 0, 2, 22),
+(40, 'farzad', 1, 6, 22),
+(41, 'admin', 1, 1, 22),
+(42, 'test', 0, 2, 22),
+(43, 'farzad', 1, 6, 22),
+(44, 'admin', 1, 1, 22),
+(45, 'test', 0, 2, 22),
+(46, 'farzad', 1, 6, 22);
 
 -- --------------------------------------------------------
 
@@ -454,6 +471,36 @@ INSERT INTO `service` (`service_id`, `service_name`, `service_type`, `service_st
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `user_id` int(255) NOT NULL,
+  `username` varchar(100) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  `user_type` varchar(50) DEFAULT NULL,
+  `company_name` varchar(100) DEFAULT NULL,
+  `short_name` varchar(50) DEFAULT NULL,
+  `contact_person` varchar(100) DEFAULT NULL,
+  `contact_no` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `webaddress` varchar(100) DEFAULT NULL,
+  `client_status` varchar(20) DEFAULT 'Deactive'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`user_id`, `username`, `password`, `user_type`, `company_name`, `short_name`, `contact_person`, `contact_no`, `email`, `address`, `webaddress`, `client_status`) VALUES
+(1, 'admin', '$2y$10$iZulWAQ1e/CVhqnnajUZS.GeoNAk2cb6UioJ0f9d1mTchtItfcYaW', 'Admin', 'TCL', 'TCL', 'forhad', '01616404404', 'fcml44@gmail.com', 'baridhara', 'errorsworld.com', 'Active'),
+(2, 'test', '$2y$10$sWHQUlT5YI0gXlUGPRkOyuKOT9I3AngZAsGijpjv4jc9Fxdvs8fYS', 'User', 'TCL1', 'TCL1', 'test1', '444', 'test1@test.com', 'test1', 'test1', 'Active'),
+(6, 'farzad', '$2y$10$B2n0T6EVHICBjna8BxtsZexTuCuJqJL6zMV83n5n2y/b2PAacentC', 'User', 'fdsfsd', 'f', 'dfdf', '01656565', 'farzad@yahoo.com', NULL, NULL, 'Active');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `website`
 --
 
@@ -465,17 +512,18 @@ CREATE TABLE `website` (
   `portfolioPage` tinyint(4) DEFAULT NULL,
   `contentManagementType` varchar(20) DEFAULT NULL,
   `socialMediaUrl` varchar(45) DEFAULT NULL,
-  `existingWebsite` varchar(45) DEFAULT NULL
+  `existingWebsite` varchar(45) DEFAULT NULL,
+  `businessDetails` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `website`
 --
 
-INSERT INTO `website` (`websiteId`, `jobId`, `websiteType`, `numberOfPage`, `portfolioPage`, `contentManagementType`, `socialMediaUrl`, `existingWebsite`) VALUES
-(1, 4, 'Business', '6', 1, 'Static', 'sadas', 'asdasdas'),
-(2, 16, 'Personal', '6', 1, 'Static', 'website company', 'website company'),
-(3, 17, NULL, '56', 1, NULL, 'fdfd', 'dfdf');
+INSERT INTO `website` (`websiteId`, `jobId`, `websiteType`, `numberOfPage`, `portfolioPage`, `contentManagementType`, `socialMediaUrl`, `existingWebsite`, `businessDetails`) VALUES
+(1, 4, 'editwebsite', '10', 0, 'editwebsite', 'editwebsite', 'editwebsite', 'editwebsite'),
+(2, 16, 'Personal', '6', 1, 'Static', 'website company', 'website company', NULL),
+(3, 17, NULL, '56', 1, NULL, 'fdfd', 'dfdf', NULL);
 
 --
 -- Indexes for dumped tables
@@ -501,12 +549,6 @@ ALTER TABLE `brochure`
 ALTER TABLE `corporate-cl`
   ADD PRIMARY KEY (`corporate-ciId`),
   ADD KEY `fk_corporate_jobid_idx` (`jobId`);
-
---
--- Indexes for table `customer_info`
---
-ALTER TABLE `customer_info`
-  ADD PRIMARY KEY (`user_id`);
 
 --
 -- Indexes for table `image`
@@ -554,10 +596,22 @@ ALTER TABLE `message`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `notification`
+--
+ALTER TABLE `notification`
+  ADD PRIMARY KEY (`notificationId`);
+
+--
 -- Indexes for table `service`
 --
 ALTER TABLE `service`
   ADD PRIMARY KEY (`service_id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- Indexes for table `website`
@@ -587,12 +641,6 @@ ALTER TABLE `brochure`
 --
 ALTER TABLE `corporate-cl`
   MODIFY `corporate-ciId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `customer_info`
---
-ALTER TABLE `customer_info`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `image`
@@ -634,13 +682,25 @@ ALTER TABLE `log_info`
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `notification`
+--
+ALTER TABLE `notification`
+  MODIFY `notificationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
   MODIFY `service_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `website`
