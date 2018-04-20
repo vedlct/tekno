@@ -180,7 +180,7 @@
         </div>
 
 
-        <div class="form-group row">
+        <div class="form-group">
             <label for="example-tel-input" class="col-sm-3 control-label">Estimated Time: </label>
             <div class="col-sm-9">
                 <textarea class="form-control" type="text" id="TextSoftFile" name="EstimatedTime" required></textarea>
