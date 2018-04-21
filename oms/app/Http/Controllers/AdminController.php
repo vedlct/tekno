@@ -111,7 +111,7 @@ class AdminController extends Controller
 
             return "Status Successfully Changed to ".$r->status;
 
-        
+
         }
 
         return "Only Admin Can Change User Status";
