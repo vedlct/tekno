@@ -151,8 +151,9 @@ class Admin extends Model
     public function getinfo(){
 
         $info= User::where('client_status', 'Active')
-            ->orderBy('company_name', 'ASC')
+//            ->orderBy('company_name', 'ASC')
             ->get();
+
         return $info;
 
     }

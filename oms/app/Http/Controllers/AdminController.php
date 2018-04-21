@@ -99,28 +99,42 @@ class AdminController extends Controller
         }
     }
 
-    public function changeuserstatus(Request $request)
+    public function changeUserStatus(Request $r)
     {
-
-        $type = session('user-type');
-        if ($type == 'Admin') {
-
-            $id = $request->id;
-            $value = $request->value;
-
-            try {
-                $changestatus = (new Admin)->change_user_status($id, $value);
-                echo "Account " . $value . " successfully.";
-
-            } catch (Exception $e) {
-
-                echo "There is an issue. Please Refresh the page and try again.";
-            }
+        if (Auth::user()->user_type == USERTYPE[0]) {
 
 
-        } else {
-            return redirect(url('/'));
+            $user = User::findOrFail($r->id);
+            $user->client_status = $r->status;
+            $user->save();
+
+
+            return "Status Successfully Changed to ".$r->status;
+
+        
         }
+
+        return "Only Admin Can Change User Status";
+//        changeUserStatus
+//        $type = session('user-type');
+//        if ($type == 'Admin') {
+//
+//            $id = $request->id;
+//            $value = $request->value;
+//
+//            try {
+//                $changestatus = (new Admin)->change_user_status($id, $value);
+//                echo "Account " . $value . " successfully.";
+//
+//            } catch (Exception $e) {
+//
+//                echo "There is an issue. Please Refresh the page and try again.";
+//            }
+//
+//
+//        } else {
+//            return redirect(url('/'));
+//        }
     }
 
     public function ongoingjob()
@@ -266,7 +280,8 @@ class AdminController extends Controller
     {
         $type = session('user-type');
         if ($type == 'Admin') {
-            $getinfo = (new Admin)->getinfo();
+//            $getinfo = (new Admin)->getinfo();
+            $getinfo = User::get();
             return view('admin.user_info_password', compact('getinfo'));
         }
         else {

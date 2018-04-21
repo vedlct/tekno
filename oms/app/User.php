@@ -31,17 +31,17 @@ class User extends Authenticatable
     protected $primaryKey = 'user_id';
     protected $table = 'user';
 
-    public function get(){
-
-        $id=session('user-id');
-
-        $profile_info= DB::table('customer_info')
-            ->where('user_id',$id)
-            ->limit(1)
-            ->get();
-        return $profile_info;
-
-    }
+//    public function get(){
+//
+//        $id=session('user-id');
+//
+//        $profile_info= DB::table('customer_info')
+//            ->where('user_id',$id)
+//            ->limit(1)
+//            ->get();
+//        return $profile_info;
+//
+//    }
 
     public function get_active_service(){
 

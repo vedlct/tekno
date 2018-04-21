@@ -180,10 +180,23 @@
         </div>
 
 
-        <div class="form-group row">
-            <label for="example-tel-input" class="col-sm-3 control-label">Estimated Time: </label>
-            <div class="col-sm-9">
-                <textarea class="form-control" type="text" id="TextSoftFile" name="EstimatedTime" required></textarea>
+        {{--<div class="form-group row">--}}
+            {{--<label for="example-tel-input" class="col-sm-3 control-label">Estimated Time: </label>--}}
+            {{--<div class="col-sm-9">--}}
+                {{--<textarea class="form-control" type="text" id="TextSoftFile" name="EstimatedTime" required></textarea>--}}
+                {{--@if ($errors->has('EstimatedTime'))--}}
+                    {{--<span class="invalid-feedback">--}}
+                        {{--<strong>{{ $errors->first('EstimatedTime') }}</strong>--}}
+                    {{--</span>--}}
+                {{--@endif--}}
+            {{--</div>--}}
+        {{--</div>--}}
+
+
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="name">Estimated Time:  </label>
+            <div class="col-md-9">
+                <input class="form-control" type="text" id="EstimatedTime" name="EstimatedTime"></br>
                 @if ($errors->has('EstimatedTime'))
                     <span class="invalid-feedback">
                         <strong>{{ $errors->first('EstimatedTime') }}</strong>
@@ -197,9 +210,9 @@
             <label for="example-color-input" class="col-sm-3 control-label">Attach Logo & Images: </label>
             <div class="col-sm-9">
                 <input type="file" id="AttachLogo[]" name="AttachLogo[]" multiple>
-                @if ($errors->has('DevelopmentTime'))
+                @if ($errors->has('AttachLogo'))
                     <span class="invalid-feedback">
-                        <strong>{{ $errors->first('DevelopmentTime') }}</strong>
+                        <strong>{{ $errors->first('AttachLogo') }}</strong>
                     </span>
                 @endif
             </div>

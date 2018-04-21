@@ -73,22 +73,36 @@
                                     <tr>
                                         <th width="20%">Use Name</th>
                                         <th width="10%">Password</th>
+                                        <th width="20%">User Type</th>
                                         <th width="20%">Status</th>
                                         <th width="20%">Details</th>
                                     </tr>
                                     </thead>
+                                    <tbody>
 
                                     @foreach($getinfo as $value)
-                                    <tbody>
+
                                     <tr class="gradeA even">
                                         <td>{{$value->username}}</td>
                                         <td><input class="passform" aria-hidden="true" type="password" value="{{$value->password}}" readonly="readonly" /></td>
                                         <td>{{$value->user_type}}</td>
+                                        <td>
+                                            <select data-id="{{$value->user_id}}" class="status">
+                                            @foreach(USERSTATUS as $status)
+                                                <option @if($status == $value->client_status)
+                                                        selected
+                                                        @endif>{{$status}}</option>
+                                                @endforeach
+                                            </select>
+
+
+                                        </td>
                                         <td><div align="center"><a id="editlead" href="#" data-panel-id="{{$value->user_id}}" onClick="passchange(this)"><i class="fa fa-edit fa-fw"></i></a></div></td>
                                     </tr>
 
-                                    </tbody>
+
                                         @endforeach
+                                    </tbody>
                                 </table>
 
                             </div>
@@ -132,8 +146,13 @@
 </body>
 </html>
 @include('js.js')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 
 <script type="text/javascript">
+
+
     $(".passform").mousedown(function(){
         $(this).prop('type', 'text');
     });
@@ -146,6 +165,47 @@
 </script>
 
 <script type="text/javascript">
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+
+
+    $('.status').change(function() {
+        var staus=$(this).val();
+        var id = $(this).data('id');
+
+        $.ajax({
+            type:'post',
+            url:'{{route('changeUserStatus')}}',
+            data:{'id':id,'status':staus},
+            cache: false,
+            success:function(data)
+            {
+//               console.log(data);
+                $.alert({
+                    title: 'Success!',
+                    content: data,
+                });
+
+            }
+
+        });
+
+
+
+    });
+
+
+
+
+
+
+
+
 
     var modal1 = document.getElementById('myModal1');
     var span = document.getElementsByClassName("close")[0];

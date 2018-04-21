@@ -58,7 +58,7 @@ Route::get('/changejobstatus/{id}','AdminController@changejobstatus');
 Route::post('job/changestatus','JobController@changestatus')->name('job.changestatus');
 
 Route::get('/NewUserRequest', 'AdminController@newuserrequest')->name('newuserrequest');
-Route::get('/changeuserstatus/{id}','AdminController@changeuserstatus');
+//Route::get('/changeuserstatus/{id}','AdminController@changeuserstatus');
 
 Route::get('/JobOnGoing', 'AdminController@ongoingjob')->name('ongoingjob');
 Route::get('/FinshedJob', 'AdminController@finshedjob')->name('finshedjob');
@@ -84,6 +84,7 @@ Route::get('/deleteservice/{id}','AdminController@servicedelete');
 Route::get('/PasswordChange', 'AdminController@passchange')->name('passchange');
 Route::get('/changepassword/{id}','AdminController@changeuserpass');
 Route::post('/passchange/{id}','AdminController@changepass');
+Route::post('/changeUserStatus','AdminController@changeUserStatus')->name('changeUserStatus');
 
 
 //Route::get('/message', 'MessageController@showAdminsms');

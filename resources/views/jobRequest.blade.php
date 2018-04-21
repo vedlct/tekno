@@ -27,6 +27,8 @@
         <div id="element"></div>
     </div>
 
+    <br><br>
+
 
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
