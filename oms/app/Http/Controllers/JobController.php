@@ -179,6 +179,7 @@ class JobController extends Controller
 
             return view('job.vector')
                 ->with('images',$images)
+                ->with('job',$job)
                 ->with('jobCat',$jobCat);
 
         }
