@@ -42,7 +42,6 @@
 
                             <div id="Vectorform" >
 
-                                    <legend><h2>Vector</h2></legend>
 
                                 {{csrf_field()}}
                                 <input type="hidden" name="id" value="{{$jobCat->jobId}}">
@@ -86,14 +85,14 @@
                                 <div class="form-group" >
                                     <label class="control-label col-sm-3" >Estimated Time: </label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" placeholder=""  value="{{$job->EstimatedTime}}"><br>
+                                        <input type="text" class="form-control" placeholder=""  value="{{$jobCat->EstimatedTime}}"><br>
                                     </div>
                                 </div>
 
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="name">sales representative:  </label>
                                         <div class="col-md-9">
-                                            <input class="form-control" type="text"  value="{{$job->user['username']}}"></br>
+                                            <input class="form-control" type="text"  value="{{$jobCat->user['username']}}"></br>
                                         </div>
                                     </div>
 
