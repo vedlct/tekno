@@ -29,12 +29,15 @@
 <li class="sub-menu">
     <a href="javascript:;" >
         <i class="fa fa-laptop"></i>
-        <span>Work</span>
+        <span>Projects</span>
     </a>
     <ul class="sub">
         <li><a  href="{{route('ongoingjob')}}">On Going</a></li>
         <li><a  href="{{route('finshedjob')}}">Done</a></li>
     </ul>
+</li>
+<li>
+    <a href="{{route('job.sale')}}"><i class="fa fa-bookmark"></i> Sales</a>
 </li>
 @if(Auth::user()['user_type']==USERTYPE[0])
 <li class="sub-menu">
@@ -57,7 +60,13 @@
     </a>
     <ul class="sub">
 
-        <li><a  href="{{route('passchange')}}">Password Change</a></li>
+        <li><a  href="{{route('passchange')}}">
+                @if(Auth::user()->user_type==USERTYPE[0])
+                    User Info
+                @else
+                    Password Change
+                @endif
+                </a></li>
     </ul>
 </li>
 

@@ -21,6 +21,7 @@
                                         <th width="15%" scope="col">Job Type</th>
                                         <th width="50%" scope="col">Brief</th>
                                         <th width="5%" scope="col">Status</th>
+                                        <th width="5%" scope="col">Sales</th>
                                         <th width="5%" scope="col">Comments</th>
                                         <th width="5%" scope="col">details</th>
                                     </tr>
@@ -56,6 +57,18 @@
 
                                             </select>
                                         </td>
+
+                                        <td>
+                                            @if($value->potential)
+
+                                                <input type="checkbox" class="star" style="margin-top: -14px "  data-panel-id="{{$value->jobId}}" onclick="potential(this)"  checked>
+                                            @else
+                                                <input type="checkbox" class="star" style="margin-top: -14px"  data-panel-id="{{$value->jobId}}" onclick="potential(this)" >
+
+                                            @endif
+
+
+                                        </td>
                                         <td>
                                             <a href="#" data-panel-id="{{$value->jobId}}" onclick="comment(this)"><div align="center"><i class="fa fa-comments" aria-hidden="true"></i>
                                                     @foreach($unseen as $u)
@@ -72,7 +85,6 @@
 
                                     <?php
                                     $sl++;
-
                                     ?>
                                     @endforeach
                                     </tbody>
@@ -131,6 +143,28 @@
                     content: 'Status Changed!',
                 });
                 $('#myTableRow'+id).remove();
+
+            }
+
+        });
+    }
+
+    function potential(x) {
+        jobId = $(x).data('panel-id');
+
+
+        $.ajax({
+            type:'post',
+            url:"{{route('job.changepotential')}}",
+            data:{ "_token": "{{ csrf_token() }}",'jobId':jobId},
+            cache: false,
+            success:function(data)
+            {
+                console.log(data)
+//                    $.alert({
+//                        title: 'Success!',
+//                        content: 'Status Changed!',
+//                    });
 
             }
 

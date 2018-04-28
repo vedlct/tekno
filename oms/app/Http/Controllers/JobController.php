@@ -53,7 +53,38 @@ class JobController extends Controller
     }
 
     public function jobDate(Request $r){
-        $jobs=Job::select('jobId','companyName','category','job.email','comments','status','job.userId','username','created_at')->leftJoin('user','user.user_id','job.userId');
+        $jobs=Job::select('jobId','potential','companyName','category','job.email','comments','status','job.userId','username','created_at')->leftJoin('user','user.user_id','job.userId');
+
+        if ($user=$r->user){
+            $jobs->where('job.userId',$user);
+        }
+        if ($status=$r->status){
+            $jobs->where('job.status',$status);
+        }
+
+
+        $jobs=$jobs->orderBy('created_at','desc')->get();
+
+
+        return Datatables::of($jobs)->make(true);
+
+    }
+
+    public function sales(){
+        $users=User::select('username','user_id')
+            ->get();
+
+
+
+        return view('job.sales')->with('users',$users);
+
+    }
+
+    public function salesData(Request $r){
+
+        $jobs=Job::select('jobId','potential','companyName','category','job.email','comments','status','job.userId','username','created_at')
+            ->where('potential',1)
+            ->leftJoin('user','user.user_id','job.userId');
 
         if ($user=$r->user){
             $jobs->where('job.userId',$user);
@@ -69,7 +100,6 @@ class JobController extends Controller
         return Datatables::of($jobs)->make(true);
 
 
-
     }
 
 
@@ -80,6 +110,19 @@ class JobController extends Controller
 
         return Response('true');
 
+    }
+
+    public function changepotential(Request $r){
+        $job=Job::findOrFail($r->jobId);
+        if($job->potential){
+            $job->potential=null;
+        }
+        else{
+            $job->potential=1;
+        }
+        $job->save();
+
+        return $job;
     }
 
 

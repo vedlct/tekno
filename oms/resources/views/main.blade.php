@@ -28,6 +28,30 @@
     <script src="{{url('js/html5shiv.js')}}"></script>
     <script src="{{url('js/respond.min.js')}}"></script>
     <![endif]-->
+    <style>
+        td{
+            text-align:center;
+        }
+
+        .star {
+            visibility:hidden;
+            font-size:30px;
+            cursor:pointer;
+        }
+        .star:before {
+            content: "\2606";
+            position: absolute;
+            visibility:visible;
+            margin-top: -10px;
+        }
+        .star:checked:before {
+            content: "\2605";
+            position: absolute;
+            margin-top: -10px;
+
+        }
+
+    </style>
 
 
 </head>

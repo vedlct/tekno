@@ -47,6 +47,13 @@ Route::post('/editJob', 'JobController@editJob')->name('job.edit');
 Route::get('/AllJob','JobController@allJob')->name('job.all');
 Route::post('/AllJob','JobController@jobDate')->name('job.data');
 
+//Sales Job
+Route::get('/sales','JobController@sales')->name('job.sale');
+Route::post('/sales','JobController@salesData')->name('job.salesData');
+
+//Change Potential Status
+Route::post('/changepotential','JobController@changepotential')->name('job.changepotential');
+
 
 
 Route::post('/insertnewjob', 'UserController@insertnewjob')->name('insertjobuser');
@@ -121,3 +128,4 @@ Auth::routes();
 Route::get('/home', 'JobController@home')->name('home');
 //Route::get('/Home','JobController@home');
 Route::post('/getNotification','MessageController@getNotification')->name('getNotification');
+

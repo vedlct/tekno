@@ -57,7 +57,7 @@ class Admin extends Model
     public function ongoingjob(){
 
 
-        $ongoing=Job::select('jobId','companyName','category')
+        $ongoing=Job::select('jobId','companyName','category','potential')
             ->where('job.status','on going')
             ->orderBy('jobId','desc')
             ->get();

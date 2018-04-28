@@ -1,64 +1,64 @@
 @extends('main')
 
-    @section('content')
-        <section id="main-content">
-            <section class="wrapper" style="background-color: white">
-                <!--state overview start-->
-                <div class="container-fluid">
+@section('content')
+    <section id="main-content">
+        <section class="wrapper" style="background-color: white">
+            <!--state overview start-->
+            <div class="container-fluid">
 
-                    <div class="col-md-4 form-group">
-                      <label>Users</label>
-                        <select class="form-control" id="user">
-                            <option value="">select one</option>
-                            @foreach($users as $user)
-                                <option value="{{$user->user_id}}">{{$user->username}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-
-                    <div class="col-md-4 form-group">
-                        <label>Status</label>
-                        <select class="form-control" id="status">
-                            <option value="">select one</option>
-                            @foreach(JOBSTATUS as $status)
-                                <option value="{{$status}}">{{$status}}</option>
-                            @endforeach
-                            <option value="done">done</option>
-                        </select>
-                    </div>
+                <div class="col-md-4 form-group">
+                    <label>Users</label>
+                    <select class="form-control" id="user">
+                        <option value="">select one</option>
+                        @foreach($users as $user)
+                            <option value="{{$user->user_id}}">{{$user->username}}</option>
+                        @endforeach
+                    </select>
+                </div>
 
 
-                    <div class="table table-responsive" style="margin-top: 20px">
-                        <table id="allProductList" class="table table-bordered table-striped">
-                            <thead>
-                            <tr>
-                                <th width="15%" style="text-align: center">Company Name</th>
-                                <th width="10%" style="text-align: center">Category</th>
-                                <th width="15%" style="text-align: center">Email</th>
-                                <th width="20%" style="text-align: center">Comments</th>
-                                <th width="5%" style="text-align: center">Status</th>
-                                <th width="5%" style="text-align: center">Mined by</th>
-                                <th width="10%" style="text-align: center">Created At</th>
-                                <th width="5%" style="text-align: center">Sales</th>
-                                <th width="10%" style="text-align: center">Action</th>
-                            </tr>
-                            </thead>
-
-                        </table><br>
+                <div class="col-md-4 form-group">
+                    <label>Status</label>
+                    <select class="form-control" id="status">
+                        <option value="">select one</option>
+                        @foreach(JOBSTATUS as $status)
+                            <option value="{{$status}}">{{$status}}</option>
+                        @endforeach
+                        <option value="done">done</option>
+                    </select>
+                </div>
 
 
-                    </div>
+                <div class="table table-responsive" style="margin-top: 20px">
+                    <table id="allProductList" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th width="15%" style="text-align: center">Company Name</th>
+                            <th width="10%" style="text-align: center">Category</th>
+                            <th width="15%" style="text-align: center">Email</th>
+                            <th width="20%" style="text-align: center">Comments</th>
+                            <th width="5%" style="text-align: center">Status</th>
+                            <th width="5%" style="text-align: center">Mined by</th>
+                            <th width="10%" style="text-align: center">Created At</th>
+                            <th width="5%" style="text-align: center">Sales</th>
+                            <th width="10%" style="text-align: center">Action</th>
+                        </tr>
+                        </thead>
 
+                    </table><br>
 
 
                 </div>
-            </section>
+
+
+
+            </div>
         </section>
+    </section>
 
 
 
-    @endsection
+@endsection
 
 @section('foot-js')
     <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
@@ -77,7 +77,7 @@
 
 
                 "ajax": {
-                    "url": "{!! route('job.data') !!}",
+                    "url": "{!! route('job.salesData') !!}",
                     "type": "POST",
                     data: function (d) {
                         d._token = "{{csrf_token()}}";
@@ -109,17 +109,17 @@
                     },
 
                     { "data": function (data) {
-                            {{--var url = '{{url("job/", ":id") }}';--}}
-                            if(data.potential !=null){
-                                return '<a class="btn btn-info btn-sm" data-panel-id="' + data.jobId + '"onclick="editProduct(this)"><i class="fa fa-edit"></i></a>';
+                        {{--var url = '{{url("job/", ":id") }}';--}}
+                        if(data.potential !=null){
+                            return '<a class="btn btn-info btn-sm" data-panel-id="' + data.jobId + '"onclick="editProduct(this)"><i class="fa fa-edit"></i></a>';
 
-                            }
-                            else {
-                                return '<a class="btn btn-info btn-sm" data-panel-id="' + data.jobId + '"onclick="editProduct(this)"><i class="fa fa-edit"></i></a>';
+                        }
+                        else {
+                            return '<a class="btn btn-info btn-sm" data-panel-id="' + data.jobId + '"onclick="editProduct(this)"><i class="fa fa-edit"></i></a>';
 
-                            }
+                        }
 
-                        },
+                    },
                         "orderable": false, "searchable": false, "name": "selected_rows"
                     },
                 ],
@@ -185,4 +185,4 @@
 
 
 
-    @endsection
+@endsection
