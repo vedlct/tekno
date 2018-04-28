@@ -1098,6 +1098,13 @@ button:focus {
     min-height: 400px;
 }
 
+.slider_area4 {
+    background: rgba(0, 0, 0, 0) url("../img/dm-inside.jpg") no-repeat scroll 0 0 / cover ;
+	background-position:center center;
+    margin-bottom: 65px;
+    min-height: 400px;
+}
+
 .welcome_text {
     color: #28c1d7;
     padding-top: 170px;
@@ -1720,15 +1727,16 @@ button:focus {
 	text-decoration:none
 }
 
-.software-banner { 
+/*.software-banner { 
 	width:100%; 
-	background: url(../img/software.png) no-repeat; 	
-	height:500px;	
+	background: url(../img/software.png) no-repeat; 
+	background-position:right center;	
+	height:440px;	
 } 
 
 .software-text {
 	width:100%; 
-	height:500px; 
+	height:440px; 
 	background:#28c1d7; 
 	opacity:0;
 	transition: all 0.5s ease;
@@ -1737,7 +1745,7 @@ button:focus {
 .software-banner:hover .software-text {
 	opacity:0.8; 
 	color:#fff; 
-	padding-top:50px; 
+	padding-top:20px; 
 }
 
 .software-subtitle {
@@ -1747,18 +1755,63 @@ button:focus {
 
 .software-icons-row {
 	margin-bottom:80px;
+}*/
+
+.software-banner { 
+	width:100%; 
+	background: url(../img/software.png) no-repeat; 
+	background-position:right center; 
+	height:460px
+} 
+
+.software-text {
+	width:100%; 
+	height:460px; 
+	background:#28c1d7; 
+	opacity:0;
+	transition: all 0.5s ease;
+} 
+
+.software-banner:hover .software-text {
+	opacity:0.8; 
+	color:#fff; 
+	padding-top:20px; 
 }
+
+.dm-banner { 
+	width:100%; 
+	background: url(../img/dm.jpg) no-repeat; 
+	background-position:right center; 
+	height:460px;
+	background-size:cover;
+} 
+
+.dm-text {
+	width:100%; 
+	height:460px; 
+	background:#28c1d7; 
+	opacity:0;
+	transition: all 0.5s ease;
+} 
+
+.dm-banner:hover .dm-text {
+	opacity:0.8; 
+	color:#fff; 
+	padding-top:20px; 
+}
+
 
 .web-banner { 
 	width:100%; 
 	background: url(../img/web.png) no-repeat; 
 	background-position:top center; 
-	height:440px
+	height:460px;
+	background-size:cover;
 } 
 
 .web-text {
 	width:100%; 
-	height:440px; 
+	height:460px; 
 	background:#28c1d7; 
 	opacity:0;
 	transition: all 0.5s ease;
@@ -1774,12 +1827,14 @@ button:focus {
 	width:100%; 
 	background: url(../img/dtp.png) no-repeat; 
 	background-position:top center; 
-	height:440px
+	height:460px;
+	background-size:cover;
+	
 } 
 
 .dtp-text {
 	width:100%; 
-	height:440px; 
+	height:460px; 
 	background:#28c1d7; 
 	opacity:0;
 	transition: all 0.5s ease;
@@ -1824,6 +1879,13 @@ button:focus {
 	
 }
 
+.dm-banner { 
+	width:100%; 
+	background: url(../img/dm_m.jpg) no-repeat;
+	background-position:center center; 
+	
+}
+
 .web-dtp-btn {
 	margin-top:60px
 }
@@ -1831,7 +1893,8 @@ button:focus {
 .web-banner { 
 	width:100%; 
 	background: url(../img/web_m.jpg) no-repeat; 
-	background-position:center center; 
+	background-position:center center;
+	background-size:cover;
 }
 
 .dtp-banner { 
@@ -1842,7 +1905,7 @@ button:focus {
 
 .software-text {
 	width:100%; 
-	height:500px; 
+	height:460px; 
 	background:#28c1d7; 
 	opacity:0;
 	transition: all 0.5s ease;
@@ -1854,6 +1917,10 @@ button:focus {
 	padding-top:5px; 
 }
 
+.software-banner:hover .software-text h1 {
+	font-size:25px
+}
+
 .software-banner:hover .software-text h5 {
 	font-size:16px
 }
@@ -1862,18 +1929,23 @@ button:focus {
 	font-size:14px
 }
 
-.software-subtitle{
-	margin-bottom:5px;
+
+.dm-banner:hover .dm-text h1 {
+	font-size:25px
 }
 
-.software-icons-row {
-	margin-bottom:40px;
+.dm-banner:hover .dm-text h5 {
+	font-size:16px
+}
+
+.dm-banner:hover .dm-text p {
+	font-size:14px
 }
 
 
 .web-text {
 	width:100%; 
-	height:440px; 
+	height:460px; 
 	background:#28c1d7; 
 	opacity:0;
 	transition: all 0.5s ease;
@@ -1899,7 +1971,7 @@ button:focus {
 
 .dtp-text {
 	width:100%; 
-	height:440px; 
+	height:460px; 
 	background:#28c1d7; 
 	opacity:0;
 	transition: all 0.5s ease;
@@ -1946,11 +2018,47 @@ button:focus {
 	font-size:14px;
 }
 
+
 }
 
 
 
 @media only screen and (min-width: 768px)  {
+	
+.software-banner:hover .software-text {
+	padding-top:60px; 
+}
+
+.software-banner:hover .software-text h1 {
+	font-size:25px
+}
+
+.software-banner:hover .software-text h5 {
+	font-size:16px
+}
+
+.software-banner:hover .software-text p {
+	font-size:15px
+}
+	
+
+.dm-banner:hover .dm-text {
+	padding-top:60px; 
+}
+
+.dm-banner:hover .dm-text h1 {
+	font-size:25px
+}
+
+.dm-banner:hover .dm-text h5 {
+	font-size:16px
+}
+
+.dm-banner:hover .dm-text p {
+	font-size:15px
+}
+
+
 
 .web-banner:hover .web-text {
 	padding-top:60px; 

@@ -7,7 +7,7 @@
         <section class="grid">
 
 
-            <a class="grid__item" href="#" style="width:100%;">
+            <a class="grid__item" href="#" style="padding-right:5px; padding-bottom:0px">
                 <div class="software-banner">
                     <div class="software-text">
                         <div class="container">
@@ -17,32 +17,74 @@
 
                             </div>
 
-                            <div class="row software-subtitle" >
+                            <div class="row web-dtp-subtitle" style="margin-bottom:25px; margin-top:-15px">
+
                                 <div class="col-md-12"><p>we offer secure, scalable, and efficient solution for your business</p></div>
+
                             </div>
 
-                            <div class="row software-icons-row">
+                            <div class="row web-dtp-icons-row">
                                 <div class="col-md-4">
-                                    <img class="img-responsive" src="{{url('img/software-icon-1.png')}}" width="50"><br>
+                                    <img class="img-responsive" src="img/software-icon-1.png" width="50"><br>
                                     <h5>Flexible Methodology</h5>
                                 </div>
                                 <div class="col-md-4">
-                                    <img class="img-responsive" src="{{url('img/software-icon-2.png')}}"><br>
+                                    <img class="img-responsive" src="img/software-icon-2.png"><br>
                                     <h5>Affordable Costing</h5>
                                 </div>
                                 <div class="col-md-4">
-                                    <img class="img-responsive" src="{{url('img/software-icon-3.png')}}"><br>
+                                    <img class="img-responsive" src="img/software-icon-3.png"><br>
                                     <h5>Dedicated Account Manager</h5>
                                 </div>
                             </div>
 
-                            <button class="btn btn-primary btn-round-lg btn-lg">Learn More</button>
+                            <button class="btn btn-primary btn-round-lg btn-lg web-dtp-btn">Learn More</button>
                         </div>
                     </div>
                 </div>
 
                 <!--<div class="loader"></div>-->
             </a>
+
+            <a class="grid__item" href="#" style="padding-left:5px; padding-bottom:0px">
+                <div class="dm-banner">
+                    <div class="dm-text">
+                        <div class="container">
+                            <div class="row" >
+
+                                <div class="col-md-12"><h1>DIGITAL MARKETING</h1></div>
+
+                            </div>
+
+                            <div class="row web-dtp-subtitle" style="margin-bottom:25px; margin-top:-15px">
+
+                                <div class="col-md-12"><p>we promote your brand on digital platform</p></div>
+
+                            </div>
+
+                            <div class="row web-dtp-icons-row">
+                                <div class="col-md-4">
+                                    <img class="img-responsive" src="img/dm-icon-1.png" width="50"><br>
+                                    <h5>Create Awareness</h5>
+                                </div>
+                                <div class="col-md-4">
+                                    <img class="img-responsive" src="img/dm-icon-2.png"><br>
+                                    <h5>Make Engagement</h5>
+                                </div>
+                                <div class="col-md-4">
+                                    <img class="img-responsive" src="img/dm-icon-3.png"><br>
+                                    <h5>Convert to Your Customer</h5>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary btn-round-lg btn-lg web-dtp-btn">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!--<div class="loader"></div>-->
+            </a>
+
 
             <a class="grid__item" href="#" style="padding-right:5px; padding-bottom:10px">
                 <div class="web-banner">
@@ -123,8 +165,6 @@
         <section class="content">
             <div class="scroll-wrap">
                 <article class="content__item">
-
-
 
                     <div id="slider" class="slider_area1"> <!-- slider area start -->
                         <div class="column">
@@ -341,6 +381,87 @@
 
                 </article>
 
+                <article class="content__item">
+                    <div id="slider" class="slider_area4"> <!-- slider area start -->
+                        <div class="column">
+                            <div class="welcome_text">
+                                <h2 style="color:#16AFDD">Our Works</h2>
+                                <hr>
+                            </div>
+                        </div>
+                    </div> <!-- slider area end -->
+
+                    <div class="container">
+                        <div class="section_title">
+                            <h3>WE OFFER</h3> <hr>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-4">
+
+                                <div class="single-service">
+                                    <ul class="list-ic vertical">
+                                        <li>
+                                            <span><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+                                            <a href="#">Facebook Marketing</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+
+                                <div class="single-service">
+                                    <ul class="list-ic vertical">
+                                        <li>
+                                            <span><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+                                            <a href="#">E-mail Marketing</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+
+                                <div class="single-service">
+                                    <ul class="list-ic vertical">
+                                        <li>
+                                            <span><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+                                            <a href="#">Digital Content & Creative Services</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <div class="section_title">
+                            <h3>Some of Our Valuable Clients</h3> <hr>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-2">
+                                <img class="img-responsive" src="images/dummy-logo.png">
+                            </div>
+                            <div class="col-md-2">
+                                <img class="img-responsive" src="images/dummy-logo.png">
+                            </div>
+                            <div class="col-md-2">
+                                <img class="img-responsive" src="images/dummy-logo.png">
+                            </div>
+                            <div class="col-md-2">
+                                <img class="img-responsive" src="images/dummy-logo.png">
+                            </div>
+                            <div class="col-md-2">
+                                <img class="img-responsive" src="images/dummy-logo.png">
+                            </div>
+                            <div class="col-md-2">
+                                <img class="img-responsive" src="images/dummy-logo.png">
+                            </div>
+                        </div>
+                    </div>
+                </article>
 
                 <article class="content__item">
                     <div id="slider" class="slider_area2"> <!-- slider area start -->
