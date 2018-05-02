@@ -71,6 +71,8 @@ class FormController extends Controller
 
     public function storeBrochure(Request $r){
 
+//        return $r;
+
         $job=new Job;
         $job->companyName=$r->companyName;
 
@@ -119,26 +121,26 @@ class FormController extends Controller
             }
         }
 
-        $data=array('name'=>$r->companyName,
-            'email'=> $r->email,
-            'number' => $r->phoneNumber,
-            'size'=> $r->BrochureSize,
-            'pages'=> $r->BrochurePages,
-            'businessArea'=>$r->BusinessArea,
-            'themeColor'=> $r->ThemeColor,
-            'tagline'=> $r->TaglineSlogan,
-            'description'=> $r->BrochureType,
-            'focus'=>$r->MainFocus,
-            'TText'=>$r->TextSoftFile,
-            'mediaUrl'=>$r->SocialMediaURLs,
-            'reference'=>$r->References,
-            'estimatedTime'=>$r->EstimatedTime,
-
-        );
-        Mail::send('email.brochure',$data, function($message)
-        {
-            $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
-        });
+//        $data=array('name'=>$r->companyName,
+//            'email'=> $r->email,
+//            'number' => $r->phoneNumber,
+//            'size'=> $r->BrochureSize,
+//            'pages'=> $r->BrochurePages,
+//            'businessArea'=>$r->BusinessArea,
+//            'themeColor'=> $r->ThemeColor,
+//            'tagline'=> $r->TaglineSlogan,
+//            'description'=> $r->BrochureType,
+//            'focus'=>$r->MainFocus,
+//            'TText'=>$r->TextSoftFile,
+//            'mediaUrl'=>$r->SocialMediaURLs,
+//            'reference'=>$r->References,
+//            'estimatedTime'=>$r->EstimatedTime,
+//
+//        );
+//        Mail::send('email.brochure',$data, function($message)
+//        {
+//            $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
+//        });
 
 
         Session::flash('message', 'Brochure Added Successfully');

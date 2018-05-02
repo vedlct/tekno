@@ -8,7 +8,7 @@
     <meta name="keyword" content="">
     <link rel="shortcut icon" href="{{url('img/TCL_logo.png')}}">
 
-    <title>OMS - Order Management System.</title>
+    <title>OMS - Order Management System</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{url('css/bootstrap.min.css')}}" rel="stylesheet">
@@ -61,7 +61,6 @@
 <section id="container" >
     <!--header start-->
 
-
 @include('Navigation.topmenu')
 
 
@@ -78,6 +77,8 @@
             <!-- sidebar menu end-->
         </div>
     </aside>
+
+
 
     @yield('content')
 

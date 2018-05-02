@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\registrationm;
+use App\User;
 use Auth;
 use Hash;
 use Session;
@@ -22,29 +23,35 @@ class Registration extends Controller
 
         $loginname = $request->loginname;
         $pass = Hash::make($request->pass);
-        $clientname = $request->clientname;
-        $contact = $request->contact;
+//        $clientname = $request->clientname;
         $number = $request->number;
         $email = $request->email;
         $address = $request->address;
-        $web = $request->web;
 
-        $short_name = implode('', array_map(function($v) { return $v[0]; }, explode(' ', $clientname)));
+//        $short_name = implode('', array_map(function($v) { return $v[0]; }, explode(' ', $clientname)));
 
 //        $save= (new registrationm)->insertdata($loginname,$pass,$clientname,$contact,$number,$email,$address,$web,$short_name);
 
         try{
             //your query
-            $save= (new registrationm)->insertdata($loginname,$pass,$clientname,$contact,$number,$email,$address,$web,$short_name);
+//            $save= (new registrationm)->insertdata($loginname,$pass,$clientname,$contact,$number,$email,$address,$web,$short_name);
+            $user=new User();
+            $user->username=$loginname;
+            $user->password=$pass;
+            $user->user_type=$request->usertype;
+            $user->company_name='Tekno Visial';
+            $user->short_name=$loginname;
+            $user->contact_person='User';
+            $user->contact_no=$number;
+            $user->email=$email;
+            $user->address=$address;
+            $user->client_status='Active';
+            $user->save();
 
-            echo "<script type=\"text/javascript\">
-				alert(\"Registration Request Sent Successfully\");
-				</script>";
+            Session::flash('message', 'User Created');
         }
         catch(Exception $e){
-            echo "<script type=\"text/javascript\">
-				alert(\"There is an issue. Please Refresh the page and try again.\");
-				</script>";
+            Session::flash('message', 'Problem Occured '.$e);
         }
 
 

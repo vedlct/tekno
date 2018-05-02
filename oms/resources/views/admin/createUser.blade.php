@@ -1,37 +1,12 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="keyword" content="">
-    @include('css.css')
-</head>
-
-<body>
-
-<section id="container" >
-    <!--header start-->
-@include('Navigation.topmenu')
-<!--header end-->
-    <!--sidebar start-->
-    <aside>
-        <div id="sidebar"  class="nav-collapse ">
-            <!-- sidebar menu start-->
-            <ul class="sidebar-menu" id="nav-accordion">
-                @include('Navigation.menu')
-            </ul>
-            <!-- sidebar menu end-->
-        </div>
-    </aside>
-
-
-
+@extends('main')
+@section('content')
     <section id="main-content">
         <section class="wrapper">
             <!--state overview start-->
+            @if(Session::has('message'))
+                <p class="alert alert-info">{{ Session::get('message') }}</p>
+            @endif
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
@@ -48,10 +23,14 @@
                                         <th colspan="4" scope="row"><div align="center"><h4>User Form</h4></div></th>
                                     </tr>
                                     <tr>
-                                        <th width="13%" scope="row"><div align="right">Client Type <i style="color:red">*</i></div></th>
+                                        <th width="13%" scope="row"><div align="right">User Type <i style="color:red">*</i></div></th>
                                         <td width="37%">
-                                            <select class="form-control" name="usertype" required readonly>
-                                                <option value="User" selected>User</option>
+                                            <select class="form-control" name="usertype" required>
+                                                {{--<option value="User" selected>User</option>--}}
+                                                @foreach(USERTYPE as $type)
+                                                    <option>{{$type}}</option>
+
+                                                @endforeach
                                             </select>
                                         </td>
                                         <th width="13%"><div align="right">Login Name <i style="color:red">*</i></div></th>
@@ -71,16 +50,7 @@
                                             <i id="pname" style="color:red;display:none">Password Should be same and not Blank </i>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row"><div align="right">Company Name <i style="color:red">*</i></div></th>
-                                        <td>
-                                            <input class="form-control" type="text" name="clientname" id="textfield5" required />
-                                        </td>
-                                        <th><div align="right">Contact Person <i style="color:red">*</i></div></th>
-                                        <td>
-                                            <input class="form-control" type="text" name="contact" id="textfield6" required/>
-                                        </td>
-                                    </tr>
+
                                     <tr>
                                         <th scope="row"><div align="right">Contact Number <i style="color:red">*</i></div></th>
                                         <td>
@@ -97,12 +67,7 @@
                                             <input class="form-control" type="text" name="address" id="textfield9" />
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row"><div align="right">Web Address</div></th>
-                                        <td colspan="3">
-                                            <input class="form-control" type="text" name="web" id="textfield10" />
-                                        </td>
-                                    </tr>
+
 
                                     <tr>
                                         <th colspan="4" scope="row">
@@ -129,13 +94,5 @@
 
 
 
-
-
-    <footer class="site-footer">
-        @include('layout.footer')
-    </footer>
-    <!--footer end-->
-</section>
-
-@include('js.js')
+@endsection
 
