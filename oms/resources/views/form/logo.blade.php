@@ -6,9 +6,7 @@
         <input type="hidden" name="action" value="smail" />
         <input type="hidden" name="content" value="formular"/>
 
-
         <legend>Logo</legend>
-
         <div class="form-group">
             <label class="col-md-3 control-label" for="name">Company Name:*</label>
             <div class="col-md-9">
@@ -87,11 +85,11 @@
         </div>
 
 
-        <div class="form-group"  style="margin-bottom: 40px">
+        <div class="form-group"  >
             <label class="control-label col-sm-3" >Other comments:</label>
             <div class="col-sm-9">
 
-                <textarea id="OtherComments" name="OtherComments" rows="6" required class="form-control"></textarea>
+                <textarea id="OtherComments" name="OtherComments" rows="6" required class="form-control" style="margin-bottom: 40px"></textarea>
                 @if ($errors->has('OtherComments'))
                     <span class="invalid-feedback">
                         <strong>{{ $errors->first('OtherComments') }}</strong>
@@ -101,12 +99,10 @@
         </div>
 
 
-
-
-        <div class="form-group" >
+        <div class="form-group" style="margin-bottom: 40px">
             <label class="control-label col-sm-3" >Sales representative (only for our team member): </label>
             <div class="col-sm-9">
-                <select class="form-control" name="userId">
+                <select class="form-control" name="userId"  style="margin-bottom: 40px">
                     <option value="">please select one</option>
                     @foreach($users as $user)
                         <option value="{{$user->user_id}}">{{$user->username}}</option>
@@ -115,12 +111,6 @@
 
             </div>
         </div>
-
-
-
-
-
-
 
         <br><br>
         <div style="text-align: center;margin-bottom: 2%;"><b>Advice: Fields with <span>*</span> have to be filled.</b></div>
