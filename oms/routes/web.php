@@ -129,3 +129,15 @@ Route::get('/home', 'JobController@home')->name('home');
 //Route::get('/Home','JobController@home');
 Route::post('/getNotification','MessageController@getNotification')->name('getNotification');
 
+
+//Form
+Route::get('/request-job','FormController@jobRequest')->name('job.request');
+Route::post('/getJobForm','FormController@getForm')->name('getJobForm');
+Route::post('/storeBrochure','FormController@storeBrochure')->name('storeBrochure');
+Route::post('/storeWebsite','FormController@storeWebsite')->name('storeWebsite');
+Route::post('/storeLeaflet','FormController@storeLeaflet')->name('storeLeaflet');
+Route::post('/storeBanner','FormController@storeBanner')->name('storeBanner');
+Route::post('/storeCorporate','FormController@storeCorporate')->name('storeCorporate');
+Route::post('/storeLogo','FormController@storeLogo')->name('storeLogo');
+Route::post('/storeVector','FormController@storeVector')->name('storeVector');
+
