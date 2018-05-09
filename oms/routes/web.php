@@ -131,7 +131,7 @@ Route::post('/getNotification','MessageController@getNotification')->name('getNo
 
 
 //Form
-Route::view('/request-job','jobRequest')->name('job.request');
+Route::get('/request-job','FormController@jobRequest')->name('job.request');
 Route::post('/getJobForm','FormController@getForm')->name('getJobForm');
 Route::post('/storeBrochure','FormController@storeBrochure')->name('storeBrochure');
 Route::post('/storeWebsite','FormController@storeWebsite')->name('storeWebsite');

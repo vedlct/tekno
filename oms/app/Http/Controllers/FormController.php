@@ -26,14 +26,17 @@ class FormController extends Controller
         $this->middleware('auth');
     }
 
+    public function jobRequest(){
+
+        return view('jobRequest');
+
+    }
+
     public function getForm(Request $r){
 
         $users=User::select('user_id','username')->get();
 
         
-
-
-
         if ($r->option =='brochure'){
 
             return view('form.brochure')->with('users',$users);

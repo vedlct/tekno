@@ -119,7 +119,8 @@
 
 
 
-        <legend>Your Action</legend>
+
+        <br><br>
         <div style="text-align: center;margin-bottom: 2%;"><b>Advice: Fields with <span>*</span> have to be filled.</b></div>
         <div class="buttons" style="text-align: center">
             <input type="submit" name="mt-mk" value="Send" onclick="tescht();" style="width: 40%;margin-right:5%; " class="btn btn-success btn-md"/>
