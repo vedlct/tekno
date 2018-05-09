@@ -62,8 +62,9 @@
     <!--header start-->
 
 @include('Navigation.topmenu')
+    {{--@if(Session::has('message'))--}}
 
-
+{{--@endif--}}
 <!--header end-->
     <!--sidebar start-->
     <aside>
@@ -86,7 +87,7 @@
 <!--footer start-->
 
 
-
+   
 
     <footer class="site-footer" >
 

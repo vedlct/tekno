@@ -39,6 +39,9 @@
 <li>
     <a href="{{route('job.sale')}}"><i class="fa fa-bookmark"></i> Sales</a>
 </li>
+<li>
+    <a href="{{route('job.request')}}"><i class="fa fa-plus"></i> Insert Job</a>
+</li>
 @if(Auth::user()['user_type']==USERTYPE[0])
 <li class="sub-menu">
     <a href="{{route('user.create')}}" >
