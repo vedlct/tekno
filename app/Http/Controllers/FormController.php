@@ -22,15 +22,12 @@ use Illuminate\Support\Facades\Mail;
 
 class FormController extends Controller
 {
+
+
+
     public function getForm(Request $r){
 
         $users=User::select('user_id','username')->get();
-
-
-
-
-
-
 
         if ($r->option =='brochure'){
 
@@ -472,6 +469,8 @@ class FormController extends Controller
         return back();
     }
     public function storeVector(Request $r){
+
+
         $job=new Job;
         $job->companyName=$r->companyName;
         $job->email=$r->email;
@@ -505,20 +504,20 @@ class FormController extends Controller
                 $picture->save();
             }
         }
-        $data=array('name'=>$r->companyName,
-            'email'=> $r->email,
-            'number' => $r->phoneNumber,
-            'comment'=> $r->Comments);
-
-        Mail::send('email.vector',$data, function($message)
-        {
-            $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
-        });
+//        $data=array('name'=>$r->companyName,
+//            'email'=> $r->email,
+//            'number' => $r->phoneNumber,
+//            'comment'=> $r->Comments);
+//
+//        Mail::send('email.vector',$data, function($message)
+//        {
+//            $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
+//        });
 
 
 
         Session::flash('message', 'Vector Added Successfully');
-        return back();
+        return "Done";
     }
 
 }

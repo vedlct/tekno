@@ -18,6 +18,8 @@ Route::view('/contact','contact')->name('contact');
 Route::view('/privacy','privacy')->name('privacy');
 
 
+
+
 //Form
 Route::post('/getJobForm','FormController@getForm')->name('getJobForm');
 Route::post('/storeBrochure','FormController@storeBrochure')->name('storeBrochure');
