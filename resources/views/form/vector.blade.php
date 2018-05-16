@@ -1,5 +1,5 @@
 <div id="Vectorform" >
-    <form action="{{route('storeVector')}}" method="post"  style="" class="form-horizontal" enctype="multipart/form-data">
+    <form action="{{route('storeVector')}}" method="post"  style="" id="form1" class="form-horizontal" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="hidden" name="action" value="smail" />
         <input type="hidden" name="content" value="formular"/>
@@ -114,17 +114,104 @@
 
         </div>
 
+        <div id="message"></div><br />
+        {{--Progress Bar--}}
 
+        <div class="preview"></div>
 
+        <div class="progress" style="display:none">
+
+            <div class="progress-bar" role="progressbar" aria-valuenow="0"
+
+                 aria-valuemin="0" aria-valuemax="100" style="width:0%">
+
+                0%
+
+            </div>
+
+        </div>
 
 
 
         <legend>Your Action</legend>
         <div style="text-align: center;margin-bottom: 2%;"><b>Advice: Fields with <span>*</span> have to be filled.</b></div>
         <div class="buttons" style="text-align: center">
-            <input type="submit" name="mt-mk" value="Send" onclick="tescht();" style="width: 40%;margin-right:5%; " class="btn btn-success btn-md"/>
+            <input type="submit" name="mt-mk" value="Send"  style="width: 40%;margin-right:5%; " class="btn btn-success btn-md upload-image"/>
             <input type="reset" name="delete" value="reset" style="width: 40%" class="btn btn-danger btn-md"/>
         </div>
 
     </form>
 </div>
+
+<script src="http://malsup.github.com/jquery.form.js"></script>
+<script>
+
+    $(document).ready(function() {
+        $(document).ready(function() {
+
+            var progressbar = $('.progress-bar');
+
+            $(".upload-image").click(function(){
+
+                $("#form1").ajaxForm(
+
+                    {
+
+                        target: '.preview',
+
+                        beforeSend: function() {
+
+                            $(".progress").css("display","block");
+
+                            progressbar.width('0%');
+
+                            progressbar.text('0%');
+
+                        },
+
+                        uploadProgress: function (event, position, total, percentComplete) {
+
+                            progressbar.width(percentComplete + '%');
+
+                            progressbar.text(percentComplete + '%');
+
+                        },
+
+                        success: function()
+                        {
+//                            $("#bar").width('100%');
+//                            $("#percent").html('100%');
+
+//                            location.reload();
+
+                        },
+                        complete: function(response)
+                        {
+                            $("#message").html("<font color='green'><div>"+response.responseText+"</div></font>");
+//                            alert('Complete');
+//                            location.reload();
+//                            alert('Complete');
+                        },
+                        error: function()
+                        {
+                            $("#message").html("<font color='red'> ERROR: unable to upload files</font>");
+
+                            alert('Error');
+                        }
+
+
+                    }).submit();
+
+//                    location.reload();
+
+
+
+
+            });
+
+        });
+
+    });
+
+
+</script>

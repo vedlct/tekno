@@ -36,7 +36,6 @@ class FormController extends Controller
 
         $users=User::select('user_id','username')->get();
 
-        
         if ($r->option =='brochure'){
 
             return view('form.brochure')->with('users',$users);
@@ -76,13 +75,11 @@ class FormController extends Controller
 
     public function storeBrochure(Request $r){
 
-//        return $r;
-
         $job=new Job;
         $job->companyName=$r->companyName;
-
         $job->email=$r->email;
         $job->phoneNumber=$r->phoneNumber;
+        $job->potential=1;
 
         $job->reference=$r->References;
         $job->businessArea=$r->BusinessArea;
@@ -95,7 +92,8 @@ class FormController extends Controller
         $brochure=new Brochure;
         $brochure->jobId=$job->jobId;
         $brochure->size=$r->BrochureSize;
-        $brochure->page=$r->BrochurePages;
+        $brochure->page=$r->Br
+        ochurePages;
         $brochure->themeColor=$r->ThemeColor;
         $brochure->tagline=$r->TaglineSlogan;
         $brochure->mainFocus=$r->MainFocus;
@@ -125,26 +123,7 @@ class FormController extends Controller
                 $picture->save();
             }
         }
-//        $data=array('name'=>$r->companyName,
-//            'email'=> $r->email,
-//            'number' => $r->phoneNumber,
-//            'size'=> $r->BrochureSize,
-//            'pages'=> $r->BrochurePages,
-//            'businessArea'=>$r->BusinessArea,
-//            'themeColor'=> $r->ThemeColor,
-//            'tagline'=> $r->TaglineSlogan,
-//            'description'=> $r->BrochureType,
-//            'focus'=>$r->MainFocus,
-//            'TText'=>$r->TextSoftFile,
-//            'mediaUrl'=>$r->SocialMediaURLs,
-//            'reference'=>$r->References,
-//            'estimatedTime'=>$r->EstimatedTime,
-//
-//        );
-//        Mail::send('email.brochure',$data, function($message)
-//        {
-//            $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
-//        });
+
 
 
         Session::flash('message', 'Brochure Added Successfully');
@@ -155,6 +134,7 @@ class FormController extends Controller
         $job=new Job;
         $job->companyName=$r->companyName;
         $job->email=$r->email;
+        $job->potential=1;
         $job->phoneNumber=$r->phoneNumber;
         $job->reference=$r->ReferenceWeb;
         $job->comments=$r->OtherComments;
@@ -197,26 +177,6 @@ class FormController extends Controller
             }
         }
 
-//
-//        $data=array('name'=>$r->companyName,
-//            'email'=> $r->email,
-//            'number' => $r->phoneNumber,
-//            'type'=> $r->WebsiteType,
-//            'NumberOfPages'=> $r->NumberOfPages,
-//            'portfolioPage'=> $r->portfolioPage,
-//            'ContentManage'=> $r->ContentManage,
-//            'comment'=> $r->OtherComments,
-//            'businessDetail'=> $r->BusinessDetail,
-//            'EstimatedTime'=>$r->EstimatedTime,
-//            'ExistingWeb'=>$r->ExistingWeb,
-//            'mediaUrl'=>$r->MediaURLs,
-//            'reference'=>$r->ReferenceWeb
-//        );
-//        Mail::send('email.website',$data, function($message)
-//        {
-//            $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
-//        });
-//
 
         Session::flash('message', 'Website Added Successfully');
         return back();
@@ -229,6 +189,7 @@ class FormController extends Controller
         $job->companyName=$r->companyName;
         $job->reference=$r->references;
         $job->email=$r->EmailAddress;
+        $job->potential=1;
         $job->phoneNumber=$r->PhoneNumber;
         $job->address=$r->CompanyAddress;
         $job->companyWebsiteUrl=$r->CompanyWebsite;
@@ -271,24 +232,6 @@ class FormController extends Controller
         }
 
 
-//        $data=array('name'=>$r->companyName,
-//            'size'=> $r->LeafletSize,
-//            'website'=> $r->CompanyWebsite,
-//            'tagline'=> $r->TaglineSlogan,
-//            'BusinessArea'=> $r->BusinessArea,
-//            'email'=> $r->EmailAddress,
-//            'number'=> $r->PhoneNumber,
-//            'address'=> $r->CompanyAddress,
-//            'focus'=> $r->mainFocus,
-//            'EstimatedTime'=>$r->EstimatedTime,
-//            'TextSoftFile'=>$r->TextSoftFile,
-//            'mediaUrl'=>$r->companyMediaUrlAddress,
-//            'reference'=>$r->references
-//        );
-//        Mail::send('email.leaflet',$data, function($message)
-//        {
-//            $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
-//        });
 
 
         Session::flash('message', 'Leaflet Added Successfully');
@@ -310,6 +253,7 @@ class FormController extends Controller
         $job->EstimatedTime=$r->EstimatedTime;
         $job->userId=$r->userId;
         $job->userId=$r->userId;
+        $job->potential=1;
         $job->save();
 
         $banner=new Banner;
@@ -345,22 +289,6 @@ class FormController extends Controller
             }
         }
 
-//        $data=array('name'=>$r->companyName,
-//            'email'=> $r->email,
-//            'number' => $r->phoneNumber,
-//            'size'=> $r->bannerSize,
-//            'Headline'=> $r->Headline,
-//            'BannerType'=> $r->BannerType,
-//            'BusinessArea'=> $r->BusinessArea,
-//            'comment'=> $r->Comments,
-//            'EstimatedTime'=>$r->EstimatedTime,
-//            'TextSoftFile'=>$r->TextSoftFile,
-//            'reference'=>$r->references
-//        );
-//        Mail::send('email.banner',$data, function($message)
-//        {
-//            $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
-//        });
 
         Session::flash('message', 'Banner Added Successfully');
         return back();
@@ -372,7 +300,7 @@ class FormController extends Controller
 
         $job=new Job;
         $job->companyName=$r->companyName;
-
+        $job->potential=1;
         $job->email=$r->CompanyEmail;
         $job->phoneNumber=$r->PhoneNumber;
         $job->address=$r->CompanyAddress;
@@ -415,23 +343,6 @@ class FormController extends Controller
             }
         }
 
-//        $data=array('name'=>$r->companyName,
-//            'mail'=>$r->CompanyEmail,
-//            'BusinessArea'=>$r->BusinessArea,
-//            'themeColor'=>$r->ThemeColor,
-//            'number'=>$r->PhoneNumber,
-//            'address'=>$r->CompanyAddress,
-//            'email'=>$r->CompanyEmail,
-//            'EstimatedTime'=>$r->EstimatedTime,
-//            'designation'=>$r->VisitingCards,
-//            'qr'=>$r->QRcode,
-//            'ciType'=>$r->CITypes,
-//        );
-
-//        Mail::send('email.corporate',$data, function($message)
-//        {
-//            $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
-//        });
 
         Session::flash('message', 'Corporate-CI Added Successfully');
         return back();
@@ -447,6 +358,7 @@ class FormController extends Controller
         $job->email=$r->email;
         $job->phoneNumber=$r->phoneNumber;
         $job->comments=$r->OtherComments;
+        $job->potential=1;
         $job->category='logo';
         $job->EstimatedTime=$r->EstimatedTime;
         $job->userId=$r->userId;
@@ -459,20 +371,6 @@ class FormController extends Controller
         $logo->businessType=$r->BusinessType;
         $logo->save();
 
-//        $data=array('name'=>$r->companyName,
-//            'email'=> $r->email,
-//            'number' => $r->phoneNumber,
-//            'comment'=> $r->OtherComments,
-//            'EstimatedTime'=>$r->EstimatedTime,
-//            'logoShape'=>$r->LogoShape,
-//            'preferedColor'=>$r->PreferredColour,
-//            'businessType'=>$r->BusinessType
-//        );
-//        Mail::send('email.logo',$data, function($message)
-//        {
-//            $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
-//        });
-
         Session::flash('message', 'Logo Added Successfully');
         return back();
     }
@@ -480,6 +378,7 @@ class FormController extends Controller
         $job=new Job;
         $job->companyName=$r->companyName;
         $job->email=$r->email;
+        $job->potential=1;
         $job->phoneNumber=$r->phoneNumber;
         $job->comments= $r->Comments;
         $job->category='vector';
@@ -510,15 +409,6 @@ class FormController extends Controller
                 $picture->save();
             }
         }
-//        $data=array('name'=>$r->companyName,
-//            'email'=> $r->email,
-//            'number' => $r->phoneNumber,
-//            'comment'=> $r->Comments);
-//
-//        Mail::send('email.vector',$data, function($message)
-//        {
-//            $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
-//        });
 
 
 
