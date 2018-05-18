@@ -191,24 +191,24 @@ class FormController extends Controller
         }
 
 
-        $data=array('name'=>$r->companyName,
-            'email'=> $r->email,
-            'number' => $r->phoneNumber,
-            'type'=> $r->WebsiteType,
-            'NumberOfPages'=> $r->NumberOfPages,
-            'portfolioPage'=> $r->portfolioPage,
-            'ContentManage'=> $r->ContentManage,
-            'comment'=> $r->OtherComments,
-            'businessDetail'=> $r->BusinessDetail,
-            'EstimatedTime'=>$r->EstimatedTime,
-            'ExistingWeb'=>$r->ExistingWeb,
-            'mediaUrl'=>$r->MediaURLs,
-            'reference'=>$r->ReferenceWeb
-        );
-        Mail::send('email.website',$data, function($message)
-        {
-            $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
-        });
+//        $data=array('name'=>$r->companyName,
+//            'email'=> $r->email,
+//            'number' => $r->phoneNumber,
+//            'type'=> $r->WebsiteType,
+//            'NumberOfPages'=> $r->NumberOfPages,
+//            'portfolioPage'=> $r->portfolioPage,
+//            'ContentManage'=> $r->ContentManage,
+//            'comment'=> $r->OtherComments,
+//            'businessDetail'=> $r->BusinessDetail,
+//            'EstimatedTime'=>$r->EstimatedTime,
+//            'ExistingWeb'=>$r->ExistingWeb,
+//            'mediaUrl'=>$r->MediaURLs,
+//            'reference'=>$r->ReferenceWeb
+//        );
+//        Mail::send('email.website',$data, function($message)
+//        {
+//            $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
+//        });
 
 
         Session::flash('message', 'Website Added Successfully');

@@ -92,8 +92,7 @@ class FormController extends Controller
         $brochure=new Brochure;
         $brochure->jobId=$job->jobId;
         $brochure->size=$r->BrochureSize;
-        $brochure->page=$r->Br
-        ochurePages;
+        $brochure->page=$r->BrochurePages;
         $brochure->themeColor=$r->ThemeColor;
         $brochure->tagline=$r->TaglineSlogan;
         $brochure->mainFocus=$r->MainFocus;
