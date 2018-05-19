@@ -517,7 +517,7 @@ class FormController extends Controller
 
 
         Session::flash('message', 'Vector Added Successfully');
-        return "Done";
+        return back();
     }
 
 }
