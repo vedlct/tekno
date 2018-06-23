@@ -33,3 +33,9 @@ Route::post('/storeVector','FormController@storeVector')->name('storeVector');
 
 //Test
 Route::get('test','TestController@index');
+
+//Login
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

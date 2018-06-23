@@ -21,11 +21,13 @@ use Auth;
 use DB;
 
 
+
 class AdminController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
+
     }
 
     public function index()
@@ -69,15 +71,6 @@ class AdminController extends Controller
 
                 echo "There is an issue. Please Refresh the page and try again.";
             }
-
-//        if (count($changestatus)!='')
-//        {
-//            echo "Job ".$value." successfully.";
-//        }
-//        else
-//        {
-//            echo "There is an issue. Please Refresh the page and try again.";
-//        }
 
 
         } else {
@@ -139,8 +132,9 @@ class AdminController extends Controller
 
     public function ongoingjob()
     {
-//        $type = session('user-type');
-//        if ($type == 'Admin') {
+        if(Auth::user()->user_type ==USERTYPE[2]){
+            return back();
+        }
 
         $ongoingwork = (new Admin)->ongoingjob();
         $unseen=Notification::select('jobId',DB::Raw("Count('jobId') as total"))
@@ -175,6 +169,9 @@ class AdminController extends Controller
 
     public function finshedjob()
     {
+        if(Auth::user()->user_type ==USERTYPE[2]){
+            return back();
+        }
 //
 //        $type = session('user-type');
 //        if ($type == 'Admin') {
@@ -198,22 +195,22 @@ class AdminController extends Controller
             }
 
             return view('admin.jobfinised', compact('finshedwork','messages'));
-//        }
-//        else {
-//            return redirect(url('/'));
-//        }
     }
 
     public function viewclient()
     {
-//        $type = session('user-type');
-//        if ($type == 'Admin') {
+        if(Auth::user()->user_type ==USERTYPE[2]){
+            $user=User::findOrFail(Auth::user()->user_id);
+//            return $user;
+            return view('client.clientInfo')->with('user',$user);
+        }
+        else{
             $client_view = (new Admin)->clientinfoview();
-            return view('admin.viewallclient', compact('client_view'));
-//        }
-//        else {
-//            return redirect(url('/'));
-//        }
+        }
+
+
+        return view('admin.viewallclient', compact('client_view'));
+
     }
 
     public function clientinfo(Request $request)

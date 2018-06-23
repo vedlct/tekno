@@ -16,18 +16,17 @@ use Illuminate\Http\Request;
 //});
 Route::get('/','Auth\LoginController@showLoginForm');
 
+Route::get('/test', function () {
+    return view('test');
+});
 
 //Route::post('/logincheck','LoginController@validate_user');
 //Route::get('/Home','LoginController@home');
 Route::post('/insertreg','Registration@insertdata')->name('user.insert');
 
-//Route::get('/Home', function () {
-//    return view('Home');
-//});
 Route::get('/Home','JobController@home');
 
 Route::post('/logincheck','LoginController@validate_user');
-//Route::get('/Home','LoginController@home');
 Route::get('/Logout','LoginController@logout');
 
 

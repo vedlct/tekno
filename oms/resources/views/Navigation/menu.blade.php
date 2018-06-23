@@ -5,27 +5,21 @@
         <span>Dashboard</span>
     </a>
 </li>
+@if(Auth::user()->user_type != USERTYPE[2])
 <li>
     <a  href="{{route('adminnewjobrequest')}}">
         <i class="fa fa-briefcase"></i>
         <span>New Job Request</span>
     </a>
 </li>
-
+@endif
 <li>
     <a  href="{{route('job.all')}}">
         <i class="fa fa-briefcase"></i>
         <span>All Jobs</span>
     </a>
 </li>
-
-{{--<li>--}}
-    {{--<a  href="{{route('usernewjobrequest')}}">--}}
-        {{--<i class="fa fa-briefcase"></i>--}}
-        {{--<span>All Job Request</span>--}}
-    {{--</a>--}}
-{{--</li>--}}
-
+@if(Auth::user()->user_type != USERTYPE[2])
 <li class="sub-menu">
     <a href="javascript:;" >
         <i class="fa fa-laptop"></i>
@@ -36,9 +30,11 @@
         <li><a  href="{{route('finshedjob')}}">Done</a></li>
     </ul>
 </li>
+
 <li>
     <a href="{{route('job.sale')}}"><i class="fa fa-bookmark"></i> Sales</a>
 </li>
+@endif
 <li>
     <a href="{{route('job.request')}}"><i class="fa fa-plus"></i> Insert Job</a>
 </li>

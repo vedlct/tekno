@@ -18,6 +18,7 @@ use Image;
 use File;
 use Session;
 use Validator;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
 class FormController extends Controller
@@ -68,7 +69,14 @@ class FormController extends Controller
 
     public function storeBrochure(Request $r){
 
-//        return $r;
+        //Creating User
+        $user=new User();
+        $user->username=$r->email;
+        $user->email=$r->email;
+        $user->password=Hash::make('654321');
+        $user->user_type="Client";
+        $user->company_name=$r->companyName;
+        $user->save();
 
         $job=new Job;
         $job->companyName=$r->companyName;
@@ -470,6 +478,21 @@ class FormController extends Controller
     }
     public function storeVector(Request $r){
 
+        //Creating User
+        $user=User::where('email',$r->email)->get();
+        $pass="654321";
+        if(count($user)>0){
+            $user=new User();
+            $user->username=$r->email;
+            $user->email=$r->email;
+            $user->password=Hash::make($pass);
+            $user->user_type="Client";
+            $user->company_name=$r->companyName;
+            $user->contact_no=$r->phoneNumber;
+            $user->client_status="Active";
+            $user->save();
+        }
+
 
         $job=new Job;
         $job->companyName=$r->companyName;
@@ -479,6 +502,7 @@ class FormController extends Controller
         $job->category='vector';
         $job->EstimatedTime=$r->EstimatedTime;
         $job->userId=$r->userId;
+        $job->clientId=$user->user_id;
         $job->save();
 
 
@@ -507,13 +531,16 @@ class FormController extends Controller
 //        $data=array('name'=>$r->companyName,
 //            'email'=> $r->email,
 //            'number' => $r->phoneNumber,
-//            'comment'=> $r->Comments);
+//            'comment'=> $r->Comments,
+//            'password'=> $pass,
+//
+//        );
 //
 //        Mail::send('email.vector',$data, function($message)
 //        {
-//            $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
+//            $message->to(EMAIL, 'demo client')
+//                ->subject('New Job Offer!');
 //        });
-
 
 
         Session::flash('message', 'Vector Added Successfully');

@@ -9,6 +9,7 @@
         <a href="{{route('about')}}">About Us</a>
         <a href="{{route('contact')}}">Contact Us</a>
         <a href="{{route('privacy')}}">Privacy Policy</a>
+        <a href="{{route('login')}}">Login</a>
         <a target="_blank" href="{{route('job.request')}}"><button class="btn btn-sm btn-info">REQUEST JOB</button></a>
     </div>
     <footer class="page-meta">
