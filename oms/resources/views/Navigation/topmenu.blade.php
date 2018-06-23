@@ -13,8 +13,15 @@
     <div class="top-nav ">
         <!--search & user info start-->
         <ul class="nav pull-right top-menu">
+            @if(Auth::user()['user_type']!=USERTYPE[2])
             <li>
               <a href="{{route('ongoingjob')}}"><i class="fa fa-bell"></i><b id="notification"></b></a>
+            </li>
+
+            @endif
+
+            <li>
+              <a href="{{route('chat.index')}}"><i class="fa fa-envelope"></i><b id="msg"></b></a>
             </li>
 
 

@@ -140,3 +140,7 @@ Route::post('/storeCorporate','FormController@storeCorporate')->name('storeCorpo
 Route::post('/storeLogo','FormController@storeLogo')->name('storeLogo');
 Route::post('/storeVector','FormController@storeVector')->name('storeVector');
 
+//Chat
+Route::get('/chat','ChatController@index')->name('chat.index');
+Route::post('/chat','ChatController@sentMsg')->name('chat.sentMsg');
+

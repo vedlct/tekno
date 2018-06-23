@@ -27,7 +27,7 @@
     <!--[if lt IE 9]>
     <script src="{{url('js/html5shiv.js')}}"></script>
     <script src="{{url('js/respond.min.js')}}"></script>
-    @yield('head')
+
     <![endif]-->
     <style>
         td{
@@ -53,6 +53,7 @@
         }
 
     </style>
+    @yield('head')
 
 
 </head>
@@ -112,6 +113,7 @@
 <script src="{{url('js/jquery.scrollTo.min.js')}}"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
 
 <!--common script for all pages-->
 <script src="{{url('js/common-scripts.js')}}"></script>
@@ -120,17 +122,42 @@
 @yield('foot-js')
 
 <script>
-    $(document).ready(function() {
-        getNotification();
+    var socket = io('http://192.168.3.95:3000');
+    socket.on('news', function (data) {
+        console.log(data);
+        socket.emit('my other event', { my: 'data' });
+    });
+    socket.on('connect', function () {
+        console.log("Connected");
+        console.log(socket.id);
+    });
 
+    socket.on('notification', function (data) {
+        console.log("received notification");
+        console.log(data);
+
+    });
+
+</script>
+@yield('socket')
+<script>
+
+    $(document).ready(function() {
+
+        @if(Auth::user()['user_type']!=USERTYPE[2])
+       getNotification();
         setInterval(function(){
             getNotification();
-        }, 8000);
+        }, 5000);
+
+        @endif
 
 
     });
 
     function getNotification(){
+//        val={message:"I am From Tekno"};
+//       socket.emit('notification', "i am here to notify");
 
         $.ajax({
             type: 'POST',
@@ -152,9 +179,7 @@
 
         var pgurl = window.location.href.substr(window.location.href.lastIndexOf("/")+1);
 
-
         $(".nav li").each(function(){
-
             if(pgurl==''){
                 $(".nav li:eq(1)").addClass("active");
             }else
