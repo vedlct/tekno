@@ -26,13 +26,22 @@ class JobController extends Controller
         $this->middleware('auth');
     }
     public function home(){
-        $pending=Job::where('status','pending')->count();
-        $going=Job::where('status','on going')->count();
+        if(Auth::user()->user_type ==USERTYPE[2]){
 
-//        $notification=Notification::where('userId',Auth::user()->user_id)
-//            ->where('seen',0)->count();
-//
-//        return $notification;
+            $pending=Job::where('status','pending')
+                ->where('clientId',Auth::user()->user_id)
+                ->count();
+            $going=Job::where('status','on going')
+                ->where('clientId',Auth::user()->user_id)
+                ->count();
+        }
+
+        else{
+            $pending=Job::where('status','pending')->count();
+            $going=Job::where('status','on going')->count();
+        }
+
+
 
 
 
@@ -47,30 +56,48 @@ class JobController extends Controller
         $users=User::select('username','user_id')
             ->get();
 
-
-
         return view('job.all')->with('users',$users);
     }
 
     public function jobDate(Request $r){
-        $jobs=Job::select('jobId','potential','companyName','category','job.email','comments','status','job.userId','username','created_at')->leftJoin('user','user.user_id','job.userId');
 
-        if ($user=$r->user){
-            $jobs->where('job.userId',$user);
+        if(Auth::user()->user_type ==USERTYPE[2]){
+            $jobs=Job::select('jobId','potential','companyName','category','job.email','comments','status','job.userId','username','created_at')
+                ->leftJoin('user','user.user_id','job.userId')
+            ->where('job.clientId',Auth::user()->user_id);
+
+
+            if ($status=$r->status){
+                $jobs->where('job.status',$status);
+            }
+
+            $jobs=$jobs->orderBy('created_at','desc')->get();
         }
-        if ($status=$r->status){
-            $jobs->where('job.status',$status);
+
+        else{
+            $jobs=Job::select('jobId','potential','companyName','category','job.email','comments','status','job.userId','username','created_at')->leftJoin('user','user.user_id','job.userId');
+
+            if ($user=$r->user){
+                $jobs->where('job.userId',$user);
+            }
+            if ($status=$r->status){
+                $jobs->where('job.status',$status);
+            }
+
+            $jobs=$jobs->orderBy('created_at','desc')->get();
         }
 
 
-        $jobs=$jobs->orderBy('created_at','desc')->get();
 
-
-        return Datatables::of($jobs)->make(true);
+        return Datatables::of($jobs)
+            ->make(true);
 
     }
 
     public function sales(){
+        if(Auth::user()->user_type ==USERTYPE[2]){
+            return back();
+        }
         $users=User::select('username','user_id')
             ->get();
 
@@ -128,18 +155,12 @@ class JobController extends Controller
 
     public function newjobrequest()
     {
+        if(Auth::user()->user_type ==USERTYPE[2]){
+            return back();
+        }
+        $newjobrequest = (new Admin)->newjobrequest();
+        return view('admin.newjobrequest', compact('newjobrequest'));
 
-//        $type = session('user-type');
-//        if ($type == 'Admin') {
-
-//        $id=session('user-id');
-            $newjobrequest = (new Admin)->newjobrequest();
-            return view('admin.newjobrequest', compact('newjobrequest'));
-//        }
-//        else {
-//
-//            return redirect(url('/'));
-//        }
     }
     public function getJob($id){
         $job=Job::findOrFail($id);

@@ -5,7 +5,7 @@
             <section class="wrapper" style="background-color: white">
                 <!--state overview start-->
                 <div class="container-fluid">
-
+                    @if(Auth::user()->user_type != USERTYPE[2])
                     <div class="col-md-4 form-group">
                       <label>Users</label>
                         <select class="form-control" id="user">
@@ -15,6 +15,7 @@
                             @endforeach
                         </select>
                     </div>
+                    @endif
 
 
                     <div class="col-md-4 form-group">
@@ -38,7 +39,9 @@
                                 <th width="15%" style="text-align: center">Email</th>
                                 <th width="20%" style="text-align: center">Comments</th>
                                 <th width="5%" style="text-align: center">Status</th>
+                                @if(Auth::user()->user_type != USERTYPE[2])
                                 <th width="5%" style="text-align: center">Mined by</th>
+                                @endif
                                 <th width="10%" style="text-align: center">Created At</th>
                                 <th width="5%" style="text-align: center">Sales</th>
                                 <th width="10%" style="text-align: center">Action</th>
@@ -93,7 +96,9 @@
                     {data: 'email', name: 'email'},
                     {data: 'comments', name: 'comments'},
                     {data: 'status', name: 'status'},
-                    {data: 'username', name: 'username'},
+                        @if(Auth::user()->user_type != USERTYPE[2])
+                        {data: 'username', name: 'username'},
+                        @endif
                     { data: 'created_at', name: 'created_at' },
                     { "data": function (data) {
                         {{--var url = '{{url("job/", ":id") }}';--}}
@@ -153,25 +158,21 @@
         }
 
         function potential(x) {
-            jobId = $(x).data('panel-id');
+            @if(Auth::user()->user_type != USERTYPE[2])
+                jobId = $(x).data('panel-id');
+                $.ajax({
+                    type:'post',
+                    url:"{{route('job.changepotential')}}",
+                    data:{ "_token": "{{ csrf_token() }}",'jobId':jobId},
+                    cache: false,
+                    success:function(data)
+                    {
+                        console.log(data)
 
+                    }
 
-            $.ajax({
-                type:'post',
-                url:"{{route('job.changepotential')}}",
-                data:{ "_token": "{{ csrf_token() }}",'jobId':jobId},
-                cache: false,
-                success:function(data)
-                {
-                    console.log(data)
-//                    $.alert({
-//                        title: 'Success!',
-//                        content: 'Status Changed!',
-//                    });
-
-                }
-
-            });
+                });
+            @endif
         }
 
 

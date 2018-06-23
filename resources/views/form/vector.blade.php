@@ -53,7 +53,7 @@
             <label class="control-label col-sm-3" >Attach High Res Image: *</label>
             <div class="col-sm-9">
 
-                <input type="file" id="AttachLogo[]" name="AttachLogo[]" multiple>
+                <input type="file" id="AttachLogo[]" name="AttachLogo[]" accept="image/*" multiple>
                 @if ($errors->has('ResImage'))
                     <span class="invalid-feedback">
                         <strong>{{ $errors->first('ResImage') }}</strong>
@@ -143,75 +143,75 @@
     </form>
 </div>
 
-<script src="http://malsup.github.com/jquery.form.js"></script>
-<script>
+{{--<script src="http://malsup.github.com/jquery.form.js"></script>--}}
+{{--<script>--}}
 
-    $(document).ready(function() {
-        $(document).ready(function() {
+    {{--$(document).ready(function() {--}}
+        {{--$(document).ready(function() {--}}
 
-            var progressbar = $('.progress-bar');
+            {{--var progressbar = $('.progress-bar');--}}
 
-            $(".upload-image").click(function(){
+            {{--$(".upload-image").click(function(){--}}
 
-                $("#form1").ajaxForm(
+                {{--$("#form1").ajaxForm(--}}
 
-                    {
+                    {{--{--}}
 
-                        target: '.preview',
+                        {{--target: '.preview',--}}
 
-                        beforeSend: function() {
+                        {{--beforeSend: function() {--}}
 
-                            $(".progress").css("display","block");
+                            {{--$(".progress").css("display","block");--}}
 
-                            progressbar.width('0%');
+                            {{--progressbar.width('0%');--}}
 
-                            progressbar.text('0%');
+                            {{--progressbar.text('0%');--}}
 
-                        },
+                        {{--},--}}
 
-                        uploadProgress: function (event, position, total, percentComplete) {
+                        {{--uploadProgress: function (event, position, total, percentComplete) {--}}
 
-                            progressbar.width(percentComplete + '%');
+                            {{--progressbar.width(percentComplete + '%');--}}
 
-                            progressbar.text(percentComplete + '%');
+                            {{--progressbar.text(percentComplete + '%');--}}
 
-                        },
+                        {{--},--}}
 
-                        success: function()
-                        {
-//                            $("#bar").width('100%');
-//                            $("#percent").html('100%');
+                        {{--success: function()--}}
+                        {{--{--}}
+{{--//                            $("#bar").width('100%');--}}
+{{--//                            $("#percent").html('100%');--}}
 
-//                            location.reload();
+{{--//                            location.reload();--}}
 
-                        },
-                        complete: function(response)
-                        {
-                            $("#message").html("<font color='green'><div>"+response.responseText+"</div></font>");
-//                            alert('Complete');
-//                            location.reload();
-//                            alert('Complete');
-                        },
-                        error: function()
-                        {
-                            $("#message").html("<font color='red'> ERROR: unable to upload files</font>");
+                        {{--},--}}
+                        {{--complete: function(response)--}}
+                        {{--{--}}
+                            {{--$("#message").html("<font color='green'><div>"+response.responseText+"</div></font>");--}}
+{{--//                            alert('Complete');--}}
+{{--//                            location.reload();--}}
+{{--//                            alert('Complete');--}}
+                        {{--},--}}
+                        {{--error: function()--}}
+                        {{--{--}}
+                            {{--$("#message").html("<font color='red'> ERROR: unable to upload files</font>");--}}
 
-                            alert('Error');
-                        }
-
-
-                    }).submit();
-
-//                    location.reload();
+                            {{--alert('Error');--}}
+                        {{--}--}}
 
 
+                    {{--}).submit();--}}
+
+{{--//                    location.reload();--}}
 
 
-            });
-
-        });
-
-    });
 
 
-</script>
+            {{--});--}}
+
+        {{--});--}}
+
+    {{--});--}}
+
+
+{{--</script>--}}

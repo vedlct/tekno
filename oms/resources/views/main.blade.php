@@ -27,6 +27,7 @@
     <!--[if lt IE 9]>
     <script src="{{url('js/html5shiv.js')}}"></script>
     <script src="{{url('js/respond.min.js')}}"></script>
+    @yield('head')
     <![endif]-->
     <style>
         td{
@@ -124,13 +125,13 @@
 
         setInterval(function(){
             getNotification();
-        }, 3000);
+        }, 8000);
 
 
     });
 
     function getNotification(){
-//        alert('done');
+
         $.ajax({
             type: 'POST',
             url: "{!! route('getNotification') !!}",

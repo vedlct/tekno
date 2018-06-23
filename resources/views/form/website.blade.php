@@ -163,7 +163,7 @@
         <div class="form-group">
             <label class="col-sm-3 control-label" for="name">File:</label>
             <div class="col-sm-9">
-                <input type="file" id="AttachLogo[]" name="AttachLogo[]" multiple>
+                <input type="file" id="AttachLogo[]" name="AttachLogo[]" accept="image/*" multiple>
                 @if ($errors->has('myfile'))
                     <span class="invalid-feedback">
                         <strong>{{ $errors->first('myfile') }}</strong>

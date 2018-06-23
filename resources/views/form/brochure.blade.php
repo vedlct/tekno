@@ -195,7 +195,7 @@
         <div class="form-group">
             <label class="col-md-3 control-label" for="name">Attach Logo & Images: </label><br>
             <div class="col-md-9">
-                <input type="file" id="AttachLogo[]" name="AttachLogo[]" multiple>
+                <input type="file" id="AttachLogo[]" name="AttachLogo[]" accept="image/*" multiple>
                 @if ($errors->has('AttachLogo'))
                     <span class="invalid-feedback">
                         <strong>{{ $errors->first('AttachLogo') }}</strong>

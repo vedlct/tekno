@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Job;
 use App\User;
 use Hash;
+use Auth;
 class Admin extends Model
 {
     public function get(){
@@ -68,11 +69,6 @@ class Admin extends Model
     public function jobdone(){
 
 
-//        $finshedwork=DB::table('job_request')
-//
-//            ->join('customer_info', 'job_request.client_id', '=', 'customer_info.user_id')
-//            ->where('job_status','Done')
-//            ->get();
         $finshedwork=Job::select('jobId','companyName','category')
             ->where('status','done')
             ->orderBy('jobId','desc')
@@ -83,11 +79,7 @@ class Admin extends Model
 
     public function clientinfoview(){
 
-        //$id=session('user-id');
 
-//        $client_view= DB::table('customer_info')
-//            ->where('client_status', '!=', 'Pending')
-//            ->get();
         $client_view= DB::table('job')
             ->where('status', '!=', 'pending')
             ->get();
