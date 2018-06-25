@@ -68,15 +68,23 @@ class FormController extends Controller
     }
 
     public function storeBrochure(Request $r){
-
         //Creating User
-        $user=new User();
-        $user->username=$r->email;
-        $user->email=$r->email;
-        $user->password=Hash::make('654321');
-        $user->user_type="Client";
-        $user->company_name=$r->companyName;
-        $user->save();
+        $user=User::where('email',$r->email)->first();
+        $pass="654321";
+
+        if($user==null){
+            $user=new User();
+            $user->username=$r->email;
+            $user->email=$r->email;
+            $user->password=Hash::make($pass);
+            $user->user_type="Client";
+            $user->company_name=$r->companyName;
+            $user->contact_no=$r->phoneNumber;
+            $user->client_status="Active";
+            $user->save();
+        }
+        //end
+
 
         $job=new Job;
         $job->companyName=$r->companyName;
@@ -90,6 +98,7 @@ class FormController extends Controller
         $job->EstimatedTime=$r->EstimatedTime;
         $job->comments=$r->BrochureType;
         $job->userId=$r->userId;
+        $job->clientId=$user->user_id;
         $job->save();
 
         $brochure=new Brochure;
@@ -153,6 +162,23 @@ class FormController extends Controller
     }
 
     public function storeWebsite(Request $r){
+        //Creating User
+        $user=User::where('email',$r->email)->first();
+        $pass="654321";
+
+        if($user==null){
+            $user=new User();
+            $user->username=$r->email;
+            $user->email=$r->email;
+            $user->password=Hash::make($pass);
+            $user->user_type="Client";
+            $user->company_name=$r->companyName;
+            $user->contact_no=$r->phoneNumber;
+            $user->client_status="Active";
+            $user->save();
+        }
+        //end
+
         $job=new Job;
         $job->companyName=$r->companyName;
         $job->email=$r->email;
@@ -162,6 +188,7 @@ class FormController extends Controller
         $job->category='website';
         $job->EstimatedTime=$r->EstimatedTime;
         $job->userId=$r->userId;
+        $job->clientId=$user->user_id;
         $job->save();
 
         $website=new Website;
@@ -226,6 +253,23 @@ class FormController extends Controller
     }
 
     public function storeLeaflet(Request $r){
+        //Creating User
+        $user=User::where('email',$r->email)->first();
+        $pass="654321";
+
+        if($user==null){
+            $user=new User();
+            $user->username=$r->email;
+            $user->email=$r->email;
+            $user->password=Hash::make($pass);
+            $user->user_type="Client";
+            $user->company_name=$r->companyName;
+            $user->contact_no=$r->phoneNumber;
+            $user->client_status="Active";
+            $user->save();
+        }
+        //end
+
         $job=new Job;
         $job->companyName=$r->companyName;
         $job->reference=$r->references;
@@ -237,6 +281,7 @@ class FormController extends Controller
         $job->category='leaflet';
         $job->EstimatedTime=$r->EstimatedTime;
         $job->userId=$r->userId;
+        $job->clientId=$user->user_id;
         $job->save();
 
         $leaflet=new Leaflet;
@@ -297,6 +342,22 @@ class FormController extends Controller
 
     }
     public function storeBanner(Request $r){
+        //Creating User
+        $user=User::where('email',$r->email)->first();
+        $pass="654321";
+
+        if($user==null){
+            $user=new User();
+            $user->username=$r->email;
+            $user->email=$r->email;
+            $user->password=Hash::make($pass);
+            $user->user_type="Client";
+            $user->company_name=$r->companyName;
+            $user->contact_no=$r->phoneNumber;
+            $user->client_status="Active";
+            $user->save();
+        }
+        //end
 
 
 
@@ -311,6 +372,7 @@ class FormController extends Controller
         $job->EstimatedTime=$r->EstimatedTime;
         $job->userId=$r->userId;
         $job->userId=$r->userId;
+        $job->clientId=$user->user_id;
         $job->save();
 
         $banner=new Banner;
@@ -369,6 +431,22 @@ class FormController extends Controller
     }
 
     public function storeCorporate(Request $r){
+        //Creating User
+        $user=User::where('email',$r->email)->first();
+        $pass="654321";
+
+        if($user==null){
+            $user=new User();
+            $user->username=$r->email;
+            $user->email=$r->email;
+            $user->password=Hash::make($pass);
+            $user->user_type="Client";
+            $user->company_name=$r->companyName;
+            $user->contact_no=$r->phoneNumber;
+            $user->client_status="Active";
+            $user->save();
+        }
+        //end
 
         $job=new Job;
         $job->companyName=$r->companyName;
@@ -380,6 +458,7 @@ class FormController extends Controller
         $job->category='corporate';
         $job->EstimatedTime=$r->EstimatedTime;
         $job->userId=$r->userId;
+        $job->clientId=$user->user_id;
         $job->save();
 
 
@@ -441,6 +520,22 @@ class FormController extends Controller
     }
 
     public function storeLogo(Request $r){
+        //Creating User
+        $user=User::where('email',$r->email)->first();
+        $pass="654321";
+
+        if($user==null){
+            $user=new User();
+            $user->username=$r->email;
+            $user->email=$r->email;
+            $user->password=Hash::make($pass);
+            $user->user_type="Client";
+            $user->company_name=$r->companyName;
+            $user->contact_no=$r->phoneNumber;
+            $user->client_status="Active";
+            $user->save();
+        }
+        //end
 
         $job=new Job;
         $job->companyName=$r->companyName;
@@ -450,6 +545,7 @@ class FormController extends Controller
         $job->category='logo';
         $job->EstimatedTime=$r->EstimatedTime;
         $job->userId=$r->userId;
+        $job->clientId=$user->user_id;
         $job->save();
 
         $logo = new Logo;
@@ -479,9 +575,10 @@ class FormController extends Controller
     public function storeVector(Request $r){
 
         //Creating User
-        $user=User::where('email',$r->email)->get();
+        $user=User::where('email',$r->email)->first();
         $pass="654321";
-        if(count($user)>0){
+
+        if($user==null){
             $user=new User();
             $user->username=$r->email;
             $user->email=$r->email;
@@ -492,6 +589,7 @@ class FormController extends Controller
             $user->client_status="Active";
             $user->save();
         }
+        //end
 
 
         $job=new Job;

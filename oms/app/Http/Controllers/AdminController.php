@@ -291,15 +291,10 @@ class AdminController extends Controller
     }
     public function changeuserpass($id)
     {
-//        $type = session('user-type');
-//        if ($type == 'Admin') {
 
             $getpass = (new Admin)->getpass($id);
             return view('admin.passwordchange', compact('getpass'));
-//        }
-//        else {
-//            return redirect(url('/'));
-//        }
+
     }
     public function changepass(Request $request)
     {
@@ -345,6 +340,46 @@ class AdminController extends Controller
                 //return redirect(url('/PasswordChange'));
             }
             return back();
+        }
+        else if(Auth::user()->user_type == USERTYPE[2]){
+
+            $pass = $request->NP;
+            $conpass = $request->CNP;
+
+
+
+
+            if ($pass == $conpass) {
+
+
+                try {
+                    $changepass = (new Admin)->changepass(Auth::user()->user_id, $pass);
+                    echo "<script type=\"text/javascript\" >
+				        alert(\"Password Changed Successfully\");
+				</script>";
+                    //return redirect(url('/PasswordChange'));
+
+                } catch (Exception $e) {
+
+                    echo "<script type=\"text/javascript\" >
+				        alert(\"Something Went Wrong\");
+				window.location=\"/demo/demo11/PasswordChange\";
+				</script>";
+                    //return redirect(url('/PasswordChange'));
+
+                }
+
+
+            } else {
+
+                echo "<script type=\"text/javascript\" >
+				alert(\"Password and Confirm Password doesn't match.please try again\");
+				</script>";
+
+                //return redirect(url('/PasswordChange'));
+            }
+            return back();
+
         }
         else {
             return redirect(url('/'));

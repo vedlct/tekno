@@ -20,7 +20,7 @@
 
             @endif
 
-            <li>
+            <li id="msgNofication">
               <a href="{{route('chat.index')}}"><i class="fa fa-envelope"></i><b id="msg"></b></a>
             </li>
 

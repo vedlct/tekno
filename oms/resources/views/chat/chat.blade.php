@@ -247,34 +247,13 @@
 @endsection
 @section('socket')
     <script>
-        socket.on('message', function (data) {
-
-            console.log(data);
-            $("#chatbox").append('<div class="row">'+
-                '<div class="col-md-12">'+
-                '<div class="media">'+
-                '<a class="pull-left" href="#">'+
-                '</a>'+
-                '<div class="media-body">'+
-                '<h4 class="media-heading">'+'User'+
-                '<span class="small pull-right">'+'Today'+'</span>'+
-                '</h4>'+
-                '<p>'+data+'</p>'+
-                '</div>'+
-                '</div>'+
-                '</div>'+
-                '</div>');
-
-        });
-        function sendMessage() {
-            var msg = $('#message').val().trim();
+        $(document).ready(function() {
 
             $.ajax({
                 type: 'POST',
-                url: "{!! route('chat.sentMsg') !!}",
+                url: "{!! route('chat.seenMsg') !!}",
                 cache: false,
-                data: {_token:"{{csrf_token()}}",
-                    msg:msg
+                data: {_token:"{{csrf_token()}}"
                 },
                 success: function (data) {
                     console.log(data);
@@ -283,30 +262,85 @@
             });
 
 
-//            if (msg != '') {
-//
-//                $("#chatbox").append('<div class="row">'+
-//                    '<div class="col-md-12">'+
-//                    '<div class="media">'+
-//                    '<a class="pull-left" href="#">'+
-//                    '</a>'+
-//                    '<div class="media-body">'+
-//                    '<h4 class="media-heading">'+'Me'+
-//                    '<span class="small pull-right">'+'Today'+'</span>'+
-//                    '</h4>'+
-//                    '<p>'+msg+'</p>'+
-//                    '</div>'+
-//                    '</div>'+
-//                    '</div>'+
-//                    '</div>');
-//
-//                socket.emit('message', msg);
-//                $('#message').val('');
-//
-//            }
-//            else {
-//                alert('Fields Must not Empty');
-//            }
+        });
+        socket.on('message', function (data) {
+
+//            console.log(data);
+            if(data.to='{{Auth::user()->user_id}}'){
+                appendMsg(data);
+            }
+
+        });
+
+        function appendMsg(data) {
+            $("#chatbox").append('<div class="row">'+
+                '<div class="col-md-12">'+
+                '<div class="media">'+
+                '<a class="pull-left" href="#">'+
+                '</a>'+
+                '<div class="media-body">'+
+                '<h4 class="media-heading"><b>'+data.name+'</b>'+
+                '<span class="small pull-right">'+data.time+'</span>'+
+                '</h4>'+
+                '<p>'+data.msg+'</p>'+
+                '</div>'+
+                '</div>'+
+                '</div>'+
+                '</div>');
+
+        }
+        function sendMessage() {
+            var msg = $('#message').val().trim();
+
+
+
+
+            if (msg != '') {
+                $.ajax({
+                    type: 'POST',
+                    url: "{!! route('chat.sentMsg') !!}",
+                    cache: false,
+                    data: {_token:"{{csrf_token()}}",
+                        msg:msg
+                    },
+                    success: function (data) {
+//                        console.log(data);
+                        $("#chatbox").append('<div class="row">'+
+                            '<div class="col-md-12">'+
+                            '<div class="media">'+
+                            '<a class="pull-left" href="#">'+
+                            '</a>'+
+                            '<div class="media-body">'+
+                            '<h4 class="media-heading">'+'Me'+
+                            '<span class="small pull-right">'+data.created_at+'</span>'+
+                            '</h4>'+
+                            '<p>'+msg+'</p>'+
+                            '</div>'+
+                            '</div>'+
+                            '</div>'+
+                            '</div>');
+
+                        var message={
+                            from:'{{Auth()->user()->user_id}}',
+                            name:'{{Auth()->user()->username}}',
+                            to :'admin',
+                            time:data.created_at,
+                            msg :msg
+                        };
+//                console.log(message);
+
+                        socket.emit('message', message);
+                        $('#message').val('');
+
+                    }
+                });
+
+
+
+            }
+            else {
+                alert('Fields Must not Empty');
+            }
 
 
 

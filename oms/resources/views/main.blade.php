@@ -122,7 +122,7 @@
 @yield('foot-js')
 
 <script>
-    var socket = io('http://192.168.3.95:3000');
+    var socket = io('http://192.168.3.95:3000'); //Socket Server Address
     socket.on('news', function (data) {
         console.log(data);
         socket.emit('my other event', { my: 'data' });
@@ -137,12 +137,41 @@
         console.log(data);
 
     });
+    @if(Request::url() != route('chat.index'))
+    socket.on('message', function (data) {
+
+        console.log(data);
+        if(data.to=={{Auth::user()->user_id}}){
+
+           $('#msgNofication').css("background-color","red");
+        }
+
+        else if(data.to=='admin'){
+            $('#msgNofication').css("background-color","red");
+        }
+
+
+    });
+    @endif
 
 </script>
 @yield('socket')
 <script>
 
     $(document).ready(function() {
+        $.ajax({
+            type: 'POST',
+            url: "{!! route('chat.getUnseenMsg') !!}",
+            cache: false,
+            data: {_token:"{{csrf_token()}}"},
+            success: function (data) {
+//                  console.log(data);
+                  if(data.length>0){
+                      $('#msgNofication').css("background-color","red");
+                  }
+
+            }
+        });
 
         @if(Auth::user()['user_type']!=USERTYPE[2])
        getNotification();

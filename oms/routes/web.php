@@ -143,4 +143,7 @@ Route::post('/storeVector','FormController@storeVector')->name('storeVector');
 //Chat
 Route::get('/chat','ChatController@index')->name('chat.index');
 Route::post('/chat','ChatController@sentMsg')->name('chat.sentMsg');
+Route::post('/showMsg','ChatController@showMsg')->name('chat.showMsg');
+Route::post('/getUnseenMsg','ChatController@getUnseenMsg')->name('chat.getUnseenMsg');
+Route::post('/seenMsg','ChatController@seenMsg')->name('chat.seenMsg');
 

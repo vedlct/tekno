@@ -158,9 +158,10 @@ class JobController extends Controller
         if(Auth::user()->user_type ==USERTYPE[2]){
             return back();
         }
-        $newjobrequest = (new Admin)->newjobrequest();
-        return view('admin.newjobrequest', compact('newjobrequest'));
 
+        $newjobrequest = (new Admin)
+            ->newjobrequest();
+        return view('admin.newjobrequest', compact('newjobrequest'));
     }
     public function getJob($id){
         $job=Job::findOrFail($id);
