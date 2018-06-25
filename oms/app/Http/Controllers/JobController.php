@@ -165,6 +165,13 @@ class JobController extends Controller
     }
     public function getJob($id){
         $job=Job::findOrFail($id);
+        if(Auth::user()->user_type == USERTYPE[2]){
+
+            if($job->clientId != Auth::user()->user_id){
+                return back();
+            }
+        }
+
 
         if($job->category=='brochure'){
             $jobCat=Brochure::leftJoin('job','brochure.jobId','job.jobId')
