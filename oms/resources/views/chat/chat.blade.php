@@ -193,7 +193,7 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div id="chat" class="panel-collapse collapse in">
-                                <div class="portlet-body chat-widget" style="overflow-y: auto; overflow-x:visible; width: auto; height: 500px;">
+                                <div id="chatScroll" class="portlet-body chat-widget" style="overflow-y: auto; overflow-x:visible; width: auto; height: 500px;">
                                     <div id="chatbox">
                                         @foreach($chat as $msg)
                                             <div class="row">
@@ -248,7 +248,7 @@
 @section('socket')
     <script>
         $(document).ready(function() {
-
+            $("#chatScroll").scrollTop($("#chatScroll")[0].scrollHeight);
             $.ajax({
                 type: 'POST',
                 url: "{!! route('chat.seenMsg') !!}",
@@ -287,6 +287,7 @@
                 '</div>'+
                 '</div>'+
                 '</div>');
+            $("#chatScroll").scrollTop($("#chatScroll")[0].scrollHeight);
 
         }
         function sendMessage() {
@@ -319,6 +320,8 @@
                             '</div>'+
                             '</div>'+
                             '</div>');
+
+                        $("#chatScroll").scrollTop($("#chatScroll")[0].scrollHeight);
 
                         var message={
                             from:'{{Auth()->user()->user_id}}',

@@ -204,7 +204,7 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div id="chat" class="panel-collapse collapse in">
-                                <div class="portlet-body chat-widget" style="overflow-y: auto; overflow-x:visible; width: auto; height: 500px;">
+                                <div id="chatScroll" class="portlet-body chat-widget" style="overflow-y: auto; overflow-x:visible; width: auto; height: 500px;">
                                     <div id="chatbox">
 
 
@@ -243,6 +243,7 @@
       var userId='';
       $(document).ready(function() {
 
+
           $.ajax({
               type: 'POST',
               url: "{!! route('chat.getUnseenMsg') !!}",
@@ -271,7 +272,7 @@
       });
 
       function appendMsg(data) {
-          console.log(data);
+//          console.log(data);
           $("#chatbox").append('<div class="row">'+
                   '<div class="col-md-12">'+
                   '<div class="media">'+
@@ -286,6 +287,8 @@
                   '</div>'+
                   '</div>'+
                   '</div>');
+
+          $("#chatScroll").scrollTop($("#chatScroll")[0].scrollHeight);
 
       }
       function sendMessage() {
@@ -302,7 +305,7 @@
                       to :this.userId
                   },
                   success: function (data) {
-                      console.log(data);
+//                      console.log(data);
                       $("#chatbox").append('<div class="row">'+
                           '<div class="col-md-12">'+
                           '<div class="media">'+
@@ -317,6 +320,8 @@
                           '</div>'+
                           '</div>'+
                           '</div>');
+
+                      $("#chatScroll").scrollTop($("#chatScroll")[0].scrollHeight);
 
                       var message={
                           from:'{{Auth()->user()->user_id}}',
@@ -344,6 +349,7 @@
       }
 
       function showUserMsg(x) {
+
           $('#'+x.id).css("background-color","white");
          var userName=$(x).data('panel-name');
          this.userId=x.id;
@@ -356,12 +362,10 @@
                 id:userId
               },
               success: function (data) {
-                  console.log(data);
+//                  console.log(data);
 
               }
           });
-
-
 
           $.ajax({
          type: 'POST',
@@ -379,7 +383,7 @@
          else {
              $("#chatbox").html('');
              for (i=0;i<data.length;i++){
-                 $("#chatbox").append('<div class="row">'+
+                 $("#chatbox").prepend('<div class="row">'+
                      '<div class="col-md-12">'+
                      '<div class="media">'+
                      '<a class="pull-left" href="#">'+
@@ -395,12 +399,14 @@
                      '</div>');
 
              }
+             $("#chatScroll").scrollTop($("#chatScroll")[0].scrollHeight);
          }
 
 
 
          }
          });
+
      }
 
   </script>

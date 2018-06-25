@@ -63,6 +63,8 @@ class ChatController extends Controller
                        ->orWhere('userTo', null);
                })
                ->leftJoin('user','user.user_id','chat.userFrom')
+               ->limit(20)
+               ->orderBy('chatId','desc')
                ->get();
        }
 
@@ -77,6 +79,8 @@ class ChatController extends Controller
                        ->orWhere('userTo',Auth::user()->user_id );
                })
                ->leftJoin('user','user.user_id','chat.userFrom')
+               ->limit(20)
+               ->orderBy('chatId','desc')
                ->get();
        }
 
