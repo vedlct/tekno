@@ -243,6 +243,7 @@
     <script type="text/javascript" src="{{url('public/manual-trigger.js')}}"></script>
   <script>
       var userId='';
+      var counter=1;
       $(document).ready(function() {
 
           $.ajax({
@@ -351,7 +352,7 @@
           $('#'+x.id).css("background-color","white");
          var userName=$(x).data('panel-name');
          this.userId=x.id;
-         counter=0;
+         counter=1;
 
           $.ajax({
               type: 'POST',
@@ -409,7 +410,7 @@
          });
 
      }
- var counter=0;
+
       $("#chatScroll").scroll(function() {
           var $height = $("#chatScroll").scrollTop();
 

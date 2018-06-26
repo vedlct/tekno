@@ -248,6 +248,7 @@
 @endsection
 @section('socket')
     <script>
+        var counter=1;
         $(document).ready(function() {
             $("#chatScroll").scrollTop($("#chatScroll")[0].scrollHeight);
             $.ajax({
@@ -350,7 +351,7 @@
 
         }
 
-        var counter=0;
+
         $("#chatScroll").scroll(function() {
             var $height = $("#chatScroll").scrollTop();
 
