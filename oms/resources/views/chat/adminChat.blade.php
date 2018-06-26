@@ -239,10 +239,11 @@
 @endsection
 
 @section('socket')
+    <script type="text/javascript" src="{{url('public/jquery.infinitescroll.js')}}"></script>
+    <script type="text/javascript" src="{{url('public/manual-trigger.js')}}"></script>
   <script>
       var userId='';
       $(document).ready(function() {
-
 
           $.ajax({
               type: 'POST',
@@ -344,10 +345,7 @@
               alert('Fields Must not Empty');
           }
 
-
-
       }
-
       function showUserMsg(x) {
 
           $('#'+x.id).css("background-color","white");
