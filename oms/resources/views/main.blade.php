@@ -123,7 +123,7 @@
 
 <script>
     var msgNotification=0;
-    var socket = io('http://192.168.3.95:3000'); //Socket Server Address
+    var socket = io('https://evening-dawn-88803.herokuapp.com'); //Socket Server Address
     socket.on('news', function (data) {
         console.log(data);
         socket.emit('my other event', { my: 'data' });
