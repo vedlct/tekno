@@ -254,20 +254,35 @@
               success: function (data) {
 //                  console.log(data);
                   for (i=0;i<data.length;i++){
-                      $('#'+data[i].userFrom).css("background-color","red");
+                      $('#'+data[i].userFrom).css("background-color","#E3F1F9");
                   }
               }
           });
 
       });
       socket.on('message', function (data) {
+//          console.log(data);
 
           if(data.from==userId){
               appendMsg(data);
+              $.ajax({
+                  type: 'POST',
+                  url: "{!! route('chat.seenMsg') !!}",
+                  cache: false,
+                  data: {_token:"{{csrf_token()}}",
+                      id:userId
+                  },
+                  success: function (data) {
+//                  console.log(data);
+                      $("#chatScroll").scrollTop($("#chatScroll")[0].scrollHeight);
+
+                  }
+              });
+
           }
 
           else {
-              $('#'+data.from).css("background-color","red");
+              $('#'+data.from).css("background-color","#E3F1F9");
           }
 
 

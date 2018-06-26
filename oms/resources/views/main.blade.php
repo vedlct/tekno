@@ -122,7 +122,8 @@
 @yield('foot-js')
 
 <script>
-    var socket = io('https://evening-dawn-88803.herokuapp.com'); //Socket Server Address
+    var msgNotification=0;
+    var socket = io('http://192.168.3.95:3000'); //Socket Server Address
     socket.on('news', function (data) {
         console.log(data);
         socket.emit('my other event', { my: 'data' });
@@ -142,12 +143,13 @@
 
         console.log(data);
         if(data.to=={{Auth::user()->user_id}}){
-
-           $('#msgNofication').css("background-color","red");
+            msgNotification++;
+            $('#msgNoficationcount').html(msgNotification);
         }
 
         else if(data.to=='admin'){
-            $('#msgNofication').css("background-color","red");
+            msgNotification++;
+            $('#msgNoficationcount').html(msgNotification);
         }
 
 
@@ -166,8 +168,13 @@
             data: {_token:"{{csrf_token()}}"},
             success: function (data) {
 //                  console.log(data);
+
                   if(data.length>0){
-                      $('#msgNofication').css("background-color","red");
+//                      $('#msgNofication').css("background-color","red");
+//                      $('#msgNofication').html(1);
+                      msgNotification=data.length;
+
+                      $('#msgNoficationcount').html(msgNotification);
                   }
 
             }
@@ -197,7 +204,7 @@
 
             },
             success: function (data) {
-                    console.log(data);
+//                    console.log(data);
                     $('#notification').text(data);
             }
 

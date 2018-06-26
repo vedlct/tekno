@@ -251,6 +251,7 @@
         var counter=1;
         $(document).ready(function() {
             $("#chatScroll").scrollTop($("#chatScroll")[0].scrollHeight);
+
             $.ajax({
                 type: 'POST',
                 url: "{!! route('chat.seenMsg') !!}",

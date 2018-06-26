@@ -21,7 +21,7 @@
             @endif
 
             <li id="msgNofication">
-              <a href="{{route('chat.index')}}"><i class="fa fa-envelope"></i><b id="msg"></b></a>
+              <a href="{{route('chat.index')}}"><i class="fa fa-envelope"></i>  <span id="msgNoficationcount"></span><b id="msg"></b></a>
             </li>
 
 
