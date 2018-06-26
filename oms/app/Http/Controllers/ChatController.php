@@ -14,6 +14,8 @@ class ChatController extends Controller
                ->where('userFrom',Auth::user()->user_id)
                ->orWhere('userTo',Auth::user()->user_id)
                ->leftJoin('user','user.user_id','chat.userFrom')
+               ->limit(20)
+               ->orderBy('chatId','desc')
                ->get();
 
            return view('chat.chat')
@@ -27,6 +29,24 @@ class ChatController extends Controller
 
            return view('chat.adminChat')->with('users',$users);
        }
+
+
+   }
+   public function previousMsgForUser(Request $r){
+
+           $chat=Chat::select('user.username','chat.chatId','chat.userFrom','chat.msg','chat.created_at')
+               ->where('userFrom',Auth::user()->user_id)
+               ->orWhere('userTo',Auth::user()->user_id)
+               ->leftJoin('user','user.user_id','chat.userFrom')
+               ->offset($r->counter*20)
+               ->limit(20)
+               ->orderBy('chatId','desc')
+               ->get();
+
+           return $chat;
+
+
+
 
 
    }
@@ -86,6 +106,47 @@ class ChatController extends Controller
 
 
        return $chat;
+
+   }
+   public function previousMsg(Request $r){
+
+       $user=User::findOrFail($r->id);
+       if($user->user_type==USERTYPE[2]){
+           $chat=Chat::select('user.username','chat.chatId','chat.userFrom','chat.msg','chat.created_at')
+               ->where(function($q) use ($r){
+                   $q->where('userFrom', Auth::user()->user_id)
+                       ->orWhere('userFrom', $r->id);
+               })
+               ->where(function($q) use ($r){
+                   $q->where('userTo', $r->id)
+                       ->orWhere('userTo', null);
+               })
+               ->leftJoin('user','user.user_id','chat.userFrom')
+               ->offset($r->counter*20)
+               ->limit(20)
+               ->orderBy('chatId','desc')
+               ->get();
+       }
+
+       else{
+           $chat=Chat::select('user.username','chat.chatId','chat.userFrom','chat.msg','chat.created_at')
+               ->where(function($q) use ($r){
+                   $q->where('userFrom', Auth::user()->user_id)
+                       ->orWhere('userFrom', $r->id);
+               })
+               ->where(function($q) use ($r){
+                   $q->where('userTo', $r->id)
+                       ->orWhere('userTo',Auth::user()->user_id );
+               })
+               ->leftJoin('user','user.user_id','chat.userFrom')
+               ->offset($r->counter*20)
+               ->limit(20)
+               ->orderBy('chatId','desc')
+               ->get();
+       }
+
+       return $chat;
+
 
    }
 

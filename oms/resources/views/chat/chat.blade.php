@@ -195,7 +195,8 @@
                             <div id="chat" class="panel-collapse collapse in">
                                 <div id="chatScroll" class="portlet-body chat-widget" style="overflow-y: auto; overflow-x:visible; width: auto; height: 500px;">
                                     <div id="chatbox">
-                                        @foreach($chat as $msg)
+                                        @for($i=count($chat)-1;$i>=0;$i--)
+                                        {{--@foreach($chat as $msg)--}}
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="media">
@@ -203,21 +204,21 @@
                                                             </a>
                                                         <div class="media-body">
                                                             <h4 class="media-heading"><b>
-                                                                    @if($msg->userFrom==Auth::user()->user_id)
+                                                                    @if($chat[$i]->userFrom==Auth::user()->user_id)
                                                                     Me
                                                                     @else
-                                                                       {{$msg->username}}
+                                                                       {{$chat[$i]->username}}
                                                                     @endif
                                                                 </b>
-                                                                <span class="small pull-right">{{$msg->created_at}}</span>
+                                                                <span class="small pull-right">{{$chat[$i]->created_at}}</span>
                                                                 </h4>
-                                                            <p>{{$msg->msg}}</p>
+                                                            <p>{{$chat[$i]->msg}}</p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                        @endforeach
-
+                                        {{--@endforeach--}}
+                                        @endfor
                                     </div>
                                 </div>
                             </div>
@@ -348,6 +349,65 @@
 
 
         }
+
+        var counter=0;
+        $("#chatScroll").scroll(function() {
+            var $height = $("#chatScroll").scrollTop();
+
+            if($height == 0) {
+
+
+//              var id=$("#userName").attr('data-panel-id');
+
+                // console.log(id);
+
+
+                $.ajax({
+                    type: 'POST',
+                    url: "{!! route('chat.getPreviousMsgForUser') !!}",
+                    cache: false,
+                    data: {_token:"{{csrf_token()}}",counter:counter},
+                    success: function (data) {
+                        console.log(data);
+
+//                      $("#userName").html(userName);
+//                      if(data.length==0){
+//                          $("#chatbox").html('');
+//                      }
+//                      else {
+//                          $("#chatbox").html('');
+                        if (data.length != 0) {
+                            for (i = 0; i < data.length; i++) {
+                                $("#chatbox").prepend('<div class="row">' +
+                                    '<div class="col-md-12">' +
+                                    '<div class="media">' +
+                                    '<a class="pull-left" href="#">' +
+                                    '</a>' +
+                                    '<div class="media-body">' +
+                                    '<h4 class="media-heading">' + data[i].username +
+                                    '<span class="small pull-right">' + data[i].created_at + '</span>' +
+                                    '</h4>' +
+                                    '<p>' + data[i].msg + '</p>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>');
+
+                            }
+                            $("#chatScroll").scrollTop(($("#chatScroll")[0].scrollHeight / 2));
+                        }
+                    }
+
+//                  }
+                });
+                counter++;
+
+                // console.log('50');
+            } else {
+                //  alert('drop');
+
+            }
+        });
 
 
 

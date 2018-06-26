@@ -146,4 +146,6 @@ Route::post('/chat','ChatController@sentMsg')->name('chat.sentMsg');
 Route::post('/showMsg','ChatController@showMsg')->name('chat.showMsg');
 Route::post('/getUnseenMsg','ChatController@getUnseenMsg')->name('chat.getUnseenMsg');
 Route::post('/seenMsg','ChatController@seenMsg')->name('chat.seenMsg');
+Route::post('/previousMsg','ChatController@previousMsg')->name('chat.getPreviousMsg');
+Route::post('/previousMsgForUser','ChatController@previousMsgForUser')->name('chat.getPreviousMsgForUser');
 
