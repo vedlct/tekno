@@ -195,7 +195,7 @@
                         <div class="portlet portlet-default">
                             <div class="portlet-heading">
                                 <div class="portlet-title">
-                                    <h4><span id="userName">User</span></h4>
+                                    <h4><span data-panel-id="" id="userName">User</span></h4>
                                 </div>
                                 <div class="portlet-widgets">
 
@@ -351,6 +351,7 @@
           $('#'+x.id).css("background-color","white");
          var userName=$(x).data('panel-name');
          this.userId=x.id;
+         counter=0;
 
           $.ajax({
               type: 'POST',
@@ -373,8 +374,10 @@
          id:x.id
          },
          success: function (data) {
-//         console.log(data);
+        // console.log(data);
              $("#userName").html(userName);
+
+
          if(data.length==0){
              $("#chatbox").html('');
          }
@@ -406,6 +409,64 @@
          });
 
      }
+ var counter=0;
+      $("#chatScroll").scroll(function() {
+          var $height = $("#chatScroll").scrollTop();
+
+          if($height == 0) {
+
+
+//              var id=$("#userName").attr('data-panel-id');
+              var id=userId;
+             // console.log(id);
+
+
+              $.ajax({
+                  type: 'POST',
+                  url: "{!! route('chat.getPreviousMsg') !!}",
+                  cache: false,
+                  data: {_token:"{{csrf_token()}}",counter:counter,id:id},
+                  success: function (data) {
+                      console.log(data);
+
+//                      $("#userName").html(userName);
+//                      if(data.length==0){
+//                          $("#chatbox").html('');
+//                      }
+//                      else {
+//                          $("#chatbox").html('');
+                      if (data.length != 0) {
+                          for (i = 0; i < data.length; i++) {
+                              $("#chatbox").prepend('<div class="row">' +
+                                  '<div class="col-md-12">' +
+                                  '<div class="media">' +
+                                  '<a class="pull-left" href="#">' +
+                                  '</a>' +
+                                  '<div class="media-body">' +
+                                  '<h4 class="media-heading">' + data[i].username +
+                                  '<span class="small pull-right">' + data[i].created_at + '</span>' +
+                                  '</h4>' +
+                                  '<p>' + data[i].msg + '</p>' +
+                                  '</div>' +
+                                  '</div>' +
+                                  '</div>' +
+                                  '</div>');
+
+                          }
+                          $("#chatScroll").scrollTop(($("#chatScroll")[0].scrollHeight / 2));
+                      }
+                  }
+
+//                  }
+              });
+              counter++;
+
+             // console.log('50');
+          } else {
+            //  alert('drop');
+
+          }
+      });
 
   </script>
 

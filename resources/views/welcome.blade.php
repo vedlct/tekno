@@ -522,19 +522,19 @@
 
                     <div class="web_row" id="web_masonry-container">
                         <div class="large-4 medium-6 small-12 columns">
-                            <a data-fancybox="gallery" href="images/new/smashpay.png"><img src="images/new/smashpay.png"></a>
+                            <a data-fancybox="gallery" href="images/new/smashpay1.png"><img src="images/new/smashpay.png"></a>
                         </div>
                         <div class="large-4 medium-6 small-12 columns">
-                            <a data-fancybox="gallery" href="images/new/p2services.png"><img src="images/new/p2services.png"></a>
+                            <a data-fancybox="gallery" href="images/new/p2services1.png"><img src="images/new/p2services.png"></a>
                         </div>
                         <div class="large-4 medium-6 small-12 columns">
-                            <a data-fancybox="gallery" href="images/new/fairpriceauto.png"><img src="images/new/fairpriceauto.png"></a>
+                            <a data-fancybox="gallery" href="images/new/fairpriceauto1.png"><img src="images/new/fairpriceauto.png"></a>
                         </div>
                         <div class="large-4 medium-6 small-12 columns">
-                            <a data-fancybox="gallery" href="images/new/fundhub.png"><img src="images/new/fundhub.png"></a>
+                            <a data-fancybox="gallery" href="images/new/fundhub1.png"><img src="images/new/fundhub.png"></a>
                         </div>
                         <div class="large-4 medium-6 small-12 columns">
-                            <a data-fancybox="gallery" href="images/new/servicehub.png"><img src="images/new/servicehub.png"></a>
+                            <a data-fancybox="gallery" href="images/new/servicehub1.png"><img src="images/new/servicehub.png"></a>
                         </div>
                     </div>
 
