@@ -191,13 +191,25 @@ class AdminController extends Controller
                     $u->msg=$sms->sms;
                 }
 
-
                 array_push($messages, $u);
             }
 
             return view('admin.jobfinised', compact('finshedwork','messages'));
     }
 
+    public function ClientInfoClient(Request $r){
+        $user=User::findOrFail(Auth::user()->user_id);
+        $user->email=$r->email;
+        $user->username=$r->email;
+        $user->username=$r->email;
+        $user->company_name=$r->company_name;
+        $user->contact_no=$r->contact_no;
+        $user->save();
+
+        Session::flash('message', 'Profile Updated Successfully');
+
+        return back();
+    }
     public function viewclient()
     {
         if(Auth::user()->user_type ==USERTYPE[2]){

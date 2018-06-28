@@ -27,10 +27,9 @@
 
 <div align="center">
     <table>
-
         <tr>
             <td style="width: 30%">Job Type</td>
-            <td><b>Vector</b></td>
+            <td><b>Logo</b></td>
         </tr>
         <tr>
             <td>Company Name:</td>
@@ -45,22 +44,35 @@
             <td>{{$number}}</td>
         </tr>
         <tr>
-            <td>Comments (optional):</td>
+            <td>Logo Shape:</td>
+            <td>{{$logoShape}}</td>
+        </tr>
+
+        <tr>
+            <td>Prefered Color:</td>
+            <td>{{$preferedColor}}</td>
+        </tr>
+        <tr>
+            <td>Business Type:</td>
+            <td>{{$businessType}}</td>
+        </tr>
+        <tr>
+            <td>Other comments:</td>
             <td>{{$comment}}</td>
         </tr>
 
     </table>
 </div>
-{{--@if($exist==0)--}}
-    {{--<h3>Credentials</h3>--}}
-    {{--<p> Username : {{$email}}--}}
-        {{--<br>--}}
-        {{--Password :{{$pass}}--}}
+@if($exist==0)
+    <h3>Credentials</h3>
+    <p> Username : {{$email}}
+        <br>
+        Password :{{$pass}}
 
-    {{--</p>--}}
+    </p>
 
-{{--@else--}}
-    {{--<h3>Login With Your Previous Credentials</h3>--}}
-{{--@endif--}}
+@else
+    <h3>Login With Your Previous Credentials</h3>
+@endif
 </body>
 </html>

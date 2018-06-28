@@ -28,7 +28,9 @@ class FormController extends Controller
 
     public function getForm(Request $r){
 
-        $users=User::select('user_id','username')->get();
+        $users=User::select('user_id','username')
+            ->where('user_type','!=','Client')
+            ->get();
 
         if ($r->option =='brochure'){
 
@@ -99,7 +101,7 @@ class FormController extends Controller
         $job->category='brochure';
         $job->EstimatedTime=$r->EstimatedTime;
         $job->comments=$r->BrochureType;
-//        $job->userId=$r->userId;
+        $job->userId=$r->userId;
         $job->clientId=$user->user_id;
         $job->save();
 
@@ -160,6 +162,12 @@ class FormController extends Controller
             $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
         });
 
+        Mail::send('clientEmail.brochure',$data, function($message) use ($data)
+        {
+            $message->to($data['email'], 'New Job Request')->subject('New Job Offer!');
+        });
+
+
 
         Session::flash('message', 'Brochure Added Successfully');
         return back();
@@ -193,7 +201,7 @@ class FormController extends Controller
         $job->comments=$r->OtherComments;
         $job->category='website';
         $job->EstimatedTime=$r->EstimatedTime;
-//        $job->userId=$r->userId;
+        $job->userId=$r->userId;
         $job->clientId=$user->user_id;
         $job->save();
 
@@ -253,6 +261,11 @@ class FormController extends Controller
             $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
         });
 
+        Mail::send('clientEmail.website',$data, function($message) use ($data)
+        {
+            $message->to($data['email'], 'New Job Request')->subject('New Job Offer!');
+        });
+
 
         Session::flash('message', 'Website Added Successfully');
         return back();
@@ -290,7 +303,7 @@ class FormController extends Controller
         $job->businessArea=$r->BusinessArea;
         $job->category='leaflet';
         $job->EstimatedTime=$r->EstimatedTime;
-//        $job->userId=$r->userId;
+        $job->userId=$r->userId;
         $job->clientId=$user->user_id;
         $job->save();
 
@@ -348,6 +361,11 @@ class FormController extends Controller
             $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
         });
 
+        Mail::send('clientEmail.leaflet',$data, function($message) use ($data)
+        {
+            $message->to($data['email'], 'New Job Request')->subject('New Job Offer!');
+        });
+
 
 
         Session::flash('message', 'Leaflet Added Successfully');
@@ -385,7 +403,7 @@ class FormController extends Controller
         $job->businessArea=$r->BusinessArea;
         $job->category='banner';
         $job->EstimatedTime=$r->EstimatedTime;
-//        $job->userId=$r->userId;
+        $job->userId=$r->userId;
         $job->clientId=$user->user_id;
         $job->save();
 
@@ -440,6 +458,11 @@ class FormController extends Controller
             $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
         });
 
+        Mail::send('clientEmail.banner',$data, function($message) use ($data)
+        {
+            $message->to($data['email'], 'New Job Request')->subject('New Job Offer!');
+        });
+
         Session::flash('message', 'Banner Added Successfully');
         return back();
 
@@ -478,7 +501,7 @@ class FormController extends Controller
         $job->businessArea=$r->BusinessArea;
         $job->category='corporate';
         $job->EstimatedTime=$r->EstimatedTime;
-//        $job->userId=$r->userId;
+        $job->userId=$r->userId;
         $job->clientId=$user->user_id;
         $job->save();
 
@@ -535,6 +558,11 @@ class FormController extends Controller
             $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
         });
 
+        Mail::send('clientEmail.corporate',$data, function($message) use ($data)
+        {
+            $message->to($data['email'], 'New Job Request')->subject('New Job Offer!');
+        });
+
         Session::flash('message', 'Corporate-CI Added Successfully');
         return back();
 
@@ -569,7 +597,7 @@ class FormController extends Controller
         $job->comments=$r->OtherComments;
         $job->category='logo';
         $job->EstimatedTime=$r->EstimatedTime;
-//        $job->userId=$r->userId;
+        $job->userId=$r->userId;
         $job->clientId=$user->user_id;
         $job->save();
 
@@ -595,6 +623,12 @@ class FormController extends Controller
         {
             $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
         });
+
+        Mail::send('clientEmail.logo',$data, function($message) use ($data)
+        {
+            $message->to($data['email'], 'New Job Request')->subject('New Job Offer!');
+        });
+
 
         Session::flash('message', 'Logo Added Successfully');
         return back();
@@ -628,7 +662,7 @@ class FormController extends Controller
         $job->comments= $r->Comments;
         $job->category='vector';
         $job->EstimatedTime=$r->EstimatedTime;
-//        $job->userId=$r->userId;
+        $job->userId=$r->userId;
         $job->clientId=$user->user_id;
         $job->save();
 
@@ -669,6 +703,11 @@ class FormController extends Controller
         {
             $message->to(EMAIL, 'demo client')
                 ->subject('New Job Offer!');
+        });
+
+        Mail::send('clientEmail.vector',$data, function($message) use ($data)
+        {
+            $message->to($data['email'], 'New Job Request')->subject('New Job Offer!');
         });
 
 

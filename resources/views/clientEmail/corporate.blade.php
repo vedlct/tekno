@@ -16,6 +16,7 @@
         th{
             text-align: center;
         }
+
         /*tr:nth-child(even) {*/
             /*background-color: #dddddd;*/
         /*}*/
@@ -28,34 +29,27 @@
     <table>
         <tr>
             <td style="width: 30%">Job Type</td>
-            <td><b>Leaflet</b></td>
+            <td><b>Corporate-CI</b></td>
         </tr>
         <tr>
             <td>Company Name:</td>
             <td>{{$name}}</td>
         </tr>
         <tr>
-            <td>Leaflet Size</td>
-            <td>{{$size}}</td>
+            <td>Company Official Email Address:</td>
+            <td>{{$mail}}</td>
         </tr>
+
         <tr>
             <td>Company Business Area:</td>
             <td>{{$BusinessArea}}</td>
         </tr>
         <tr>
-            <td>Company Website:</td>
-            <td>{{$website}}</td>
+            <td>Company Theme Color:</td>
+            <td>{{$themeColor}}</td>
         </tr>
         <tr>
-            <td>Tagline / Slogan (if any):</td>
-            <td>{{$tagline}}</td>
-        </tr>
-        <tr>
-            <td>Company Email Address:</td>
-            <td>{{$email}}</td>
-        </tr>
-        <tr>
-            <td>Company Phone Number:</td>
+            <td>Company Phone number:</td>
             <td>{{$number}}</td>
         </tr>
         <tr>
@@ -63,20 +57,20 @@
             <td>{{$address}}</td>
         </tr>
         <tr>
-            <td>Main Focus:</td>
-            <td>{{$focus}}</td>
+            <td>Company Official Email Address:</td>
+            <td>{{$email}}</td>
         </tr>
         <tr>
-            <td>Text (soft file, which will be live on leaflet):</td>
-            <td>{{$TextSoftFile}}</td>
+            <td>Name and Designation for visiting cards:</td>
+            <td>{{$designation}}</td>
         </tr>
         <tr>
-            <td>Company social media urls. (if any):</td>
-            <td>{{$mediaUrl}}</td>
+            <td>QR CODE:</td>
+            <td>{{$qr}}</td>
         </tr>
         <tr>
-            <td>References (if any):</td>
-            <td>{{$reference}}</td>
+            <td>CI Types:</td>
+            <td>{{$ciType}}</td>
         </tr>
         <tr>
             <td>Estimated Time:</td>
@@ -84,16 +78,16 @@
         </tr>
     </table>
 </div>
-{{--@if($exist==0)--}}
-    {{--<h3>Credentials</h3>--}}
-    {{--<p> Username : {{$email}}--}}
-        {{--<br>--}}
-        {{--Password :{{$pass}}--}}
+@if($exist==0)
+    <h3>Credentials</h3>
+    <p> Username : {{$email}}
+        <br>
+        Password :{{$pass}}
 
-    {{--</p>--}}
+    </p>
 
-{{--@else--}}
-    {{--<h3>Login With Your Previous Credentials</h3>--}}
-{{--@endif--}}
+@else
+    <h3>Login With Your Previous Credentials</h3>
+@endif
 </body>
 </html>

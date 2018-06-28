@@ -43,8 +43,11 @@
                                 <th width="5%" style="text-align: center">Mined by</th>
                                 @endif
                                 <th width="10%" style="text-align: center">Created At</th>
-                                <th width="5%" style="text-align: center">Sales</th>
+                                @if(Auth::user()->user_type !=USERTYPE[2])
+                                    <th width="5%" style="text-align: center">Sales</th>
+                                @endif
                                 <th width="10%" style="text-align: center">Action</th>
+
                             </tr>
                             </thead>
 
@@ -100,6 +103,7 @@
                         {data: 'username', name: 'username'},
                         @endif
                     { data: 'created_at', name: 'created_at' },
+                        @if(Auth::user()->user_type !=USERTYPE[2])
                     { "data": function (data) {
                         {{--var url = '{{url("job/", ":id") }}';--}}
                         if(data.potential !=null){
@@ -112,6 +116,8 @@
                     },
                         "orderable": false, "searchable": false, "name": "selected_rows"
                     },
+                        @endif
+
 
                     { "data": function (data) {
                             {{--var url = '{{url("job/", ":id") }}';--}}

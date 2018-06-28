@@ -79,6 +79,7 @@ Route::post('/updatejob', 'UserController@updatejob');
 
 
 Route::get('/ClientInfo', 'AdminController@viewclient')->name('clintinfo');
+Route::post('/ClientInfoClient', 'AdminController@ClientInfoClient')->name('ClientInfoClient');
 Route::get('/ClientInfo/{id}','AdminController@clientinfo');
 Route::post('/ClientInfo', 'AdminController@updateclientinfo')->name('updateinfo');
 

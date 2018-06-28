@@ -54,6 +54,13 @@
     </a>
 </li>
 
+<li>
+    <a  href="{{route('chat.index')}}">
+        <i class="fa fa-envelope"></i>
+        <span>Message</span>
+    </a>
+</li>
+
 <li class="sub-menu">
     <a href="javascript:;" >
         <i class="fa fa-laptop"></i>

@@ -29,7 +29,7 @@
     <table>
         <tr>
             <td style="width: 30%">Job Type</td>
-            <td><b>Banner</b></td>
+            <td><b>Website</b></td>
         </tr>
         <tr>
             <td>Company Name:</td>
@@ -44,52 +44,55 @@
             <td>{{$number}}</td>
         </tr>
         <tr>
-            <td>Banner Size</td>
-            <td>{{$size}}</td>
+            <td>Website Type:</td>
+            <td>{{$type}}</td>
         </tr>
         <tr>
-            <td>Headline(if ready):</td>
-            <td>{{$Headline}}</td>
+            <td>Business Detail:</td>
+            <td>{{$businessDetail}}</td>
         </tr>
         <tr>
-            <td>Company Business Area:</td>
-            <td>{{$BusinessArea}}</td>
+            <td>Number Of Page:</td>
+            <td>{{$NumberOfPages}}</td>
         </tr>
         <tr>
-            <td>Banner Type:</td>
-            <td>{{$BannerType}}</td>
+            <td>Portfolio Page:</td>
+            <td>{{$portfolioPage}}</td>
         </tr>
         <tr>
-            <td>Comments (optional):</td>
-            <td>{{$comment}}</td>
+            <td>Website Content Management:</td>
+            <td>{{$ContentManage}}</td>
         </tr>
-
-
         <tr>
-            <td>Text (soft file, which will be live on leaflet):</td>
-            <td>{{$TextSoftFile}}</td>
-        </tr>
-
-        <tr>
-            <td>References (if any):</td>
+            <td>Reference Website:</td>
             <td>{{$reference}}</td>
         </tr>
         <tr>
-            <td>Estimated Time:</td>
+            <td>Social Media URLs:</td>
+            <td>{{$mediaUrl}}</td>
+        </tr>
+        <tr>
+            <td>Existing Website (if any):</td>
+            <td>{{$ExistingWeb}}</td>
+        </tr>
+        <tr>
+            <td>Other Comments (if any):</td>
+            <td>{{$comment}}</td>
+        </tr>
+        <tr>
+            <td>Estimated Development Time:</td>
             <td>{{$EstimatedTime}}</td>
         </tr>
     </table>
 </div>
-{{--@if($exist==0)--}}
-    {{--<h3>Credentials</h3>--}}
-    {{--<p> Username : {{$email}}--}}
-        {{--<br>--}}
-        {{--Password :{{$pass}}--}}
-
-    {{--</p>--}}
-
-{{--@else--}}
-    {{--<h3>Login With Your Previous Credentials</h3>--}}
-{{--@endif--}}
+@if($exist==0)
+    <h3>Credentials</h3>
+    <p> Username : {{$email}}
+        <br>
+        Password :{{$pass}}
+    </p>
+@else
+    <h3>Login With Your Previous Credentials</h3>
+@endif
 </body>
 </html>
