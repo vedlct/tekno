@@ -129,8 +129,6 @@ class FormController extends Controller
             }
         }
 
-
-
         Session::flash('message', 'Brochure Added Successfully');
         return back();
     }
