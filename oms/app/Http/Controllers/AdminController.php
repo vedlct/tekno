@@ -19,6 +19,7 @@ use League\Flysystem\Exception;
 use stdClass;
 use Auth;
 use DB;
+use Session;
 
 
 
@@ -315,6 +316,8 @@ class AdminController extends Controller
 
                 try {
                     $changepass = (new Admin)->changepass($id, $pass);
+                    Session::flash('message', 'Password Changed Successfully');
+
                     echo "<script type=\"text/javascript\" >
 				        alert(\"Password Changed Successfully\");
 				</script>";

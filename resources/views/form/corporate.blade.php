@@ -65,7 +65,7 @@
         <div class="form-group" >
             <label class="control-label col-sm-3" >Company Official Email Address:</label>
             <div class="col-sm-9">
-                <input type="text" class="form-control" placeholder="Enter Email" name="CompanyEmail" required>
+                <input type="email" class="form-control" placeholder="Enter Email" name="CompanyEmail" required>
                 @if ($errors->has('CompanyEmail'))
                     <span class="invalid-feedback">
                         <strong>{{ $errors->first('CompanyEmail') }}</strong>
@@ -167,18 +167,18 @@
             </div>
         </div>
 
-        <div class="form-group" >
-            <label class="control-label col-sm-3" >Sales representative (only for our team member): </label>
-            <div class="col-sm-9">
-                <select class="form-control" name="userId">
-                    <option value="">please select one</option>
-                    @foreach($users as $user)
-                        <option value="{{$user->user_id}}">{{$user->username}}</option>
-                    @endforeach
-                </select>
+        {{--<div class="form-group" >--}}
+            {{--<label class="control-label col-sm-3" >Sales representative (only for our team member): </label>--}}
+            {{--<div class="col-sm-9">--}}
+                {{--<select class="form-control" name="userId">--}}
+                    {{--<option value="">please select one</option>--}}
+                    {{--@foreach($users as $user)--}}
+                        {{--<option value="{{$user->user_id}}">{{$user->username}}</option>--}}
+                    {{--@endforeach--}}
+                {{--</select>--}}
 
-            </div>
-        </div>
+            {{--</div>--}}
+        {{--</div>--}}
 
 
 

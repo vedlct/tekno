@@ -71,6 +71,7 @@ class FormController extends Controller
         //Creating User
         $user=User::where('email',$r->email)->first();
         $pass="654321";
+        $exist=1;
 
         if($user==null){
             $user=new User();
@@ -82,6 +83,7 @@ class FormController extends Controller
             $user->contact_no=$r->phoneNumber;
             $user->client_status="Active";
             $user->save();
+            $exist=0;
         }
         //end
 
@@ -97,7 +99,7 @@ class FormController extends Controller
         $job->category='brochure';
         $job->EstimatedTime=$r->EstimatedTime;
         $job->comments=$r->BrochureType;
-        $job->userId=$r->userId;
+//        $job->userId=$r->userId;
         $job->clientId=$user->user_id;
         $job->save();
 
@@ -135,26 +137,28 @@ class FormController extends Controller
             }
         }
 
-//        $data=array('name'=>$r->companyName,
-//            'email'=> $r->email,
-//            'number' => $r->phoneNumber,
-//            'size'=> $r->BrochureSize,
-//            'pages'=> $r->BrochurePages,
-//            'businessArea'=>$r->BusinessArea,
-//            'themeColor'=> $r->ThemeColor,
-//            'tagline'=> $r->TaglineSlogan,
-//            'description'=> $r->BrochureType,
-//            'focus'=>$r->MainFocus,
-//            'TText'=>$r->TextSoftFile,
-//            'mediaUrl'=>$r->SocialMediaURLs,
-//            'reference'=>$r->References,
-//            'estimatedTime'=>$r->EstimatedTime,
-//
-//        );
-//        Mail::send('email.brochure',$data, function($message)
-//        {
-//            $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
-//        });
+        $data=array('name'=>$r->companyName,
+            'email'=> $r->email,
+            'number' => $r->phoneNumber,
+            'size'=> $r->BrochureSize,
+            'pages'=> $r->BrochurePages,
+            'businessArea'=>$r->BusinessArea,
+            'themeColor'=> $r->ThemeColor,
+            'tagline'=> $r->TaglineSlogan,
+            'description'=> $r->BrochureType,
+            'focus'=>$r->MainFocus,
+            'TText'=>$r->TextSoftFile,
+            'mediaUrl'=>$r->SocialMediaURLs,
+            'reference'=>$r->References,
+            'estimatedTime'=>$r->EstimatedTime,
+            'exist' =>$exist,
+            'pass'=>$pass
+
+        );
+        Mail::send('email.brochure',$data, function($message)
+        {
+            $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
+        });
 
 
         Session::flash('message', 'Brochure Added Successfully');
@@ -165,6 +169,7 @@ class FormController extends Controller
         //Creating User
         $user=User::where('email',$r->email)->first();
         $pass="654321";
+        $exist=1;
 
         if($user==null){
             $user=new User();
@@ -176,6 +181,7 @@ class FormController extends Controller
             $user->contact_no=$r->phoneNumber;
             $user->client_status="Active";
             $user->save();
+            $exist=0;
         }
         //end
 
@@ -187,7 +193,7 @@ class FormController extends Controller
         $job->comments=$r->OtherComments;
         $job->category='website';
         $job->EstimatedTime=$r->EstimatedTime;
-        $job->userId=$r->userId;
+//        $job->userId=$r->userId;
         $job->clientId=$user->user_id;
         $job->save();
 
@@ -226,24 +232,26 @@ class FormController extends Controller
         }
 
 
-//        $data=array('name'=>$r->companyName,
-//            'email'=> $r->email,
-//            'number' => $r->phoneNumber,
-//            'type'=> $r->WebsiteType,
-//            'NumberOfPages'=> $r->NumberOfPages,
-//            'portfolioPage'=> $r->portfolioPage,
-//            'ContentManage'=> $r->ContentManage,
-//            'comment'=> $r->OtherComments,
-//            'businessDetail'=> $r->BusinessDetail,
-//            'EstimatedTime'=>$r->EstimatedTime,
-//            'ExistingWeb'=>$r->ExistingWeb,
-//            'mediaUrl'=>$r->MediaURLs,
-//            'reference'=>$r->ReferenceWeb
-//        );
-//        Mail::send('email.website',$data, function($message)
-//        {
-//            $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
-//        });
+        $data=array('name'=>$r->companyName,
+            'email'=> $r->email,
+            'number' => $r->phoneNumber,
+            'type'=> $r->WebsiteType,
+            'NumberOfPages'=> $r->NumberOfPages,
+            'portfolioPage'=> $r->portfolioPage,
+            'ContentManage'=> $r->ContentManage,
+            'comment'=> $r->OtherComments,
+            'businessDetail'=> $r->BusinessDetail,
+            'EstimatedTime'=>$r->EstimatedTime,
+            'ExistingWeb'=>$r->ExistingWeb,
+            'mediaUrl'=>$r->MediaURLs,
+            'reference'=>$r->ReferenceWeb,
+            'exist'=>$exist,
+            'pass'=>$pass
+        );
+        Mail::send('email.website',$data, function($message)
+        {
+            $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
+        });
 
 
         Session::flash('message', 'Website Added Successfully');
@@ -256,6 +264,7 @@ class FormController extends Controller
         //Creating User
         $user=User::where('email',$r->email)->first();
         $pass="654321";
+        $exist=1;
 
         if($user==null){
             $user=new User();
@@ -267,6 +276,7 @@ class FormController extends Controller
             $user->contact_no=$r->phoneNumber;
             $user->client_status="Active";
             $user->save();
+            $exist=0;
         }
         //end
 
@@ -280,7 +290,7 @@ class FormController extends Controller
         $job->businessArea=$r->BusinessArea;
         $job->category='leaflet';
         $job->EstimatedTime=$r->EstimatedTime;
-        $job->userId=$r->userId;
+//        $job->userId=$r->userId;
         $job->clientId=$user->user_id;
         $job->save();
 
@@ -329,12 +339,15 @@ class FormController extends Controller
             'EstimatedTime'=>$r->EstimatedTime,
             'TextSoftFile'=>$r->TextSoftFile,
             'mediaUrl'=>$r->companyMediaUrlAddress,
-            'reference'=>$r->references
+            'reference'=>$r->references,
+            'exist' =>$exist,
+            'pass'=>$pass
         );
         Mail::send('email.leaflet',$data, function($message)
         {
             $message->to(EMAIL, 'demo client')->subject('New Job Offer!');
         });
+
 
 
         Session::flash('message', 'Leaflet Added Successfully');
@@ -345,6 +358,7 @@ class FormController extends Controller
         //Creating User
         $user=User::where('email',$r->email)->first();
         $pass="654321";
+        $exist=1;
 
         if($user==null){
             $user=new User();
@@ -356,6 +370,7 @@ class FormController extends Controller
             $user->contact_no=$r->phoneNumber;
             $user->client_status="Active";
             $user->save();
+            $exist=0;
         }
         //end
 
@@ -370,8 +385,7 @@ class FormController extends Controller
         $job->businessArea=$r->BusinessArea;
         $job->category='banner';
         $job->EstimatedTime=$r->EstimatedTime;
-        $job->userId=$r->userId;
-        $job->userId=$r->userId;
+//        $job->userId=$r->userId;
         $job->clientId=$user->user_id;
         $job->save();
 
@@ -417,7 +431,9 @@ class FormController extends Controller
             'comment'=> $r->Comments,
             'EstimatedTime'=>$r->EstimatedTime,
             'TextSoftFile'=>$r->TextSoftFile,
-            'reference'=>$r->references
+            'reference'=>$r->references,
+            'exist'=>$exist,
+            'pass'=>$pass
         );
         Mail::send('email.banner',$data, function($message)
         {
@@ -432,21 +448,26 @@ class FormController extends Controller
 
     public function storeCorporate(Request $r){
         //Creating User
-        $user=User::where('email',$r->email)->first();
+        $user=User::where('email',$r->CompanyEmail)->first();
         $pass="654321";
+        $exist=1;
+
 
         if($user==null){
             $user=new User();
-            $user->username=$r->email;
-            $user->email=$r->email;
+            $user->username=$r->CompanyEmail;
+            $user->email=$r->CompanyEmail;
             $user->password=Hash::make($pass);
             $user->user_type="Client";
             $user->company_name=$r->companyName;
             $user->contact_no=$r->phoneNumber;
             $user->client_status="Active";
             $user->save();
+//            return "empty";
+            $exist=0;
         }
         //end
+//        return "not empty";
 
         $job=new Job;
         $job->companyName=$r->companyName;
@@ -457,7 +478,7 @@ class FormController extends Controller
         $job->businessArea=$r->BusinessArea;
         $job->category='corporate';
         $job->EstimatedTime=$r->EstimatedTime;
-        $job->userId=$r->userId;
+//        $job->userId=$r->userId;
         $job->clientId=$user->user_id;
         $job->save();
 
@@ -505,6 +526,8 @@ class FormController extends Controller
             'designation'=>$r->VisitingCards,
             'qr'=>$r->QRcode,
             'ciType'=>$r->CITypes,
+            'exist'=>$exist,
+            'pass'=>$pass
         );
 
         Mail::send('email.corporate',$data, function($message)
@@ -523,6 +546,7 @@ class FormController extends Controller
         //Creating User
         $user=User::where('email',$r->email)->first();
         $pass="654321";
+        $exist=1;
 
         if($user==null){
             $user=new User();
@@ -534,6 +558,7 @@ class FormController extends Controller
             $user->contact_no=$r->phoneNumber;
             $user->client_status="Active";
             $user->save();
+            $exist=0;
         }
         //end
 
@@ -544,7 +569,7 @@ class FormController extends Controller
         $job->comments=$r->OtherComments;
         $job->category='logo';
         $job->EstimatedTime=$r->EstimatedTime;
-        $job->userId=$r->userId;
+//        $job->userId=$r->userId;
         $job->clientId=$user->user_id;
         $job->save();
 
@@ -562,7 +587,9 @@ class FormController extends Controller
             'EstimatedTime'=>$r->EstimatedTime,
             'logoShape'=>$r->LogoShape,
             'preferedColor'=>$r->PreferredColour,
-            'businessType'=>$r->BusinessType
+            'businessType'=>$r->BusinessType,
+            'exist'=>$exist,
+            'pass'=>$pass
             );
         Mail::send('email.logo',$data, function($message)
         {
@@ -577,6 +604,7 @@ class FormController extends Controller
         //Creating User
         $user=User::where('email',$r->email)->first();
         $pass="654321";
+        $exist=1;
 
         if($user==null){
             $user=new User();
@@ -588,6 +616,7 @@ class FormController extends Controller
             $user->contact_no=$r->phoneNumber;
             $user->client_status="Active";
             $user->save();
+            $exist=0;
         }
         //end
 
@@ -599,7 +628,7 @@ class FormController extends Controller
         $job->comments= $r->Comments;
         $job->category='vector';
         $job->EstimatedTime=$r->EstimatedTime;
-        $job->userId=$r->userId;
+//        $job->userId=$r->userId;
         $job->clientId=$user->user_id;
         $job->save();
 
@@ -626,19 +655,21 @@ class FormController extends Controller
                 $picture->save();
             }
         }
-//        $data=array('name'=>$r->companyName,
-//            'email'=> $r->email,
-//            'number' => $r->phoneNumber,
-//            'comment'=> $r->Comments,
-//            'password'=> $pass,
-//
-//        );
-//
-//        Mail::send('email.vector',$data, function($message)
-//        {
-//            $message->to(EMAIL, 'demo client')
-//                ->subject('New Job Offer!');
-//        });
+        $data=array('name'=>$r->companyName,
+            'email'=> $r->email,
+            'number' => $r->phoneNumber,
+            'comment'=> $r->Comments,
+            'password'=> $pass,
+            'exist'=>$exist,
+            'pass'=>$pass
+
+        );
+
+        Mail::send('email.vector',$data, function($message)
+        {
+            $message->to(EMAIL, 'demo client')
+                ->subject('New Job Offer!');
+        });
 
 
         Session::flash('message', 'Vector Added Successfully');
