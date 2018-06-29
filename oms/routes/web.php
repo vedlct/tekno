@@ -79,6 +79,7 @@ Route::post('/updatejob', 'UserController@updatejob');
 
 
 Route::get('/ClientInfo', 'AdminController@viewclient')->name('clintinfo');
+Route::post('/ClientInfoClient', 'AdminController@ClientInfoClient')->name('ClientInfoClient');
 Route::get('/ClientInfo/{id}','AdminController@clientinfo');
 Route::post('/ClientInfo', 'AdminController@updateclientinfo')->name('updateinfo');
 
@@ -139,4 +140,13 @@ Route::post('/storeBanner','FormController@storeBanner')->name('storeBanner');
 Route::post('/storeCorporate','FormController@storeCorporate')->name('storeCorporate');
 Route::post('/storeLogo','FormController@storeLogo')->name('storeLogo');
 Route::post('/storeVector','FormController@storeVector')->name('storeVector');
+
+//Chat
+Route::get('/chat','ChatController@index')->name('chat.index');
+Route::post('/chat','ChatController@sentMsg')->name('chat.sentMsg');
+Route::post('/showMsg','ChatController@showMsg')->name('chat.showMsg');
+Route::post('/getUnseenMsg','ChatController@getUnseenMsg')->name('chat.getUnseenMsg');
+Route::post('/seenMsg','ChatController@seenMsg')->name('chat.seenMsg');
+Route::post('/previousMsg','ChatController@previousMsg')->name('chat.getPreviousMsg');
+Route::post('/previousMsgForUser','ChatController@previousMsgForUser')->name('chat.getPreviousMsgForUser');
 

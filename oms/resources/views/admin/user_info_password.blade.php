@@ -59,6 +59,9 @@
     <section id="main-content">
         <section class="wrapper">
             <!--state overview start-->
+            @if(Session::has('message'))
+                <p class="alert alert-info">{{ Session::get('message') }}</p>
+            @endif
             <div class="row">
                 <div class="col-lg-6">
                     <div class="panel panel-default">

@@ -175,20 +175,15 @@
 
                                         </div>
 
-
                                         @if(Auth::user()->user_type ==USERTYPE[0])
-                                            <button class="btn btn-info pull-right">Edit</button>
+                                            <button class="btn btn-info pull-right">Update</button>
                                         @endif
 
 
                                     </form>
 
 
-
-
                                     </div>
-
-
 
                         </div>
                     </div>

@@ -63,5 +63,16 @@
 
     </table>
 </div>
+{{--@if($exist==0)--}}
+    {{--<h3>Credentials</h3>--}}
+    {{--<p> Username : {{$email}}--}}
+        {{--<br>--}}
+        {{--Password :{{$pass}}--}}
+
+    {{--</p>--}}
+
+{{--@else--}}
+    {{--<h3>Login With Your Previous Credentials</h3>--}}
+{{--@endif--}}
 </body>
 </html>

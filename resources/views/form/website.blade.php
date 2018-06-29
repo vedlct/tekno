@@ -188,7 +188,6 @@
                         <option value="{{$user->user_id}}">{{$user->username}}</option>
                     @endforeach
                 </select>
-
             </div>
         </div>
 

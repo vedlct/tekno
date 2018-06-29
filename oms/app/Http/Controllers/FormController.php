@@ -11,6 +11,7 @@ use App\Banner;
 use App\Corporate;
 use App\Logo;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use App\Image as ImageModel;
@@ -79,14 +80,19 @@ class FormController extends Controller
         $job->companyName=$r->companyName;
         $job->email=$r->email;
         $job->phoneNumber=$r->phoneNumber;
-        $job->potential=1;
 
         $job->reference=$r->References;
         $job->businessArea=$r->BusinessArea;
         $job->category='brochure';
         $job->EstimatedTime=$r->EstimatedTime;
         $job->comments=$r->BrochureType;
-        $job->userId=$r->userId;
+        if(Auth::user()->user_type == USERTYPE[2]){
+            $job->clientId=Auth::user()->user_id;
+        }
+        else{
+            $job->userId=Auth::user()->user_id;
+            $job->potential=1;
+        }
         $job->save();
 
         $brochure=new Brochure;
@@ -123,8 +129,6 @@ class FormController extends Controller
             }
         }
 
-
-
         Session::flash('message', 'Brochure Added Successfully');
         return back();
     }
@@ -133,13 +137,19 @@ class FormController extends Controller
         $job=new Job;
         $job->companyName=$r->companyName;
         $job->email=$r->email;
-        $job->potential=1;
         $job->phoneNumber=$r->phoneNumber;
         $job->reference=$r->ReferenceWeb;
         $job->comments=$r->OtherComments;
         $job->category='website';
         $job->EstimatedTime=$r->EstimatedTime;
         $job->userId=$r->userId;
+        if(Auth::user()->user_type == USERTYPE[2]){
+            $job->clientId=Auth::user()->user_id;
+        }
+        else{
+            $job->userId=Auth::user()->user_id;
+            $job->potential=1;
+        }
         $job->save();
 
         $website=new Website;
@@ -188,7 +198,7 @@ class FormController extends Controller
         $job->companyName=$r->companyName;
         $job->reference=$r->references;
         $job->email=$r->EmailAddress;
-        $job->potential=1;
+
         $job->phoneNumber=$r->PhoneNumber;
         $job->address=$r->CompanyAddress;
         $job->companyWebsiteUrl=$r->CompanyWebsite;
@@ -196,6 +206,13 @@ class FormController extends Controller
         $job->category='leaflet';
         $job->EstimatedTime=$r->EstimatedTime;
         $job->userId=$r->userId;
+        if(Auth::user()->user_type == USERTYPE[2]){
+            $job->clientId=Auth::user()->user_id;
+        }
+        else{
+            $job->potential=1;
+            $job->userId=Auth::user()->user_id;
+        }
         $job->save();
 
         $leaflet=new Leaflet;
@@ -250,9 +267,13 @@ class FormController extends Controller
         $job->businessArea=$r->BusinessArea;
         $job->category='banner';
         $job->EstimatedTime=$r->EstimatedTime;
-        $job->userId=$r->userId;
-        $job->userId=$r->userId;
-        $job->potential=1;
+        if(Auth::user()->user_type == USERTYPE[2]){
+            $job->clientId=Auth::user()->user_id;
+        }
+        else{
+            $job->potential=1;
+            $job->userId=Auth::user()->user_id;
+        }
         $job->save();
 
         $banner=new Banner;
@@ -299,14 +320,20 @@ class FormController extends Controller
 
         $job=new Job;
         $job->companyName=$r->companyName;
-        $job->potential=1;
+
         $job->email=$r->CompanyEmail;
         $job->phoneNumber=$r->PhoneNumber;
         $job->address=$r->CompanyAddress;
         $job->businessArea=$r->BusinessArea;
         $job->category='corporate';
         $job->EstimatedTime=$r->EstimatedTime;
-        $job->userId=$r->userId;
+        if(Auth::user()->user_type == USERTYPE[2]){
+            $job->clientId=Auth::user()->user_id;
+        }
+        else{
+            $job->potential=1;
+            $job->userId=Auth::user()->user_id;
+        }
         $job->save();
 
 
@@ -357,10 +384,15 @@ class FormController extends Controller
         $job->email=$r->email;
         $job->phoneNumber=$r->phoneNumber;
         $job->comments=$r->OtherComments;
-        $job->potential=1;
         $job->category='logo';
         $job->EstimatedTime=$r->EstimatedTime;
-        $job->userId=$r->userId;
+        if(Auth::user()->user_type == USERTYPE[2]){
+            $job->clientId=Auth::user()->user_id;
+        }
+        else{
+            $job->potential=1;
+            $job->userId=Auth::user()->user_id;
+        }
         $job->save();
 
         $logo = new Logo;
@@ -377,12 +409,17 @@ class FormController extends Controller
         $job=new Job;
         $job->companyName=$r->companyName;
         $job->email=$r->email;
-        $job->potential=1;
         $job->phoneNumber=$r->phoneNumber;
         $job->comments= $r->Comments;
         $job->category='vector';
         $job->EstimatedTime=$r->EstimatedTime;
-        $job->userId=$r->userId;
+        if(Auth::user()->user_type == USERTYPE[2]){
+            $job->clientId=Auth::user()->user_id;
+        }
+        else{
+            $job->potential=1;
+            $job->userId=Auth::user()->user_id;
+        }
         $job->save();
 
 

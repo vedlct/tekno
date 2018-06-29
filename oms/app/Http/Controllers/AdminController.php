@@ -19,6 +19,7 @@ use League\Flysystem\Exception;
 use stdClass;
 use Auth;
 use DB;
+use Session;
 
 
 
@@ -190,13 +191,25 @@ class AdminController extends Controller
                     $u->msg=$sms->sms;
                 }
 
-
                 array_push($messages, $u);
             }
 
             return view('admin.jobfinised', compact('finshedwork','messages'));
     }
 
+    public function ClientInfoClient(Request $r){
+        $user=User::findOrFail(Auth::user()->user_id);
+        $user->email=$r->email;
+        $user->username=$r->email;
+        $user->username=$r->email;
+        $user->company_name=$r->company_name;
+        $user->contact_no=$r->contact_no;
+        $user->save();
+
+        Session::flash('message', 'Profile Updated Successfully');
+
+        return back();
+    }
     public function viewclient()
     {
         if(Auth::user()->user_type ==USERTYPE[2]){
@@ -291,15 +304,10 @@ class AdminController extends Controller
     }
     public function changeuserpass($id)
     {
-//        $type = session('user-type');
-//        if ($type == 'Admin') {
 
             $getpass = (new Admin)->getpass($id);
             return view('admin.passwordchange', compact('getpass'));
-//        }
-//        else {
-//            return redirect(url('/'));
-//        }
+
     }
     public function changepass(Request $request)
     {
@@ -320,6 +328,8 @@ class AdminController extends Controller
 
                 try {
                     $changepass = (new Admin)->changepass($id, $pass);
+                    Session::flash('message', 'Password Changed Successfully');
+
                     echo "<script type=\"text/javascript\" >
 				        alert(\"Password Changed Successfully\");
 				</script>";
@@ -345,6 +355,46 @@ class AdminController extends Controller
                 //return redirect(url('/PasswordChange'));
             }
             return back();
+        }
+        else if(Auth::user()->user_type == USERTYPE[2]){
+
+            $pass = $request->NP;
+            $conpass = $request->CNP;
+
+
+
+
+            if ($pass == $conpass) {
+
+
+                try {
+                    $changepass = (new Admin)->changepass(Auth::user()->user_id, $pass);
+                    echo "<script type=\"text/javascript\" >
+				        alert(\"Password Changed Successfully\");
+				</script>";
+                    //return redirect(url('/PasswordChange'));
+
+                } catch (Exception $e) {
+
+                    echo "<script type=\"text/javascript\" >
+				        alert(\"Something Went Wrong\");
+				window.location=\"/demo/demo11/PasswordChange\";
+				</script>";
+                    //return redirect(url('/PasswordChange'));
+
+                }
+
+
+            } else {
+
+                echo "<script type=\"text/javascript\" >
+				alert(\"Password and Confirm Password doesn't match.please try again\");
+				</script>";
+
+                //return redirect(url('/PasswordChange'));
+            }
+            return back();
+
         }
         else {
             return redirect(url('/'));
