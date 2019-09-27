@@ -26,4 +26,9 @@ class HomeController extends Controller
         return 'true';
         return view('home');
     }
+
+
+    public function Print_Shop(){
+        return view('printshop');
+    }
 }

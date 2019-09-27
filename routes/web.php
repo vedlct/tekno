@@ -16,6 +16,7 @@ Route::view('/request-job','jobRequest')->name('job.request');
 Route::view('/about-us','about')->name('about');
 Route::view('/contact','contact')->name('contact');
 Route::view('/privacy','privacy')->name('privacy');
+Route::view('/print-shop','printshop')->name('printing');
 
 
 

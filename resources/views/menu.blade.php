@@ -9,6 +9,7 @@
         <a href="{{route('about')}}">About Us</a>
         <a href="{{route('contact')}}">Contact Us</a>
         <a href="{{route('privacy')}}">Privacy Policy</a>
+        <a href="{{route('printing')}}">Tekno Print Shop</a>
         <a href="{{url('/')}}/oms">Login</a>
         <a target="_blank" href="{{route('job.request')}}"><button class="btn btn-sm btn-info">REQUEST JOB</button></a>
     </div>
